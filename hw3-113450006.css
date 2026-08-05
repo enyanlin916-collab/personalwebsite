@@ -279,6 +279,31 @@ a:hover {
     color: #555;
     font-size: 0.9em;
 }
+.skill {
+    margin-top: 18px;
+}
+
+.skill span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9e9e9;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: #b89c7d;   /* 可以改成你網站的主色 */
+    border-radius: 999px;
+    transition: width 0.8s ease;
+}
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
