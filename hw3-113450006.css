@@ -304,6 +304,64 @@ a:hover {
     border-radius: 999px;
     transition: width 0.8s ease;
 }
+.magazine-timeline {
+    position: relative;
+    margin-top: 40px;
+}
+
+.magazine-timeline::before {
+    content: "";
+    position: absolute;
+    left: 40px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #ddd;
+}
+
+.magazine-item {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 55px;
+    position: relative;
+}
+
+.magazine-number {
+    width: 80px;
+    font-family: "Lora", serif;
+    font-size: 2rem;
+    color: #b8a28a;
+    position: relative;
+}
+
+.magazine-content {
+    flex: 1;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.magazine-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.magazine-content p {
+    line-height: 1.8;
+    color: #555;
+}
+
+.tags {
+    margin-top: 18px;
+}
+
+.tags span {
+    display: inline-block;
+    padding: 5px 14px;
+    margin-right: 8px;
+    border: 1px solid #d8cbb8;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
