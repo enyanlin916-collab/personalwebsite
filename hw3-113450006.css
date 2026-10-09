@@ -47,15 +47,6 @@ a:hover {
     isolation: isolate;
     border-bottom: 1px solid #e5e5e5;
 }
-.hero-tagline {
-    font-family: "Lora", serif;
-    font-size: 1.5em;
-    font-style: italic;
-    color: #8B9B7A;
-    margin-top: 18px;
-    letter-spacing: 0.03em;
-}
-
 /* Falling doodles layer */
 .falling-elements {
     position: absolute;
