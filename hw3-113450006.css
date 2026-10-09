@@ -329,6 +329,12 @@ section[id] {
 .about-info {
     flex-grow: 1;
 }
+
+/* About Me：姓名、郵件、學校、Hashtags */
+.about-info .label,
+.about-info .value {
+    color: var(--blue);
+}
 .info-row {
     display: flex;
     border-bottom: 1px solid var(--border);
@@ -438,7 +444,7 @@ section[id] {
     flex-shrink: 0;
     font-family: "Lora", serif;
     font-size: 2rem;
-    color: var(--red);
+    color: var(-- blue);
     position: relative;
 }
 .magazine-content {
@@ -761,4 +767,10 @@ section[id] {
 .site-footer a {
     text-decoration: underline;
     text-underline-offset: 3px;
+}
+
+/* 經歷標籤 */
+.tags span {
+    color: var(--blue);
+    border-color: var(--blue);
 }
