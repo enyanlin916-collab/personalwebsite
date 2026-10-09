@@ -1070,42 +1070,30 @@ a:hover { opacity: 1; }
    HERO 強制深藍底 + 黃字
 ================================ */
 .hero-section {
-    background-color: #1E3A6B !important;
+    background-color: var(--blue);
     background-image:
         linear-gradient(to right, rgba(245, 230, 163, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(245, 230, 163, 0.08) 1px, transparent 1px) !important;
-    border-bottom: 2px solid #F5E6A3 !important;
+        linear-gradient(to bottom, rgba(245, 230, 163, 0.08) 1px, transparent 1px);
+    border-bottom: 2px solid var(--yellow);
+    /* 其餘不變 */
 }
 
-.hero-section .typing-text {
-    color: #F5E6A3 !important;
-    border-right-color: #F5E6A3;
+.typing-text {
+    color: var(--yellow);
+    border-right: 2px solid var(--yellow);
+    /* 其餘不變 */
 }
 
-.hero-section .hero-subtitle {
-    color: #F5E6A3 !important;
+.hero-subtitle { color: var(--yellow); }
+.scroll-down   { color: var(--yellow); }
+
+.hero-handwritten {
+    color: var(--yellow);
+    text-decoration-color: var(--red);
+    /* 其餘不變 */
 }
-
-.hero-section .hero-handwritten {
-    color: #F5E6A3 !important;
-    text-decoration-color: #E2352F;
-}
-
-.hero-section .scroll-down {
-    color: #F5E6A3 !important;
-}
-
-.doodle-star,
-.doodle-plane,
-.doodle-star2,
-.doodle-circle  { color: #F5E6A3 !important; }
-
-.doodle-flower,
-.doodle-sparkle,
-.doodle-heart,
-.doodle-flower2 { color: #E2352F !important; }
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50%      { border-color: #F5E6A3; }
+    50%      { border-color: var(--yellow); }
 }
