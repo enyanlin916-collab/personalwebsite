@@ -928,8 +928,8 @@ section[id] {
     --red:    #E2352F;   /* bright red   (P 48-8 C)  */
     --yellow: #F5E6A3;   /* butter yellow (938 C)    */
 
-    --bg: #FFFBEA;                      /* 奶油黃淺色版,當頁面底色 */
-    --text: var(--blue);
+    --bg: var(--blue);                      /* 奶油黃淺色版,當頁面底色 */
+    --text: #FFFBEA;
     --muted: #5C6E92;
     --border: rgba(30, 58, 107, 0.18);
     --accent-warm: var(--red);
