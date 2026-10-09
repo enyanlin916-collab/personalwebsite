@@ -1067,42 +1067,45 @@ a:hover { opacity: 1; }
     border-bottom-color: var(--yellow);
 }
 /* ==============================
-   HERO: 深藍底 + 黃字
+   HERO 強制深藍底 + 黃字
 ================================ */
 .hero-section {
-    background-color: var(--blue);
+    background-color: #1E3A6B !important;
     background-image:
         linear-gradient(to right, rgba(245, 230, 163, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(245, 230, 163, 0.08) 1px, transparent 1px);
-    border-bottom: 2px solid var(--yellow);
+        linear-gradient(to bottom, rgba(245, 230, 163, 0.08) 1px, transparent 1px) !important;
+    border-bottom: 2px solid #F5E6A3 !important;
 }
 
-.typing-text {
-    color: var(--yellow);
-    border-right-color: var(--yellow);
+.hero-section .typing-text {
+    color: #F5E6A3 !important;
+    border-right-color: #F5E6A3;
 }
 
-.hero-subtitle {
-    color: var(--yellow);
+.hero-section .hero-subtitle {
+    color: #F5E6A3 !important;
 }
 
-/* 手寫副標:黃字太多會單調,這裡用紅色當重點 */
-.hero-handwritten {
-    color: var(--yellow);
-    text-decoration-color: var(--red);
+.hero-section .hero-handwritten {
+    color: #F5E6A3 !important;
+    text-decoration-color: #E2352F;
 }
 
-.scroll-down {
-    color: var(--yellow);
+.hero-section .scroll-down {
+    color: #F5E6A3 !important;
 }
 
-/* doodle 改成黃 + 紅,在深藍底上才看得清楚 */
 .doodle-star,
 .doodle-plane,
 .doodle-star2,
-.doodle-circle  { color: var(--yellow); }
+.doodle-circle  { color: #F5E6A3 !important; }
 
 .doodle-flower,
 .doodle-sparkle,
 .doodle-heart,
-.doodle-flower2 { color: var(--red); }
+.doodle-flower2 { color: #E2352F !important; }
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50%      { border-color: #F5E6A3; }
+}
