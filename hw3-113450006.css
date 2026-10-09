@@ -302,7 +302,7 @@ section[id] {
     bottom: 0;
     width: 56px;
     height: 4px;
-    background: var(--red);
+    background: var(--blue);
 }
 
 /* ==============================
@@ -444,7 +444,7 @@ section[id] {
     flex-shrink: 0;
     font-family: "Lora", serif;
     font-size: 2rem;
-    color: var(-- blue);
+    color: var(--blue);
     position: relative;
 }
 .magazine-content {
@@ -468,11 +468,11 @@ section[id] {
     padding: 5px 14px;
     margin: 0 8px 8px 0;
     background: var(--yellow);
-    border: 1px solid var(--text);
+    border: 1px solid var(--blue);
     border-radius: 20px;
     font-size: 0.85rem;
+    color: var(--blue);
 }
-
 /* ==============================
    SKILLS & INTERESTS
 ================================ */
@@ -767,10 +767,4 @@ section[id] {
 .site-footer a {
     text-decoration: underline;
     text-underline-offset: 3px;
-}
-
-/* 經歷標籤 */
-.tags span {
-    color: var(--blue);
-    border-color: var(--blue);
 }
