@@ -686,3 +686,79 @@ section[id] {
 .site-footer p {
     margin: 0;
 }
+
+/* Feedback */
+#feedback .minimal-form {
+    max-width: 650px;
+}
+
+#feedback .form-intro {
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+#feedback .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+#feedback .form-group label {
+    display: block;
+    font-size: 15px;
+    color: var(--text);
+}
+
+#feedback .form-group textarea {
+    display: block;
+    width: 100%;
+    min-height: 140px;
+    padding: 15px;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background-color: #fff;
+    border: 1px solid var(--border);
+    resize: vertical;
+}
+
+#feedback .form-group textarea:focus {
+    outline: 1px solid var(--red);
+    border-color: var(--red);
+}
+
+#feedback .submit-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    font: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background-color: var(--yellow);
+    border: 1px solid var(--text);
+    cursor: pointer;
+}
+
+#feedback .submit-btn:hover {
+    background-color: var(--red);
+    color: #fff;
+}
+
+/* Footer */
+.site-footer {
+    width: 100%;
+    padding: 25px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.site-footer a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
