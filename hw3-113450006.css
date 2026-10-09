@@ -919,3 +919,150 @@ section[id] {
         font-size: 20px;
     }
 }
+/* ==============================
+   NEW PALETTE: Marine Blue / Bright Red / Butter Yellow
+   (色碼為估計值,請依你的實際色票調整)
+================================ */
+:root {
+    --blue:   #1E3A6B;   /* marine blue  (P 105-8 C) */
+    --red:    #E2352F;   /* bright red   (P 48-8 C)  */
+    --yellow: #F5E6A3;   /* butter yellow (938 C)    */
+
+    --bg: #FFFBEA;                      /* 奶油黃淺色版,當頁面底色 */
+    --text: var(--blue);
+    --muted: #5C6E92;
+    --border: rgba(30, 58, 107, 0.18);
+    --accent-warm: var(--red);
+    --accent-warm-light: var(--red);
+    --accent-green: var(--red);
+}
+
+::selection {
+    background: var(--red);
+    color: #fff;
+}
+
+/* ---------- 連結 / 導覽列 ---------- */
+a:hover { opacity: 1; }
+.site-nav a:hover { color: var(--red); }
+.site-header {
+    background-color: rgba(255, 251, 234, 0.92);
+    border-bottom: 2px solid var(--blue);
+}
+.site-header .logo { color: var(--blue); }
+
+/* ---------- Hero ---------- */
+.hero-section {
+    background-color: var(--yellow);
+    background-image:
+        linear-gradient(to right, rgba(30, 58, 107, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 58, 107, 0.07) 1px, transparent 1px);
+    border-bottom: 2px solid var(--blue);
+}
+.typing-text { color: var(--blue); }
+.hero-subtitle { color: var(--blue); }
+.hero-handwritten {
+    color: var(--red);
+    text-decoration-color: var(--blue);
+}
+.scroll-down { color: var(--red); }
+
+/* doodle 紅藍交錯 */
+.doodle-star,
+.doodle-plane,
+.doodle-star2,
+.doodle-circle  { color: var(--blue); }
+.doodle-flower,
+.doodle-sparkle,
+.doodle-heart,
+.doodle-flower2 { color: var(--red); }
+
+/* ---------- 區塊標題:紅色短底線 ---------- */
+.section-title {
+    color: var(--blue);
+    position: relative;
+    padding-bottom: 16px;
+}
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    height: 4px;
+    background: var(--red);
+}
+
+/* ---------- About / Education ---------- */
+.about-avatar img {
+    border: 2px solid var(--blue);
+    background-color: var(--yellow);
+    box-shadow: 8px 8px 0 var(--red);
+}
+.info-row { border-bottom-color: var(--border); }
+.info-row .label { color: var(--red); font-weight: 700; }
+.v-timeline-dot { background-color: var(--yellow); border-color: var(--blue); }
+.vertical-timeline::before { background-color: var(--blue); }
+.v-date { color: var(--red); }
+.v-timeline-content p { color: var(--muted); }
+
+/* ---------- Experiences ---------- */
+.magazine-timeline::before { background: var(--blue); opacity: 0.25; }
+.magazine-number { color: var(--red); }
+.magazine-content p { color: var(--muted); }
+.tags span {
+    background: var(--yellow);
+    border: 1px solid var(--blue);
+    color: var(--blue);
+}
+
+/* ---------- Skills / Interests 卡片 ---------- */
+.interest-card {
+    background-color: #fff;
+    border: 2px solid var(--blue);
+}
+.interest-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--red);
+}
+.interest-card h3 { border-bottom-color: var(--red); color: var(--blue); }
+.interest-card p { color: var(--muted); }
+.skill span { color: var(--blue); }
+.skill-bar { background: var(--yellow); border: 1px solid var(--blue); }
+.skill-fill { background: var(--red); }
+
+/* ---------- Gallery ---------- */
+.gallery-item {
+    border: 2px solid var(--blue);
+    background-color: #fff;
+}
+
+/* ---------- Projects ---------- */
+.projects-heading .section-label { color: var(--red); font-weight: 700; }
+.projects-heading h2 { color: var(--blue); }
+.projects-intro { color: var(--muted); }
+.project-image { background-color: var(--yellow); border: 2px solid var(--blue); }
+.project-number { background: var(--blue); }
+.project-arrow { background: var(--yellow); color: var(--blue); border: 2px solid var(--blue); }
+.project-category { color: var(--red); font-weight: 700; }
+.project-info > p:not(.project-category) { color: var(--muted); }
+.project-more { color: var(--blue); border-bottom-color: var(--red); }
+.project-link:focus-visible { outline-color: var(--red); }
+
+/* ---------- Feedback ---------- */
+.form-intro { color: var(--muted); }
+.form-group label { color: var(--red); font-weight: 700; }
+.minimal-form textarea { border: 2px solid var(--blue); }
+.minimal-form textarea:focus { border-color: var(--red); }
+.submit-btn { background-color: var(--red); color: #fff; }
+.submit-btn:hover { background-color: var(--blue); }
+
+/* ---------- Footer:藍底黃字 ---------- */
+.site-footer {
+    background: var(--blue);
+    color: var(--yellow);
+}
+.site-footer a {
+    color: var(--yellow);
+    border-bottom-color: var(--yellow);
+}
