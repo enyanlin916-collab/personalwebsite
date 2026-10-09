@@ -677,3 +677,12 @@ section[id] {
     transform: scale(1.04);
 }
 .project-link:hover
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 25px 20px;
+}
+
+.site-footer p {
+    margin: 0;
+}
