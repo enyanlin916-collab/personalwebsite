@@ -28,6 +28,136 @@ a:hover {
     padding: 0 40px;
 }
 
+/* Hero section becomes the animation container */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Decorative layer */
+.falling-elements {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-content,
+.scroll-down {
+    position: relative;
+    z-index: 1;
+}
+
+/* Doodle appearance */
+.doodle {
+    position: absolute;
+    top: -60px;
+    display: block;
+    line-height: 1;
+    opacity: 0;
+    animation: doodle-fall 1.8s ease-out forwards,
+               doodle-float 3.5s ease-in-out 2s infinite;
+}
+
+/* Individual positions, colors and timing */
+.doodle-star {
+    left: 12%;
+    font-size: 34px;
+    color: #8B9B7A;
+    animation-delay: 0.2s, 2.2s;
+}
+
+.doodle-flower {
+    left: 25%;
+    font-size: 30px;
+    color: #D9A5A5;
+    animation-delay: 0.7s, 2.7s;
+}
+
+.doodle-sparkle {
+    left: 77%;
+    font-size: 42px;
+    color: #C4A66A;
+    animation-delay: 0.4s, 2.4s;
+}
+
+.doodle-heart {
+    left: 86%;
+    font-size: 36px;
+    color: #D9A5A5;
+    animation-delay: 1s, 3s;
+}
+
+.doodle-plane {
+    left: 67%;
+    font-size: 30px;
+    color: #8B9B7A;
+    animation-delay: 1.2s, 3.2s;
+}
+
+.doodle-circle {
+    left: 8%;
+    font-size: 24px;
+    color: #C4A66A;
+    animation-delay: 1.5s, 3.5s;
+}
+
+.doodle-star2 {
+    left: 91%;
+    font-size: 28px;
+    color: #8B9B7A;
+    animation-delay: 0.9s, 2.9s;
+}
+
+.doodle-flower2 {
+    left: 42%;
+    font-size: 26px;
+    color: #D9A5A5;
+    animation-delay: 1.4s, 3.4s;
+}
+
+/* Drop into the hero, with a little rotation */
+@keyframes doodle-fall {
+    0% {
+        top: -60px;
+        opacity: 0;
+        transform: translateY(-20px) rotate(-35deg);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        top: var(--resting-top, 18%);
+        opacity: 0.9;
+        transform: translateY(0) rotate(12deg);
+    }
+}
+
+/* Gentle floating after landing */
+@keyframes doodle-float {
+    0%, 100% {
+        translate: 0 0;
+        rotate: 0deg;
+    }
+
+    50% {
+        translate: 0 -7px;
+        rotate: 8deg;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .doodle {
+        animation: none;
+        opacity: 0.85;
+        top: 15%;
+    }
+}
 /* 滿版 */
 .hero-section {
     width: 100%;
