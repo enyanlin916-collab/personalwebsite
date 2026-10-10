@@ -475,7 +475,29 @@
 
     </div>
 </section>
-
+        
+        <section class="filmstrip" aria-label="攝影作品膠卷">
+    <div class="film-track">
+        <!-- 第一組 -->
+        <div class="film-set">
+            <div class="film-frame"><img src="photo1.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo2.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo3.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo4.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo5.jpg" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo6.JPG" alt="" loading="lazy"></div>
+        </div>
+        <!-- 第二組:內容和第一組完全一樣,用來無縫接軌 -->
+        <div class="film-set" aria-hidden="true">
+            <div class="film-frame"><img src="photo1.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo2.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo3.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo4.JPG" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo5.jpg" alt="" loading="lazy"></div>
+            <div class="film-frame"><img src="photo6.JPG" alt="" loading="lazy"></div>
+        </div>
+    </div>
+</section>
         <section id="feedback" class="section-block">
             <p class="section-label">Feedback</p>
             <h2 class="section-title">回饋</h2>
@@ -488,6 +510,7 @@
                 </div>
             <button type="submit" class="submit-btn" onclick="alert('感謝您的留言！您的想法已成功送出！'); document.getElementById('thoughts').value=''; return false;">送出 (Submit)</button></form>
         </section>
+    
 
     </main>
 
