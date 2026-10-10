@@ -162,9 +162,9 @@
         <div class="magazine-item">
             <div class="magazine-number">04</div>
             <div class="magazine-content">
-                <h3>大學營隊｜相手</h3>
+                <h3>大學營隊｜相手、隊輔</h3>
                 <p>
-                    負責活動紀錄，
+                    負責活動紀錄與帶動氣氛，
                     並剪輯營隊回顧影片及製作活動紀錄內容。
                 </p>
 
@@ -476,7 +476,21 @@
     </div>
 </section>
         
-        <section class="filmstrip" aria-label="攝影作品膠卷">
+</section>
+        <section id="feedback" class="section-block">
+            <p class="section-label">Feedback</p>
+            <h2 class="section-title">回饋</h2>
+            <form class="minimal-form">
+                <p class="form-intro">謝謝您瀏覽我的個人網頁，歡迎留下一些建議！</p>
+                
+                <div class="form-group">
+                    <label for="thoughts">Leave some thoughts...</label>
+                    <textarea id="thoughts" name="message" rows="4" placeholder="Write your message here..."></textarea>
+                </div>
+            <button type="submit" class="submit-btn" onclick="alert('感謝您的留言！您的想法已成功送出！'); document.getElementById('thoughts').value=''; return false;">送出 (Submit)</button></form>
+        </section>
+         <section class="filmstrip" aria-label="攝影作品膠卷">
+             
     <div class="film-track">
         <!-- 第一組 -->
         <div class="film-set">
@@ -496,21 +510,9 @@
             <div class="film-frame"><img src="photo5.jpg" alt="" loading="lazy"></div>
             <div class="film-frame"><img src="photo6.JPG" alt="" loading="lazy"></div>
         </div>
+        <p class="film-caption">A roll of memories.<br> - A collections of photos captured by me -</p>
     </div>
             
-</section>
-        <section id="feedback" class="section-block">
-            <p class="section-label">Feedback</p>
-            <h2 class="section-title">回饋</h2>
-            <form class="minimal-form">
-                <p class="form-intro">謝謝您瀏覽我的個人網頁，歡迎留下一些建議！</p>
-                
-                <div class="form-group">
-                    <label for="thoughts">Leave some thoughts...</label>
-                    <textarea id="thoughts" name="message" rows="4" placeholder="Write your message here..."></textarea>
-                </div>
-            <button type="submit" class="submit-btn" onclick="alert('感謝您的留言！您的想法已成功送出！'); document.getElementById('thoughts').value=''; return false;">送出 (Submit)</button></form>
-        </section>
     
 
     </main>
