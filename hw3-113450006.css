@@ -900,13 +900,22 @@ section[id] {
     }
 }
 .film-caption {
-    display: block;
-    position: relative;
-    z-index: 10;
-    color: #1E3A6B;
-    background: #F8F6F0;
+    background: var(--bg);
     text-align: center;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-top: 20px;
+    padding: 40px 20px 36px;
+}
+
+.film-caption-main {
+    font-family: "Caveat", cursive;
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.film-caption-sub {
+    font-size: 0.85em;
+    letter-spacing: 0.12em;
+    color: var(--muted);
 }
