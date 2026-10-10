@@ -900,8 +900,13 @@ section[id] {
     }
 }
 .film-caption {
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
+    display: block;
+    position: relative;
+    z-index: 10;
     color: #1E3A6B;
+    background: #F8F6F0;
     text-align: center;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-top: 20px;
 }
