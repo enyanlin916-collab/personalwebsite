@@ -798,6 +798,9 @@ section[id] {
 /* ==============================
    FILMSTRIP (會動的膠卷)
 ================================ */
+/* ==============================
+   FILMSTRIP (會動的膠卷)
+================================ */
 .filmstrip {
     background: #111;
     overflow: hidden;
@@ -808,6 +811,7 @@ section[id] {
 .film-track {
     display: flex;
     width: max-content;
+    will-change: transform;
     animation: film-scroll 40s linear infinite;
 }
 
@@ -817,8 +821,7 @@ section[id] {
 
 .film-set {
     display: flex;
-    gap: 14px;
-    padding: 34px 7px;              /* 上下留空間給齒孔 */
+    padding: 34px 0;                /* 上下留空間給齒孔,左右不留,避免接縫誤差 */
     position: relative;
 }
 
@@ -829,24 +832,14 @@ section[id] {
     position: absolute;
     left: 0;
     right: 0;
-    height: 14px;
-    background-image: radial-gradient(
-        circle at center,
-        transparent 0 3px,
-        #111 3px
-    );
-    /* 用小方塊模擬齒孔 */
-    background:
-        repeating-linear-gradient(
-            to right,
-            #f5f0dc 0 14px,
-            transparent 14px 32px
-        );
-    -webkit-mask: none;
-    mask: none;
-    opacity: 0.9;
-    border-radius: 2px;
     height: 12px;
+    background: repeating-linear-gradient(
+        to right,
+        #f5f0dc 0 14px,
+        transparent 14px 32px
+    );
+    border-radius: 2px;
+    opacity: 0.9;
 }
 .film-set::before { top: 11px; }
 .film-set::after  { bottom: 11px; }
@@ -855,6 +848,7 @@ section[id] {
     flex: 0 0 auto;
     width: 260px;
     height: 180px;
+    margin-right: 14px;             /* 每格自帶間距,兩組寬度才會完全一樣 */
     background: #222;
     border: 3px solid #222;
     border-radius: 3px;
@@ -899,6 +893,10 @@ section[id] {
         animation: none;
     }
 }
+
+/* ==============================
+   FILM CAPTION
+================================ */
 .film-caption {
     background: var(--bg);
     text-align: center;
