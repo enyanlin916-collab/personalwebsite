@@ -899,3 +899,9 @@ section[id] {
         animation: none;
     }
 }
+.film-caption {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    color: #1E3A6B;
+    text-align: center;
+}
