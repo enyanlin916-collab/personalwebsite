@@ -798,9 +798,6 @@ section[id] {
 /* ==============================
    FILMSTRIP (會動的膠卷)
 ================================ */
-/* ==============================
-   FILMSTRIP (會動的膠卷)
-================================ */
 .filmstrip {
     background: #111;
     overflow: hidden;
@@ -821,7 +818,9 @@ section[id] {
 
 .film-set {
     display: flex;
-    padding: 34px 0;                /* 上下留空間給齒孔,左右不留,避免接縫誤差 */
+    flex-shrink: 0;                 /* 避免被壓縮,寬度固定 */
+    gap: 14px;
+    padding: 34px 7px;              /* 上下留空間給齒孔 */
     position: relative;
 }
 
@@ -848,7 +847,6 @@ section[id] {
     flex: 0 0 auto;
     width: 260px;
     height: 180px;
-    margin-right: 14px;             /* 每格自帶間距,兩組寬度才會完全一樣 */
     background: #222;
     border: 3px solid #222;
     border-radius: 3px;
