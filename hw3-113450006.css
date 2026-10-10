@@ -908,6 +908,12 @@ section[id] {
     text-align: center;
     padding: 40px 20px 36px;
 }
+.film-caption-sub {
+    font-size: 0.85em;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 22px;   /* 小字和下面那行拉開,數字越大越遠 */
+}
 
 .film-caption-main {
     font-family: "Caveat", cursive;
@@ -916,10 +922,4 @@ section[id] {
     color: var(--red);
     line-height: 1.2;
     margin-bottom: 6px;
-}
-
-.film-caption-sub {
-    font-size: 0.85em;
-    letter-spacing: 0.12em;
-    color: var(--muted);
 }
