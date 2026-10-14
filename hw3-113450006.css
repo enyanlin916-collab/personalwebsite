@@ -148,7 +148,7 @@ section[id] {
     display: inline-block;
     max-width: 100%;
     font-family: "Fascinate Inline", "Lora", serif;
-    font-size: 3.5em;
+    font-size: clamp(1.4rem, 6vw, 5.5rem);
     font-weight: 400;
     letter-spacing: 0.04em;
     white-space: nowrap;
@@ -951,8 +951,8 @@ RESPONSIVE DESIGN — TABLET & MOBILE
 }
 
 .typing-text {
-    font-size: clamp(2rem, 8vw, 3rem);
-    letter-spacing: 0.04em;
+    font-size: 1.7em;
+    letter-spacing: 0.06em;
     white-space: normal;
     overflow: visible;
     overflow-wrap: anywhere;
@@ -961,7 +961,6 @@ RESPONSIVE DESIGN — TABLET & MOBILE
     border-right: none;
     animation: none;
 }
-
 .hero-subtitle {
     font-size: 0.9rem;
     letter-spacing: 0.08em;
