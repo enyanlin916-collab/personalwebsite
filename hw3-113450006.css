@@ -147,10 +147,10 @@ section[id] {
 .typing-text {
     display: inline-block;
     max-width: 100%;
-    font-family: "Lora", serif;
+    font-family: "Fascinate Inline", "Lora", serif;
     font-size: 3.5em;
     font-weight: 400;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     white-space: nowrap;
     overflow: hidden;
     vertical-align: bottom;
@@ -198,7 +198,7 @@ section[id] {
 
 @keyframes typing {
     from { width: 0; }
-    to   { width: 12em; }
+    to   { width: var(--type-w, 12em); }
 }
 
 @keyframes blink-caret {
