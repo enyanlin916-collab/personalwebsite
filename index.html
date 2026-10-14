@@ -26,7 +26,8 @@
 
     <!-- 原本的首頁文字 -->
     <div class="hero-content">
-        <h1 class="typing-text">Enyan Lin's Page</h1>
+        <h1 class="typing-text" data-wobble>Enyan Lin's Page</h1>
+        <!--<h1 class="typing-text">Enyan Lin's Page</h1>-->
         <p class="hero-subtitle">
             - Design beyond boundaries. -
         </p>
@@ -687,6 +688,29 @@
     } else {
         measureTyping();
     }
+}
+        /* 7. 逐字彈跳(Hero 標題和其他加了 data-wobble 的標題) */
+document.querySelectorAll('[data-wobble]').forEach(function (el) {
+    var text = el.textContent;
+    el.setAttribute('aria-label', text);
+    el.textContent = '';
+    Array.from(text).forEach(function (c) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.setAttribute('aria-hidden', 'true');
+        s.textContent = c;
+        s.style.setProperty('--rot', (Math.random() * 24 - 12) + 'deg');
+        el.appendChild(s);
+    });
+});
+
+/* 打字動畫結束後才解除裁切 */
+var heroTitle = document.querySelector('.typing-text');
+if (heroTitle) {
+    heroTitle.addEventListener('animationend', function (e) {
+        if (e.animationName === 'typing') heroTitle.classList.add('typed');
+    });
+    setTimeout(function () { heroTitle.classList.add('typed'); }, 1500);   // 保險
 }
 </script>
 
