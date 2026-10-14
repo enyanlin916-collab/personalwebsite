@@ -148,7 +148,7 @@ section[id] {
     display: inline-block;
     max-width: 100%;
     font-family: "Fascinate Inline", "Lora", serif;
-    font-size: clamp(1.4rem, 6vw, 5.5rem);
+    font-size: clamp(2rem, 8vw, 8rem);
     font-weight: 400;
     letter-spacing: 0.04em;
     white-space: nowrap;
