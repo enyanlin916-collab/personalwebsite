@@ -676,6 +676,18 @@
     }
 
 })();
+        /* 6. Hero 打字寬度依實際字體量測 */
+    var typing = document.querySelector('.typing-text');
+    if (typing) {
+    var measureTyping = function () {
+        typing.style.setProperty('--type-w', (typing.scrollWidth + 4) + 'px');
+    };
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measureTyping);   // 等字體載入完再量
+    } else {
+        measureTyping();
+    }
+}
 </script>
 
 </body>
