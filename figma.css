@@ -1,0 +1,349 @@
+/* ==============================
+   FIGMA PROJECT PAGE
+   (載入順序:hw3-113450006.css → figma.css)
+================================ */
+ 
+:root {
+    --hh: 90px;   /* 上方導覽列高度,JS 會自動量測並更新 */
+}
+ 
+/* ==============================
+   1. 一疊紙:往下滑翻頁
+================================ */
+.stack-section {
+    position: relative;
+    /* 一個畫面高度 + 每翻一頁多 70vh 的捲動距離 */
+    height: calc(100vh + var(--steps, 3) * 70vh);
+}
+ 
+.stack-stage {
+    position: sticky;
+    top: var(--hh);
+    height: calc(100vh - var(--hh));
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--yellow);
+    border-bottom: 2px solid var(--blue);
+}
+ 
+.stack-head {
+    position: absolute;
+    top: 28px;
+    left: 40px;
+}
+.stack-kicker {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--red);
+}
+.stack-title {
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+ 
+.stack-count {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+}
+.stack-count span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--red);
+}
+ 
+.stack-hint {
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    animation: bounce 2s infinite;
+}
+ 
+/* 紙堆本體:寬度同時受視窗寬、高限制,不會超出畫面 */
+.stack {
+    position: relative;
+    width: min(780px, 78vw, calc((100vh - var(--hh) - 210px) * 1.6));
+    aspect-ratio: 16 / 10;
+    margin-top: 18px;
+}
+ 
+.paper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 8px;
+    background: var(--bg);
+    border: 2px solid var(--blue);
+    box-shadow: 0 14px 28px rgba(30, 58, 107, 0.18);
+    transform-origin: 50% 65%;
+    transition: transform 0.38s cubic-bezier(0.3, 1.25, 0.5, 1);
+    will-change: transform;
+}
+ 
+.paper-media {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--border);
+}
+.paper-media svg,
+.paper-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+.paper-cap {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+.paper-cap strong {
+    color: var(--red);
+    margin-right: 6px;
+}
+ 
+/* ==============================
+   2. 長長的時間線
+================================ */
+.process {
+    padding: 110px 0 40px;
+}
+.process-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+ 
+.tl {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 56px;
+    margin-top: 40px;
+}
+ 
+/* 左邊:固定不動的時間軸 */
+.tl-sticky {
+    position: sticky;
+    top: calc(var(--hh) + 36px);
+    height: calc(100vh - var(--hh) - 72px);
+    display: flex;
+    flex-direction: column;
+}
+ 
+.tl-date {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--blue);
+    letter-spacing: 0.02em;
+}
+.tl-date.swap {
+    animation: dateIn 0.45s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+@keyframes dateIn {
+    from { opacity: 0; transform: translateY(14px) rotate(-3deg); }
+    to   { opacity: 1; transform: none; }
+}
+ 
+.tl-phase {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+ 
+.tl-track {
+    position: relative;
+    flex: 1;
+    width: 2px;
+    margin: 32px 0 8px 7px;
+    background: var(--border);
+}
+.tl-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background: var(--red);
+    transition: height 0.5s ease;
+}
+.tl-dots {
+    position: absolute;
+    inset: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tl-dots li {
+    position: relative;
+    height: 0;
+    cursor: pointer;
+}
+.tl-dots li::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.tl-dots li span {
+    position: absolute;
+    left: 24px;
+    top: -0.8em;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: color 0.3s;
+}
+.tl-dots li.done::before {
+    border-color: var(--red);
+}
+.tl-dots li.active::before {
+    background: var(--red);
+    border-color: var(--red);
+    transform: scale(1.35);
+}
+.tl-dots li.active span {
+    color: var(--red);
+    font-weight: 700;
+}
+ 
+/* 右邊:每個時間點的內容 */
+.tl-item {
+    min-height: 88vh;
+    padding: 12vh 0;
+}
+.js .tl-item {
+    opacity: 0.28;
+    transition: opacity 0.5s ease;
+}
+.js .tl-item.active {
+    opacity: 1;
+}
+ 
+.tl-step {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--red);
+}
+.tl-item h3 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 400;
+    margin: 8px 0 14px;
+}
+.tl-item p {
+    max-width: 560px;
+    color: var(--muted);
+}
+ 
+.tl-media {
+    margin-top: 28px;
+    aspect-ratio: 16 / 9;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: var(--yellow);
+    border: 2px solid var(--blue);
+    box-shadow: 8px 8px 0 var(--red);
+    color: var(--blue);
+    font-size: 0.9rem;
+}
+.tl-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+ 
+/* ==============================
+   3. 頁尾導覽
+================================ */
+.fnav {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 60px 40px 90px;
+    font-size: 0.95rem;
+}
+.fnav a {
+    border-bottom: 1px solid var(--red);
+    padding-bottom: 4px;
+}
+ 
+/* ==============================
+   手機版
+================================ */
+@media (max-width: 768px) {
+    .stack-head { left: 20px; top: 18px; }
+    .stack-count { right: 20px; top: 20px; }
+    .stack { width: min(92vw, calc((100vh - var(--hh) - 190px) * 1.6)); }
+ 
+    .process { padding-top: 80px; }
+    .process-inner { padding: 0 24px; }
+ 
+    .tl {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    /* 時間軸變成黏在上方的一條 */
+    .tl-rail {
+        position: sticky;
+        top: var(--hh);
+        z-index: 5;
+        margin: 0 -24px;
+        padding: 10px 24px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+    }
+    .tl-sticky {
+        position: static;
+        height: auto;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 14px;
+    }
+    .tl-date { font-size: 1.6rem; }
+    .tl-phase { margin-top: 0; }
+    .tl-track { display: none; }
+ 
+    .tl-item { min-height: 70vh; padding: 8vh 0; }
+    .fnav { padding: 40px 24px 70px; }
+}
+ 
+/* ==============================
+   減少動態:直接切換,不做動畫
+================================ */
+@media (prefers-reduced-motion: reduce) {
+    .paper { transition: none; }
+    .stack-hint { animation: none; }
+    .tl-date.swap { animation: none; }
+    .tl-fill { transition: none; }
+}
