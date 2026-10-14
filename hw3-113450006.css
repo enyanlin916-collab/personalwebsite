@@ -1266,3 +1266,21 @@ RESPONSIVE DESIGN — TABLET & MOBILE
         transition: none;
     }
 }
+/* 逐字彈跳 */
+[data-wobble] .ch {
+    display: inline-block;
+    white-space: pre;
+    transition: transform 0.5s cubic-bezier(0.34, 1.8, 0.5, 1);
+}
+[data-wobble] .ch:hover {
+    transform: translateY(-10px) scale(1.2, 0.85) rotate(var(--rot));
+}
+
+/* 打字動畫結束後,讓字可以彈出框外 */
+.typing-text.typed {
+    overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-wobble] .ch:hover { transform: none; }
+}
