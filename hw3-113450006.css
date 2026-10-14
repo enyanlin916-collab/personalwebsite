@@ -1193,8 +1193,8 @@ RESPONSIVE DESIGN — TABLET & MOBILE
 /* 2. 捲動淡入 */
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .reveal.is-visible {
     opacity: 1;
