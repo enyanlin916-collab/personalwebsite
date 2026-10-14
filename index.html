@@ -9,10 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+TC:wght@400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-
-
 </head>
 <body>
 
@@ -43,9 +39,23 @@
 </section>
 
 <!-- 原本網站的導覽列，放在首頁外面 -->
-<header class="site-header">
+<!-- <header class="site-header">
     <div class="logo">Enyan Lin's Personal Homepage</div>
     <nav class="site-nav">
+        <a href="#about">關於我</a>
+        <a href="#education">學歷</a>
+        <a href="#experiences">經歷</a>
+        <a href="#skills">技能</a>
+        <a href="#interests">興趣</a>
+        <a href="#projects">作品集/專案</a>
+        <a href="#feedback">聯絡我</a>
+    </nav>
+</header> -->
+    
+    <header class="site-header">
+    <div class="logo">Enyan Lin's Personal Homepage</div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav class="site-nav" id="site-nav">
         <a href="#about">關於我</a>
         <a href="#education">學歷</a>
         <a href="#experiences">經歷</a>
@@ -514,7 +524,8 @@
 </section>
         
 </section>
-        <section id="feedback" class="section-block">
+        
+       <!-- <section id="feedback" class="section-block">
             <p class="section-label">Feedback</p>
             <h2 class="section-title">回饋</h2>
             <form class="minimal-form">
@@ -525,9 +536,21 @@
                     <textarea id="thoughts" name="message" rows="4" placeholder="Write your message here..."></textarea>
                 </div>
             <button type="submit" class="submit-btn" onclick="alert('感謝您的留言！您的想法已成功送出！'); document.getElementById('thoughts').value=''; return false;">送出 (Submit)</button></form>
-        </section>
-         <section class="filmstrip" aria-label="攝影作品膠卷">
-             
+        </section>-->
+        
+        <form class="minimal-form" id="feedback-form">
+        <p class="form-intro">謝謝您瀏覽我的個人網頁,歡迎留下一些建議</p>
+
+        <div class="form-group">
+        <label for="thoughts">Leave some thoughts...</label>
+        <textarea id="thoughts" name="message" rows="4" placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">送出 (Submit)</button>
+        <p class="form-message" id="form-message" role="status"></p>
+        </form>
+
+    <section class="filmstrip" aria-label="攝影作品膠卷">    
     <section class="filmstrip" aria-label="攝影作品膠卷">
     <div class="film-track">
         <!-- 第一組 -->
@@ -561,6 +584,93 @@
     <footer class="site-footer">
         <p>&copy; 2026 Pita Lin. All rights reserved. 引用請 <a href="mailto:enyanlin916@gmail.com">來信聯絡</a></p>
     </footer>
+    <script>
+(function () {
+
+    /* 1. 留言表單 */
+    var form = document.getElementById('feedback-form');
+    var box  = document.getElementById('thoughts');
+    var msg  = document.getElementById('form-message');
+
+    if (form && box && msg) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();                 // 不要讓頁面重新整理
+            if (!box.value.trim()) {            // 空白就不送出
+                msg.textContent = '請先寫下一些想法喔!';
+                msg.className = 'form-message error';
+                box.focus();
+                return;
+            }
+            msg.textContent = '感謝您的留言!您的想法已成功送出 ✿';
+            msg.className = 'form-message success';
+            box.value = '';
+        });
+    }
+
+    /* 2. 捲動時區塊淡入 */
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var blocks = document.querySelectorAll('.section-block, .projects-section');
+
+    if ('IntersectionObserver' in window && !reduceMotion) {
+        blocks.forEach(function (el) { el.classList.add('reveal'); });
+
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);   // 只淡入一次
+                }
+            });
+        }, { threshold: 0.1 });
+
+        blocks.forEach(function (el) { revealObserver.observe(el); });
+    }
+
+    /* 3. 導覽列高亮目前所在區塊 */
+    var navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
+    var linkOf = new Map();
+
+    navLinks.forEach(function (link) {
+        var section = document.querySelector(link.getAttribute('href'));
+        if (section) linkOf.set(section, link);
+    });
+
+    if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(function (l) { l.classList.remove('active'); });
+                    linkOf.get(entry.target).classList.add('active');
+                }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });   // 只看畫面正中間那一條線
+
+        linkOf.forEach(function (link, section) { spy.observe(section); });
+    }
+
+    /* 4. 手機版漢堡選單 */
+    var toggle = document.querySelector('.nav-toggle');
+    var nav    = document.getElementById('site-nav');
+
+    function closeMenu() {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+    }
+
+    if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+            var isOpen = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+            toggle.textContent = isOpen ? '✕' : '☰';
+        });
+        nav.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', closeMenu);   // 點連結後收起選單
+        });
+    }
+
+})();
+</script>
 
 </body>
 </html>
