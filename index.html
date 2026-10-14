@@ -612,8 +612,8 @@
             box.value = '';
         });
     }
-
-    /* 2. 捲動時區塊淡入 */
+    
+    /* 2. 捲動時區塊淡入(每次進入畫面都會重播) */
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var blocks = document.querySelectorAll('.section-block, .projects-section');
 
@@ -624,10 +624,11 @@
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    revealObserver.unobserve(entry.target);   // 只淡入一次
+                } else {
+                    entry.target.classList.remove('is-visible');   // 離開畫面就重置,下次進來再淡入
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
 
         blocks.forEach(function (el) { revealObserver.observe(el); });
     }
