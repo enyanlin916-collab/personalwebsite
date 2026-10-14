@@ -48,7 +48,7 @@
         <a href="#skills">技能</a>
         <a href="#interests">興趣</a>
         <a href="#projects">作品集/專案</a>
-        <a href="#feedback">聯絡我</a>
+        <a href="#feedback"回饋</a>
     </nav>
 </header> -->
     
@@ -538,18 +538,23 @@
             <button type="submit" class="submit-btn" onclick="alert('感謝您的留言！您的想法已成功送出！'); document.getElementById('thoughts').value=''; return false;">送出 (Submit)</button></form>
         </section>-->
         
-        <form class="minimal-form" id="feedback-form">
-        <p class="form-intro">謝謝您瀏覽我的個人網頁,歡迎留下一些建議</p>
+        <section id="feedback" class="section-block">
+    <p class="section-label">Feedback</p>
+    <h2 class="section-title">回饋</h2>
+    <form class="minimal-form" id="feedback-form">
+        <p class="form-intro">謝謝您瀏覽我的個人網頁，歡迎留下一些建議！</p>
 
         <div class="form-group">
-        <label for="thoughts">Leave some thoughts...</label>
-        <textarea id="thoughts" name="message" rows="4" placeholder="Write your message here..."></textarea>
+            <label for="thoughts">Leave some thoughts...</label>
+            <textarea id="thoughts" name="message" rows="4" placeholder="Write your message here..."></textarea>
         </div>
 
         <button type="submit" class="submit-btn">送出 (Submit)</button>
         <p class="form-message" id="form-message" role="status"></p>
         </form>
-
+    </section>
+            
+</section>
     <section class="filmstrip" aria-label="攝影作品膠卷">    
     <section class="filmstrip" aria-label="攝影作品膠卷">
     <div class="film-track">
@@ -584,6 +589,7 @@
     <footer class="site-footer">
         <p>&copy; 2026 Pita Lin. All rights reserved. 引用請 <a href="mailto:enyanlin916@gmail.com">來信聯絡</a></p>
     </footer>
+    
     <script>
 (function () {
 
