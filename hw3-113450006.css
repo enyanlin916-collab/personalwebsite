@@ -110,7 +110,7 @@ section[id] {
 .doodle-star    { left: 12%; --resting-top: 18%; font-size: 34px; color: var(--yellow); animation-delay: 0.2s, 2.2s; }
 .doodle-flower  { left: 25%; --resting-top: 32%; font-size: 30px; color: var(--red);    animation-delay: 0.7s, 2.7s; }
 .doodle-sparkle { left: 77%; --resting-top: 20%; font-size: 42px; color: var(--red);    animation-delay: 0.4s, 2.4s; }
-.doodle-heart   { left: 85%; --resting-top: 69%; font-size: 36px; color: var(--red);    animation-delay: 1s, 3s; }
+.doodle-heart   { left: 60%; --resting-top: 15%; font-size: 36px; color: var(--red);    animation-delay: 1s, 3s; }
 .doodle-plane   { left: 67%; --resting-top: 86%; font-size: 30px; color: var(--yellow); animation-delay: 1.2s, 3.2s; }
 .doodle-circle  { left: 8%;  --resting-top: 58%; font-size: 24px; color: var(--yellow); animation-delay: 1.5s, 3.5s; }
 .doodle-star2   { left: 91%; --resting-top: 72%; font-size: 28px; color: var(--yellow); animation-delay: 0.9s, 2.9s; }
