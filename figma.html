@@ -98,9 +98,13 @@
 
         </div>
 
-        <p class="stack-hint">
-            往下滑動，瀏覽作品 ↓
-        </p>
+        <p class="stack-hint">在圖片上往下滑，看完整張設計</p>
+
+        <div class="stack-controls" aria-label="作品切換">
+            <button type="button" class="stack-btn" id="stack-prev">← 上一張</button>
+            <button type="button" class="stack-btn" id="stack-next">下一張 →</button>
+            <a class="stack-skip" href="#process">跳到設計歷程 ↓</a>
+        </div>
 
     </div>
 </section>
@@ -187,9 +191,6 @@
 (function () {
     'use strict';
 
-    (function () {
-    'use strict';
-
     // 重新進入頁面時，不恢復上次的捲動位置
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
@@ -220,269 +221,99 @@
  
    
 /* ==========================================
-   1. 一疊紙：長圖片先捲動，再翻頁
+   1. Napoli 作品：圖片自己捲動，按鈕才會翻頁
    ========================================== */
-
-var section = document.getElementById('stack');
-var stage = section.querySelector('.stack-stage');
-var papers = Array.prototype.slice.call(
-    section.querySelectorAll('.paper')
-);
-
-var N = papers.length;
-var nowEl = document.getElementById('stack-now');
-
-var order = papers.slice();
-
-var OUT =
-    'translate(-64%, -6%) rotate(-11deg) scale(1)';
-
-var starts = [];
-var overflows = [];
-
-var shown = 0;
-var want = 0;
-var busy = false;
-
-function pad(n) {
-    return String(n).padStart(2, '0');
-}
-
-/* 紙張堆疊的位置 */
-function slot(pos) {
-    var tilt = pos === 0
-        ? 0
-        : (pos % 2 ? 1 : -1) * (1.2 + pos * 0.9);
-
-    return 'translate(' +
-        (pos * 16) + 'px,' +
-        (pos * 13) + 'px) rotate(' +
-        tilt + 'deg) scale(' +
-        (1 - pos * 0.025) + ')';
-}
-
-/* 初始化紙張 */
-function layout() {
-    order.forEach(function (p, i) {
-        p.style.zIndex = N - i;
-        p.style.transform = slot(i);
-    });
-}
-
-layout();
-
-/* 往下翻頁 */
-function forward(done) {
-    var front = order.shift();
-
-    front.style.zIndex = N + 5;
-    front.style.transform = OUT;
-
-    order.forEach(function (p, i) {
-        p.style.zIndex = N - i;
-        p.style.transform = slot(i);
-    });
-
-    setTimeout(function () {
-        order.push(front);
-        front.style.zIndex = 0;
-        front.style.transform = slot(N - 1);
-
-        setTimeout(done, reduce ? 0 : 380);
-    }, reduce ? 0 : 300);
-}
-
-/* 往上翻頁 */
-function backward(done) {
-    var back = order.pop();
-
-    back.style.zIndex = 0;
-    back.style.transform = OUT;
-
-    order.forEach(function (p, i) {
-        p.style.zIndex = N - (i + 1);
-        p.style.transform = slot(i + 1);
-    });
-
-    setTimeout(function () {
-        order.unshift(back);
-        back.style.zIndex = N;
-        back.style.transform = slot(0);
-
-        setTimeout(done, reduce ? 0 : 380);
-    }, reduce ? 0 : 300);
-}
-
-/* 執行翻頁動畫 */
-function tick() {
-    if (busy || want === shown) return;
-
-    busy = true;
-
-    var dir = want > shown ? 1 : -1;
-
-    nowEl.textContent = pad(shown + dir + 1);
-
-    (dir > 0 ? forward : backward)(function () {
-        shown += dir;
-        busy = false;
-        tick();
-    });
-}
-
-/* ==========================================
-   計算每張圖片的實際高度
-   ========================================== */
-
-function recalculate() {
-    var position = 0;
-
-    // 看完圖片底部後，再滑多遠才翻頁
-    var flipDistance = Math.max(
-        240,
-        window.innerHeight * 0.55
+    var section = document.getElementById('stack');
+    var papers = Array.prototype.slice.call(
+        section.querySelectorAll('.paper')
     );
+    var count = papers.length;
+    var current = 0;
+    var turning = false;
+    var nowEl = document.getElementById('stack-now');
+    var prevBtn = document.getElementById('stack-prev');
+    var nextBtn = document.getElementById('stack-next');
+    var OUT = 'translate(-64%, -6%) rotate(-11deg) scale(1)';
 
-    papers.forEach(function (paper, i) {
-        var media = paper.querySelector('.paper-media');
-        var img = media.querySelector('img');
-
-        var overflow = 0;
-
-        if (img && img.complete && img.naturalWidth) {
-            // 根據圖片比例計算完整顯示高度
-            var fullHeight =
-                media.clientWidth *
-                img.naturalHeight /
-                img.naturalWidth;
-
-            overflow = Math.max(
-                0,
-                Math.ceil(fullHeight - media.clientHeight)
-            );
-
-            // 自動判斷是否為長圖
-            img.classList.toggle(
-                'is-tall',
-                overflow > 1
-            );
-
-            if (overflow <= 1) {
-                img.style.transform = '';
-            }
-        }
-
-        starts[i] = position;
-        overflows[i] = overflow;
-
-        // 長圖需要額外的捲動距離
-        position += overflow;
-
-        // 最後一張不用再翻頁
-        if (i < N - 1) {
-            position += flipDistance;
-        }
-    });
-
-    // 最後一張圖片看完後，保留一點空間
-    var endingSpace = Math.max(
-        220,
-        window.innerHeight * 0.35
-    );
-
-    section.style.height =
-        (stage.offsetHeight + position + endingSpace) + 'px';
-
-    onScroll();
-}
-
-/* ==========================================
-   根據捲動位置更新圖片及紙張
-   ========================================== */
-
-var scrollQueued = false;
-
-function onScroll() {
-    if (scrollQueued) return;
-
-    scrollQueued = true;
-
-    requestAnimationFrame(function () {
-        scrollQueued = false;
-
-        var hh = header ? header.offsetHeight : 90;
-        var rect = section.getBoundingClientRect();
-
-        var scrolled = Math.max(
-            0,
-            hh - rect.top
-        );
-
-        // 判斷目前應該顯示哪張紙
-        want = 0;
-
-        for (var i = 1; i < N; i++) {
-            if (scrolled >= starts[i]) {
-                want = i;
-            }
-        }
-
-        // 個別控制每張長圖片的移動距離
-        papers.forEach(function (paper, i) {
-            var img = paper.querySelector(
-                '.paper-media img.is-tall'
-            );
-
-            if (!img) return;
-
-            var localScroll = Math.max(
-                0,
-                scrolled - starts[i]
-            );
-
-            var offset = Math.min(
-                localScroll,
-                overflows[i]
-            );
-
-            // 圖片往上移動，直到完整看到底部
-            img.style.transform =
-                'translate3d(0, -' + offset + 'px, 0)';
-        });
-
-        tick();
-    });
-}
-
-/* 等全部圖片載入完成，再統一計算一次 */
-var images = papers.map(function (paper) {
-    return paper.querySelector('.paper-media img');
-}).filter(Boolean);
-
-Promise.all(images.map(function (img) {
-    if (img.complete) {
-        return Promise.resolve();
+    function slot(pos) {
+        var tilt = pos === 0 ? 0 : (pos % 2 ? 1 : -1) * (1.2 + pos * 0.9);
+        return 'translate(' + (pos * 16) + 'px,' + (pos * 13) +
+            'px) rotate(' + tilt + 'deg) scale(' + (1 - pos * 0.025) + ')';
     }
 
-    return new Promise(function (resolve) {
-        img.addEventListener('load', resolve, { once: true });
-        img.addEventListener('error', resolve, { once: true });
+    function updateButtons() {
+        prevBtn.disabled = turning || current === 0;
+        nextBtn.disabled = turning || current === count - 1;
+    }
+
+    function paint(noTransition) {
+        papers.forEach(function (paper, index) {
+            var pos = (index - current + count) % count;
+            if (noTransition) paper.style.transition = 'none';
+            paper.style.zIndex = count - pos;
+            paper.style.transform = slot(pos);
+            paper.classList.toggle('is-current', pos === 0);
+            paper.setAttribute('aria-hidden', pos === 0 ? 'false' : 'true');
+            var media = paper.querySelector('.paper-media');
+            media.tabIndex = pos === 0 ? 0 : -1;
+        });
+        nowEl.textContent = String(current + 1).padStart(2, '0');
+        updateButtons();
+    }
+
+    // 初次載入不要自動播放紙張動畫
+    paint(true);
+    requestAnimationFrame(function () {
+        papers.forEach(function (paper) {
+            paper.style.transition = '';
+        });
     });
-})).then(function () {
-    recalculate();
-});
 
-/* 視窗大小改變時重新計算 */
-window.addEventListener('resize', recalculate);
+    function changePage(direction) {
+        if (turning) return;
+        var target = current + direction;
+        if (target < 0 || target >= count) return;
+        turning = true;
+        updateButtons();
 
-/* 監聽整個頁面的捲動 */
-window.addEventListener('scroll', onScroll, {
-    passive: true
-});
+        if (direction > 0) {
+            // 向下一張：最上方的紙先往左飛出
+            var outgoing = papers[current];
+            outgoing.style.zIndex = count + 2;
+            outgoing.style.transform = OUT;
+            setTimeout(function () {
+                current = target;
+                outgoing.style.transition = 'none';
+                paint(false);
+                requestAnimationFrame(function () {
+                    outgoing.style.transition = '';
+                    turning = false;
+                    updateButtons();
+                });
+            }, reduce ? 0 : 390);
+        } else {
+            // 返回上一張：上一張紙從左側飛回紙堆
+            var incoming = papers[target];
+            incoming.style.transition = 'none';
+            incoming.style.zIndex = count + 2;
+            incoming.style.transform = OUT;
+            incoming.getBoundingClientRect(); // 使動畫起點生效
+            incoming.style.transition = '';
+            current = target;
+            paint(false);
+            setTimeout(function () {
+                turning = false;
+                updateButtons();
+            }, reduce ? 0 : 390);
+        }
+    }
 
+    prevBtn.addEventListener('click', function () { changePage(-1); });
+    nextBtn.addEventListener('click', function () { changePage(1); });
 
+    // 不再監聽 window.scroll 來翻頁。
+    // 長圖由 .paper-media 的原生捲動顯示，滑到底也不會跳下一張。
 
- 
     /* ==========================================
        2. 時間線
        ========================================== */
@@ -492,7 +323,7 @@ window.addEventListener('scroll', onScroll, {
     var phaseEl = document.getElementById('tl-phase');
     var fillEl  = document.getElementById('tl-fill');
     var dots    = [];
-    var current = -1;
+    var currentTimeline = -1;
  
     // 依每個時間點的 data-date 自動長出左邊的小圓點
     items.forEach(function (item, i) {
@@ -508,8 +339,8 @@ window.addEventListener('scroll', onScroll, {
     });
  
     function activate(i) {
-        if (i === current || i < 0) return;
-        current = i;
+        if (i === currentTimeline || i < 0) return;
+        currentTimeline = i;
  
         items.forEach(function (el, k) { el.classList.toggle('active', k === i); });
         dots.forEach(function (el, k) {
