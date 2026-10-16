@@ -215,104 +215,263 @@
         });
     }
  
-    /* ==========================================
-       1. 一疊紙
-       ========================================== */
-    var section = document.getElementById('stack');
-    var stage   = section.querySelector('.stack-stage');
-    var papers  = Array.prototype.slice.call(section.querySelectorAll('.paper'));
-    var N       = papers.length;
-    var nowEl   = document.getElementById('stack-now');
- 
-    section.style.setProperty('--steps', N);
- 
-    var order = papers.slice();                 // order[0] 是最上面那張
-    var OUT   = 'translate(-64%, -6%) rotate(-11deg) scale(1)';   // 被丟出去的位置
- 
-    // 第 pos 張在紙堆裡的位置:越後面越往右下偏、歪一點、小一點
-    function slot(pos) {
-        var tilt = pos === 0 ? 0 : (pos % 2 ? 1 : -1) * (1.2 + pos * 0.9);
-        return 'translate(' + (pos * 16) + 'px,' + (pos * 13) + 'px) rotate(' + tilt + 'deg) scale(' + (1 - pos * 0.025) + ')';
-    }
- 
-    function layout() {
-        order.forEach(function (p, i) {
-            p.style.zIndex = N - i;
-            p.style.transform = slot(i);
-        });
-    }
-    layout();
- 
-    // 往下:最上面那張先被丟出去,再塞到最後面
-    function forward(done) {
-        var front = order.shift();
-        front.style.zIndex = N + 5;
-        front.style.transform = OUT;
-        order.forEach(function (p, i) {
-            p.style.zIndex = N - i;
-            p.style.transform = slot(i);
-        });
-        setTimeout(function () {
-            order.push(front);
-            front.style.zIndex = 0;
-            front.style.transform = slot(N - 1);
-            setTimeout(done, reduce ? 0 : 380);
-        }, reduce ? 0 : 300);
-    }
- 
-    // 往上:最後面那張先被抽出來,再放回最上面
-    function backward(done) {
-        var back = order.pop();
-        back.style.zIndex = 0;
-        back.style.transform = OUT;
-        order.forEach(function (p, i) {
-            p.style.zIndex = N - (i + 1);
-            p.style.transform = slot(i + 1);
-        });
-        setTimeout(function () {
-            order.unshift(back);
-            back.style.zIndex = N;
-            back.style.transform = slot(0);
-            setTimeout(done, reduce ? 0 : 380);
-        }, reduce ? 0 : 300);
-    }
- 
-    var shown = 0;      // 目前翻到第幾頁
-    var want  = 0;      // 捲動位置要求的頁數
-    var busy  = false;
- 
-    function pad(n) { return (n < 10 ? '0' : '') + n; }
- 
-    function tick() {
-        if (busy || want === shown) return;
-        busy = true;
-        var dir = want > shown ? 1 : -1;
-        nowEl.textContent = pad(shown + dir + 1);
-        (dir > 0 ? forward : backward)(function () {
-            shown += dir;
-            busy = false;
-            tick();                              // 還沒到就繼續翻
-        });
-    }
- 
-    var scrollQueued = false;
-    function onScroll() {
-        if (scrollQueued) return;
-        scrollQueued = true;
-        requestAnimationFrame(function () {
-            scrollQueued = false;
-            var hh       = header ? header.offsetHeight : 90;
-            var rect     = section.getBoundingClientRect();
-            var total    = section.offsetHeight - stage.offsetHeight;
-            var scrolled = Math.min(Math.max(hh - rect.top, 0), total);
-            var p        = total > 0 ? scrolled / total : 0;
-            want = Math.min(N - 1, Math.floor(p * N));
-            tick();
-        });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+   
+/* ==========================================
+   1. 一疊紙：長圖片先捲動，再翻頁
+   ========================================== */
+
+var section = document.getElementById('stack');
+var stage = section.querySelector('.stack-stage');
+var papers = Array.prototype.slice.call(
+    section.querySelectorAll('.paper')
+);
+
+var N = papers.length;
+var nowEl = document.getElementById('stack-now');
+
+var order = papers.slice();
+
+var OUT =
+    'translate(-64%, -6%) rotate(-11deg) scale(1)';
+
+var starts = [];
+var overflows = [];
+
+var shown = 0;
+var want = 0;
+var busy = false;
+
+function pad(n) {
+    return String(n).padStart(2, '0');
+}
+
+/* 紙張堆疊的位置 */
+function slot(pos) {
+    var tilt = pos === 0
+        ? 0
+        : (pos % 2 ? 1 : -1) * (1.2 + pos * 0.9);
+
+    return 'translate(' +
+        (pos * 16) + 'px,' +
+        (pos * 13) + 'px) rotate(' +
+        tilt + 'deg) scale(' +
+        (1 - pos * 0.025) + ')';
+}
+
+/* 初始化紙張 */
+function layout() {
+    order.forEach(function (p, i) {
+        p.style.zIndex = N - i;
+        p.style.transform = slot(i);
+    });
+}
+
+layout();
+
+/* 往下翻頁 */
+function forward(done) {
+    var front = order.shift();
+
+    front.style.zIndex = N + 5;
+    front.style.transform = OUT;
+
+    order.forEach(function (p, i) {
+        p.style.zIndex = N - i;
+        p.style.transform = slot(i);
+    });
+
+    setTimeout(function () {
+        order.push(front);
+        front.style.zIndex = 0;
+        front.style.transform = slot(N - 1);
+
+        setTimeout(done, reduce ? 0 : 380);
+    }, reduce ? 0 : 300);
+}
+
+/* 往上翻頁 */
+function backward(done) {
+    var back = order.pop();
+
+    back.style.zIndex = 0;
+    back.style.transform = OUT;
+
+    order.forEach(function (p, i) {
+        p.style.zIndex = N - (i + 1);
+        p.style.transform = slot(i + 1);
+    });
+
+    setTimeout(function () {
+        order.unshift(back);
+        back.style.zIndex = N;
+        back.style.transform = slot(0);
+
+        setTimeout(done, reduce ? 0 : 380);
+    }, reduce ? 0 : 300);
+}
+
+/* 執行翻頁動畫 */
+function tick() {
+    if (busy || want === shown) return;
+
+    busy = true;
+
+    var dir = want > shown ? 1 : -1;
+
+    nowEl.textContent = pad(shown + dir + 1);
+
+    (dir > 0 ? forward : backward)(function () {
+        shown += dir;
+        busy = false;
+        tick();
+    });
+}
+
+/* ==========================================
+   計算每張圖片的實際高度
+   ========================================== */
+
+function recalculate() {
+    var position = 0;
+
+    // 看完圖片底部後，再滑多遠才翻頁
+    var flipDistance = Math.max(
+        240,
+        window.innerHeight * 0.55
+    );
+
+    papers.forEach(function (paper, i) {
+        var media = paper.querySelector('.paper-media');
+        var img = media.querySelector('img');
+
+        var overflow = 0;
+
+        if (img && img.complete && img.naturalWidth) {
+            // 根據圖片比例計算完整顯示高度
+            var fullHeight =
+                media.clientWidth *
+                img.naturalHeight /
+                img.naturalWidth;
+
+            overflow = Math.max(
+                0,
+                Math.ceil(fullHeight - media.clientHeight)
+            );
+
+            // 自動判斷是否為長圖
+            img.classList.toggle(
+                'is-tall',
+                overflow > 1
+            );
+
+            if (overflow <= 1) {
+                img.style.transform = '';
+            }
+        }
+
+        starts[i] = position;
+        overflows[i] = overflow;
+
+        // 長圖需要額外的捲動距離
+        position += overflow;
+
+        // 最後一張不用再翻頁
+        if (i < N - 1) {
+            position += flipDistance;
+        }
+    });
+
+    // 最後一張圖片看完後，保留一點空間
+    var endingSpace = Math.max(
+        220,
+        window.innerHeight * 0.35
+    );
+
+    section.style.height =
+        (stage.offsetHeight + position + endingSpace) + 'px';
+
     onScroll();
+}
+
+/* ==========================================
+   根據捲動位置更新圖片及紙張
+   ========================================== */
+
+var scrollQueued = false;
+
+function onScroll() {
+    if (scrollQueued) return;
+
+    scrollQueued = true;
+
+    requestAnimationFrame(function () {
+        scrollQueued = false;
+
+        var hh = header ? header.offsetHeight : 90;
+        var rect = section.getBoundingClientRect();
+
+        var scrolled = Math.max(
+            0,
+            hh - rect.top
+        );
+
+        // 判斷目前應該顯示哪張紙
+        want = 0;
+
+        for (var i = 1; i < N; i++) {
+            if (scrolled >= starts[i]) {
+                want = i;
+            }
+        }
+
+        // 個別控制每張長圖片的移動距離
+        papers.forEach(function (paper, i) {
+            var img = paper.querySelector(
+                '.paper-media img.is-tall'
+            );
+
+            if (!img) return;
+
+            var localScroll = Math.max(
+                0,
+                scrolled - starts[i]
+            );
+
+            var offset = Math.min(
+                localScroll,
+                overflows[i]
+            );
+
+            // 圖片往上移動，直到完整看到底部
+            img.style.transform =
+                'translate3d(0, -' + offset + 'px, 0)';
+        });
+
+        tick();
+    });
+}
+
+/* 等圖片載入完成後重新計算 */
+papers.forEach(function (paper) {
+    var img = paper.querySelector('.paper-media img');
+
+    if (img) {
+        img.addEventListener('load', recalculate);
+    }
+});
+
+/* 視窗大小改變時重新計算 */
+window.addEventListener('resize', recalculate);
+
+/* 監聽整個頁面的捲動 */
+window.addEventListener('scroll', onScroll, {
+    passive: true
+});
+
+/* 初始化 */
+recalculate();
+
+
  
     /* ==========================================
        2. 時間線
