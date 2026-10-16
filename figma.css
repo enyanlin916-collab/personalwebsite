@@ -100,15 +100,6 @@
     background: #fff;
     border: 1px solid var(--border);
 }
-/* 圖片展示區 */
-.paper-media {
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    position: relative;
-    background: #fff;
-    border: 1px solid var(--border);
-}
 
 /* 原本的 SVG 示意圖片 */
 .paper-media svg {
