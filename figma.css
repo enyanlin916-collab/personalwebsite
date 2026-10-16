@@ -100,12 +100,38 @@
     background: #fff;
     border: 1px solid var(--border);
 }
-.paper-media svg,
-.paper-media img {
+/* 圖片展示區 */
+.paper-media {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--border);
+}
+
+/* 原本的 SVG 示意圖片 */
+.paper-media svg {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* 一般圖片：完整顯示，不裁切 */
+.paper-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 長圖片：保留原始比例，讓 JS 控制向上移動 */
+.paper-media img.is-tall {
+    height: auto;
+    max-width: none;
+    object-fit: initial;
+    will-change: transform;
 }
  
 .paper-cap {
