@@ -186,6 +186,14 @@
 <script>
 (function () {
     'use strict';
+
+    (function () {
+    'use strict';
+
+    // 重新進入頁面時，不恢復上次的捲動位置
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
  
     var root   = document.documentElement;
     var header = document.querySelector('.site-header');
@@ -446,13 +454,22 @@ function onScroll() {
     });
 }
 
-/* 等圖片載入完成後重新計算 */
-papers.forEach(function (paper) {
-    var img = paper.querySelector('.paper-media img');
+/* 等全部圖片載入完成，再統一計算一次 */
+var images = papers.map(function (paper) {
+    return paper.querySelector('.paper-media img');
+}).filter(Boolean);
 
-    if (img) {
-        img.addEventListener('load', recalculate);
+Promise.all(images.map(function (img) {
+    if (img.complete) {
+        return Promise.resolve();
     }
+
+    return new Promise(function (resolve) {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true });
+    });
+})).then(function () {
+    recalculate();
 });
 
 /* 視窗大小改變時重新計算 */
@@ -463,8 +480,6 @@ window.addEventListener('scroll', onScroll, {
     passive: true
 });
 
-/* 初始化 */
-recalculate();
 
 
  
