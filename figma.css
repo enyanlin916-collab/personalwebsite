@@ -19,6 +19,8 @@
 .stack-stage {
     position: relative;
     height: 100%;
+    box-sizing: border-box;
+    padding: 84px 0 104px;   /* 上:標題空間 / 下:按鈕空間,紙堆不會進到這兩塊 */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -57,24 +59,10 @@
     font-weight: 700;
     color: var(--red);
 }
- 
-.stack-hint {
-    position: absolute;
-    bottom: 90px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    color: var(--blue);
-}
- 
-/* 紙堆本體:寬度同時受視窗寬、高限制,不會超出畫面 */
 .stack {
     position: relative;
-    width: min(780px, 78vw, calc((100vh - var(--hh) - 210px) * 1.6));
+    width: min(780px, 78vw, calc((100svh - var(--hh) - 188px) * 1.6));
     aspect-ratio: 16 / 10;
-    margin-top: 18px;
 }
  
 .paper {
@@ -87,7 +75,7 @@
     border: 2px solid var(--blue);
     box-shadow: 0 14px 28px rgba(30, 58, 107, 0.18);
     transform-origin: 50% 65%;
-    transition: transform 0.38s cubic-bezier(0.3, 1.25, 0.5, 1);
+    transition: transform 0.38s cubic-bezier(0.3, 1.25, 0.5, 1), opacity 0.3s;
     will-change: transform;
 }
  
@@ -122,6 +110,37 @@
 
 .paper { pointer-events: none; }
 .paper.is-current { pointer-events: auto; }
+/* 圖片上的「往下滑」提示 */
+.paper-tip {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+}
+.paper-tip.show { opacity: 1; }
+.paper-tip .arrow {
+    display: inline-block;
+    animation: tipBounce 1.2s ease-in-out infinite;
+}
+@keyframes tipBounce {
+    0%, 100% { transform: translateY(-2px); }
+    50%      { transform: translateY(3px); }
+}
 
 /* 點擊式翻頁與跳轉按鈕 */
 .stack-controls {
@@ -368,10 +387,10 @@
 @media (max-width: 768px) {
     .stack-head { left: 20px; top: 18px; }
     .stack-count { right: 20px; top: 20px; }
-    .stack { width: min(92vw, calc((100svh - var(--hh) - 215px) * 1.6)); }
+    .stack-stage { padding: 70px 0 100px; }
+    .stack { width: min(92vw, calc((100svh - var(--hh) - 170px) * 1.6)); }
     .stack-controls { gap: 7px; bottom: 12px; }
     .stack-btn, .stack-skip { padding: 8px 11px; font-size: 0.74rem; min-height: 38px; }
-    .stack-hint { bottom: 111px; font-size: 0.75rem; }
  
     .process { padding-top: 80px; }
     .process-inner { padding: 0 24px; }
@@ -410,7 +429,7 @@
 ================================ */
 @media (prefers-reduced-motion: reduce) {
     .paper { transition: none; }
-    .stack-hint { animation: none; }
+    .paper-tip .arrow { animation: none; }
     .tl-date.swap { animation: none; }
     .tl-fill { transition: none; }
 }
