@@ -98,8 +98,6 @@
 
         </div>
 
-        <p class="stack-hint">在圖片上往下滑，看完整張設計</p>
-
         <div class="stack-controls" aria-label="作品切換">
             <button type="button" class="stack-btn" id="stack-prev">← 上一張</button>
             <button type="button" class="stack-btn" id="stack-next">下一張 →</button>
@@ -234,11 +232,12 @@
     var prevBtn = document.getElementById('stack-prev');
     var nextBtn = document.getElementById('stack-next');
     var OUT = 'translate(-64%, -6%) rotate(-11deg) scale(1)';
+    var VISIBLE = 3;   // 最多露出幾張(含最上面那張)
 
+    // 整齊的紙疊:不旋轉,後面的紙只往下移一點、縮小一點
     function slot(pos) {
-        var tilt = pos === 0 ? 0 : (pos % 2 ? 1 : -1) * (1.2 + pos * 0.9);
-        return 'translate(' + (pos * 16) + 'px,' + (pos * 13) +
-            'px) rotate(' + tilt + 'deg) scale(' + (1 - pos * 0.025) + ')';
+        var p = Math.min(pos, VISIBLE - 1);
+        return 'translateY(' + (p * 9) + 'px) scale(' + (1 - p * 0.03) + ')';
     }
 
     function updateButtons() {
@@ -246,18 +245,50 @@
         nextBtn.disabled = turning || current === count - 1;
     }
 
+    // 「往下滑」提示:每張圖各一個,滑過就不再出現
+    papers.forEach(function (paper) {
+        var media = paper.querySelector('.paper-media');
+        var img = media.querySelector('img');
+        var tip = document.createElement('div');
+        tip.className = 'paper-tip';
+        tip.setAttribute('aria-hidden', 'true');
+        tip.innerHTML = '<span class="arrow">↓</span> 往下滑看完整設計';
+        paper.appendChild(tip);
+        paper._tip = tip;
+        paper._scrolled = false;
+
+        media.addEventListener('scroll', function () {
+            if (media.scrollTop > 8) paper._scrolled = true;
+            updateTip(paper);
+        }, { passive: true });
+        if (img) img.addEventListener('load', function () { updateTip(paper); });
+    });
+
+    function updateTip(paper) {
+        var media = paper.querySelector('.paper-media');
+        var scrollable = media.scrollHeight - media.clientHeight > 8;
+        paper._tip.classList.toggle(
+            'show',
+            paper.classList.contains('is-current') && scrollable && !paper._scrolled
+        );
+    }
+    function updateTips() { papers.forEach(updateTip); }
+    window.addEventListener('resize', updateTips);
+
     function paint(noTransition) {
         papers.forEach(function (paper, index) {
             var pos = (index - current + count) % count;
             if (noTransition) paper.style.transition = 'none';
             paper.style.zIndex = count - pos;
             paper.style.transform = slot(pos);
+            paper.style.opacity = pos < VISIBLE ? '1' : '0';
             paper.classList.toggle('is-current', pos === 0);
             paper.setAttribute('aria-hidden', pos === 0 ? 'false' : 'true');
             var media = paper.querySelector('.paper-media');
             media.tabIndex = pos === 0 ? 0 : -1;
         });
         nowEl.textContent = String(current + 1).padStart(2, '0');
+        updateTips();
         updateButtons();
     }
 
@@ -298,7 +329,8 @@
             incoming.style.zIndex = count + 2;
             incoming.style.transform = OUT;
             incoming.getBoundingClientRect(); // 使動畫起點生效
-            incoming.style.transition = '';
+            incoming.style.transition = 'none';
+            incoming.style.opacity = '1';
             current = target;
             paint(false);
             setTimeout(function () {
