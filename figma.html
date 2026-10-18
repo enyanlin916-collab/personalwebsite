@@ -116,63 +116,90 @@
          改 data-date(日期)和 data-phase(階段名稱),左邊就會自動更新
          要增加時間點:複製整個 <article>,貼在最後一個後面
          ========================================== -->
-    <section class="process" id="process">
-        <div class="process-inner">
-            <h2 class="section-title">Process</h2>
- 
-            <div class="tl">
-                <div class="tl-rail" aria-hidden="true">
-                    <div class="tl-sticky">
-                        <div class="tl-date" id="tl-date">2026.03</div>
-                        <p class="tl-phase" id="tl-phase">Research</p>
-                        <div class="tl-track">
-                            <div class="tl-fill" id="tl-fill"></div>
-                            <ul class="tl-dots" id="tl-dots"></ul>
-                        </div>
+ <section class="process" id="process">
+    <div class="process-inner">
+        <h2 class="section-title">Process</h2>
+
+        <div class="tl">
+            <div class="tl-rail" aria-hidden="true">
+                <div class="tl-sticky">
+                    <div class="tl-date" id="tl-date">Research<br>&amp; Analysis</div>
+                    <p class="tl-phase" id="tl-phase">STEP 01</p>
+                    <div class="tl-track">
+                        <div class="tl-fill" id="tl-fill"></div>
+                        <ul class="tl-dots" id="tl-dots"></ul>
                     </div>
                 </div>
- 
-                <div class="tl-items">
- 
-                    <article class="tl-item" data-date="2026.03" data-phase="Research">
-                        <p class="tl-step">STEP 01</p>
-                        <h3>了解使用者</h3>
-                        <p>在這裡寫你當時怎麼做研究,例如訪談、問卷、競品分析,以及你發現了什麼。</p>
-                        <div class="tl-media">在這裡放這個階段的圖片</div>
-                    </article>
- 
-                    <article class="tl-item" data-date="2026.04" data-phase="Define">
-                        <p class="tl-step">STEP 02</p>
-                        <h3>定義問題</h3>
-                        <p>在這裡寫你整理出來的核心問題,和你想達成的目標。</p>
-                        <div class="tl-media">在這裡放這個階段的圖片</div>
-                    </article>
- 
-                    <article class="tl-item" data-date="2026.05" data-phase="Wireframe">
-                        <p class="tl-step">STEP 03</p>
-                        <h3>草圖與線框</h3>
-                        <p>在這裡寫你怎麼從草圖開始,規劃頁面的結構和使用流程。</p>
-                        <div class="tl-media">在這裡放這個階段的圖片</div>
-                    </article>
- 
-                    <article class="tl-item" data-date="2026.06" data-phase="UI Design">
-                        <p class="tl-step">STEP 04</p>
-                        <h3>視覺設計</h3>
-                        <p>在這裡寫你選的配色、字體,以及怎麼把線框變成完整的畫面。</p>
-                        <div class="tl-media">在這裡放這個階段的圖片</div>
-                    </article>
- 
-                    <article class="tl-item" data-date="2026.07" data-phase="Prototype & Test">
-                        <p class="tl-step">STEP 05</p>
-                        <h3>原型與測試</h3>
-                        <p>在這裡寫你怎麼做互動原型、找人測試,以及後來修改了什麼。</p>
-                        <div class="tl-media">在這裡放這個階段的圖片</div>
-                    </article>
- 
-                </div>
+            </div>
+
+            <div class="tl-items">
+
+                <!-- 1. Research & Analysis：三格 -->
+                <article class="tl-item" data-date="Research&#10;&amp; Analysis" data-phase="STEP 01">
+                    <h3>研究與分析</h3>
+                    <p>在這裡寫你怎麼了解使用者、整理出哪些發現。</p>
+                    <div class="tl-grid cols-3">
+                        <figure class="tl-cell">
+                            <div class="tl-cell-media">
+                                <!-- <img src="persona.png" alt="Persona"> -->
+                                放 Persona 圖片
+                            </div>
+                            <figcaption>
+                                <strong>Persona</strong>
+                                <span>在這裡寫這個使用者是誰、有什麼需求。</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="tl-cell">
+                            <div class="tl-cell-media">
+                                <!-- <img src="journey-map.png" alt="User Journey Map"> -->
+                                放 Journey Map 圖片
+                            </div>
+                            <figcaption>
+                                <strong>User Journey Map</strong>
+                                <span>在這裡寫使用者的流程與情緒變化。</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="tl-cell">
+                            <div class="tl-cell-media">
+                                <!-- <img src="problems.png" alt="Current Problems"> -->
+                                放 Current Problems 圖片
+                            </div>
+                            <figcaption>
+                                <strong>Current Problems</strong>
+                                <span>在這裡寫現有的問題與痛點。</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- 2. UX Design：一張 -->
+                <article class="tl-item" data-date="UX&#10;Design" data-phase="STEP 02">
+                    <h3>UX 設計</h3>
+                    <p>在這裡寫你怎麼規劃頁面結構與使用流程。</p>
+                    <div class="tl-media">
+                        <!-- <img src="wireframe.png" alt="Wireframe"> -->
+                        放 Wireframe 圖片
+                    </div>
+                    <p class="tl-note">在這裡寫 Wireframe 的說明。</p>
+                </article>
+
+                <!-- 3. UI Design：兩格 -->
+                <article class="tl-item" data-date="UI&#10;Design" data-phase="STEP 03">
+                    <h3>UI 設計</h3>
+                    <p>在這裡寫你的配色、字體，以及桌機與手機版的設計。</p>
+                    <div class="tl-grid cols-ui">
+                        <figure class="tl-cell">
+                            <div class="tl-cell-media is-desktop">
+                               <!-- <img src="prototype.png" alt="Prototype"> -->
+                        放 Prototype 圖片
+                    </div>
+                    <p class="tl-note">在這裡寫原型的說明。</p>
+                </article>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
  
     <nav class="fnav">
         <a href="index.html#projects">← 回到所有作品</a>
