@@ -233,12 +233,14 @@
 }
  
 .tl-date {
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-size: clamp(1.7rem, 2.8vw, 2.3rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.15;
     color: var(--blue);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
+    white-space: pre-line;   /* 讓換行生效 */
 }
+
 .tl-date.swap {
     animation: dateIn 0.45s cubic-bezier(0.3, 1.4, 0.5, 1);
 }
@@ -363,6 +365,71 @@
     object-fit: cover;
     display: block;
 }
+/* 多格圖片（Research 三格 / UI 兩格） */
+.tl-grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 28px;
+}
+.tl-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.tl-grid.cols-ui {
+    grid-template-columns: 1.9fr 1fr;
+    align-items: start;
+}
+
+.tl-cell { margin: 0; }
+.tl-cell-media {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #fff;
+    border: 2px solid var(--blue);
+    box-shadow: 5px 5px 0 var(--red);
+    color: var(--blue);
+    font-size: 0.85rem;
+    text-align: center;
+}
+.tl-cell-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* 完整顯示不裁切 */
+}
+.cols-3 .tl-cell-media { aspect-ratio: 3 / 4; }
+.tl-cell-media.is-desktop { aspect-ratio: 16 / 10; }
+.tl-cell-media.is-mobile  { aspect-ratio: 9 / 16; }
+
+/* 每格圖片下面的標題與敘述 */
+.tl-cell figcaption { margin-top: 14px; }
+.tl-cell figcaption strong {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--red);
+}
+.tl-cell figcaption span {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* 單張圖下面的敘述 */
+.tl-note {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+.tl-grid.cols-3 { grid-template-columns: 1fr; gap: 32px; }
+.cols-3 .tl-cell {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+.cols-3 .tl-cell figcaption { margin-top: 0; }
  
 /* ==============================
    3. 頁尾導覽
@@ -416,14 +483,23 @@
         align-items: baseline;
         gap: 14px;
     }
-    .tl-date { font-size: 1.6rem; }
+    .tl-date { font-size: 1.25rem; white-space: normal; }  /* 手機只顯示一行 */
     .tl-phase { margin-top: 0; }
     .tl-track { display: none; }
  
     .tl-item { min-height: 70vh; padding: 8vh 0; }
     .fnav { padding: 40px 24px 70px; }
+    .tl-grid.cols-3,
+    .tl-grid.cols-ui { grid-template-columns: 1fr; gap: 24px; }
+    .tl-cell-media.is-mobile { max-width: 220px; }
+    .fnav { padding: 40px 24px 70px; }
+    .tl-grid.cols-3,
+    .tl-grid.cols-ui { grid-template-columns: 1fr; gap: 24px; }
+    .tl-cell-media.is-mobile { max-width: 220px; }
+    .cols-3 .tl-cell { grid-template-columns: 1fr; gap: 0; }
+    .cols-3 .tl-cell figcaption { margin-top: 14px; }
 }
- 
+}
 /* ==============================
    減少動態:直接切換,不做動畫
 ================================ */
