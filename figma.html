@@ -457,18 +457,6 @@
         }, { rootMargin: '-45% 0px -45% 0px' });   // 只看畫面正中間那一條線
         items.forEach(function (el) { io.observe(el); });
     }
-    // 放在最後面那段 JS 裡
-var proto = document.querySelector('.tl-embed iframe');
-if (proto && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries, obs) {
-        if (entries[0].isIntersecting) {
-            proto.src = proto.dataset.src;
-            obs.disconnect();
-        }
-    }, { rootMargin: '1500px 0px' }).observe(document.getElementById('process'));
-} else if (proto) {
-    proto.src = proto.dataset.src;
-}
  
 })();
 </script>
