@@ -373,7 +373,6 @@
     grid-template-columns: 1fr;
     gap: 40px;
 }
-}
 .tl-cell { margin: 0; }
 .tl-cell-media {
     display: grid;
@@ -504,7 +503,6 @@
     .fnav { padding: 40px 24px 70px; }
        .tl-grid { gap: 28px; }
     .tl-cell-media.is-mobile { width: min(100%, 220px); }
-}
 }
 /* ==============================
    減少動態:直接切換,不做動畫
