@@ -370,13 +370,10 @@
     display: grid;
     gap: 18px;
     margin-top: 28px;
+    grid-template-columns: 1fr;
+    gap: 40px;
 }
-.tl-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.tl-grid.cols-ui {
-    grid-template-columns: 1.9fr 1fr;
-    align-items: start;
 }
-
 .tl-cell { margin: 0; }
 .tl-cell-media {
     display: grid;
@@ -395,9 +392,12 @@
     height: 100%;
     object-fit: contain;   /* 完整顯示不裁切 */
 }
-.cols-3 .tl-cell-media { aspect-ratio: 3 / 4; }
-.tl-cell-media.is-desktop { aspect-ratio: 16 / 10; }
-.tl-cell-media.is-mobile  { aspect-ratio: 9 / 16; }
+.tl-cell-media { aspect-ratio: 16 / 9; }   /* 預設全部橫式 */
+.tl-cell-media.is-mobile {
+    aspect-ratio: 9 / 16;                   /* 只有 Mobile 是直式 */
+    width: min(100%, 300px);
+    margin: 0 auto;
+}
 
 /* 每格圖片下面的標題與敘述 */
 .tl-cell figcaption { margin-top: 14px; }
@@ -489,15 +489,8 @@
  
     .tl-item { min-height: 70vh; padding: 8vh 0; }
     .fnav { padding: 40px 24px 70px; }
-    .tl-grid.cols-3,
-    .tl-grid.cols-ui { grid-template-columns: 1fr; gap: 24px; }
-    .tl-cell-media.is-mobile { max-width: 220px; }
-    .fnav { padding: 40px 24px 70px; }
-    .tl-grid.cols-3,
-    .tl-grid.cols-ui { grid-template-columns: 1fr; gap: 24px; }
-    .tl-cell-media.is-mobile { max-width: 220px; }
-    .cols-3 .tl-cell { grid-template-columns: 1fr; gap: 0; }
-    .cols-3 .tl-cell figcaption { margin-top: 14px; }
+       .tl-grid { gap: 28px; }
+    .tl-cell-media.is-mobile { width: min(100%, 220px); }
 }
 }
 /* ==============================
