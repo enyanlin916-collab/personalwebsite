@@ -421,6 +421,25 @@
     line-height: 1.7;
     color: var(--muted);
 }
+
+/* Persona、Journey Map、Problems、Wireframe、Prototype 標題 */
+
+.tl-note strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--red);
+}
+
+.tl-note span {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
 .tl-grid.cols-3 { grid-template-columns: 1fr; gap: 32px; }
 .cols-3 .tl-cell {
     display: grid;
