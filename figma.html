@@ -561,7 +561,23 @@
         }, { rootMargin: '-45% 0px -45% 0px' });   // 只看畫面正中間那一條線
         items.forEach(function (el) { io.observe(el); });
     }
-    
+        /* ---------- Wireframe 縮圖切換 ---------- */
+    var wf = document.getElementById('wf');
+    if (wf) {
+        var wfImg   = document.getElementById('wf-img');
+        var wfTitle = document.getElementById('wf-title');
+        var wfText  = document.getElementById('wf-text');
+        var wfBtns  = Array.prototype.slice.call(wf.querySelectorAll('.wf-thumbs button'));
+        wfBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                wfBtns.forEach(function (b) { b.classList.toggle('is-on', b === btn); });
+                wfImg.src = btn.dataset.src;
+                wfImg.alt = btn.querySelector('img').alt;
+                wfTitle.textContent = btn.dataset.title;
+                wfText.textContent = btn.dataset.text;
+            });
+        });
+    }
  
 })();
 </script>
