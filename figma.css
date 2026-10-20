@@ -591,7 +591,12 @@ html { scroll-behavior: smooth; }
 }
 .mx-frame {
     aspect-ratio: 9 / 16;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) #fff;
     background: #fff;
     border: 2px solid var(--blue);
     box-shadow: 5px 5px 0 var(--red);
@@ -599,8 +604,7 @@ html { scroll-behavior: smooth; }
 .mx-frame img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;   /* 以寬度為準，依原比例完整顯示 */
 }
 .mx-nav {
     display: flex;
