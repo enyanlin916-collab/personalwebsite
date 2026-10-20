@@ -256,26 +256,8 @@ html { scroll-behavior: smooth; }
     letter-spacing: 0.08em;
     color: var(--muted);
 }
-.overview-lead,
-.overview-more {
-    max-width: 34em;
-    text-align: left;
-    line-height: 1.9;
-    line-break: strict;        /* 標點不會跑到行首 */
-    word-break: normal;
-    overflow-wrap: break-word;
-    text-wrap: pretty;         /* 避免最後一行只剩一兩個字 */
-}
-.overview-lead {
-    font-size: 1.05rem;
-}
-.overview-more {
-    margin-top: 22px;
-    padding-left: 18px;
-    border-left: 3px solid var(--red);
-    font-size: 0.95rem;
-    color: var(--muted);
-}
+.overview { padding-top: 60px; }
+.overview-inner { padding: 0 24px; }
 /* ==============================
    2. 長長的時間線
 ================================ */
