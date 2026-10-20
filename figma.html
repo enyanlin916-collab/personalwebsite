@@ -657,6 +657,7 @@
 
         function mxShow(i) {
             mxNow = Math.max(0, Math.min(mxSrc.length - 1, i));
+            document.querySelector('.mx-frame').scrollTop = 0;
             mxImg.src = mxSrc[mxNow];
             mxImg.alt = 'Mobile ' + String(mxNow + 1).padStart(2, '0');
             mxCount.textContent = (mxNow + 1) + ' / ' + mxSrc.length;
