@@ -201,8 +201,8 @@
                     <p class="tl-note">在這裡寫 Wireframe 的說明。</p>
                 </article>
                  <!-- 3. UI Design：兩格 -->
-                <article class="tl-item" data-date="UI&#10;Design" data-phase="STEP 03">
-                    <h3>UI 設計</h3>
+                <article class="tl-item" data-group="UI DESIGN" data-date="Visual&#10;Design" data-phase="STEP 03">
+                    <h3>介面設計</h3>
                     <p>在這裡寫你的配色、字體，以及桌機與手機版的設計。</p>
                     <div class="tl-grid cols-ui">
                         <figure class="tl-cell">
@@ -532,6 +532,8 @@
         void dateEl.offsetWidth;                 // 讓動畫可以重播
         dateEl.classList.add('swap');
         dateEl.textContent = items[i].dataset.date;
+        var groupEl = document.getElementById('tl-group');
+        if (groupEl) groupEl.textContent = items[i].dataset.group || '';
         phaseEl.textContent = items[i].dataset.phase;
     }
     activate(0);
