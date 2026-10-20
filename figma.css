@@ -14,14 +14,7 @@
     vertical-align: middle;
     background: var(--border);
 }
-/* 導覽列：目前所在區塊（紅字 + 底線） */
-.site-nav a.is-active {
-    color: var(--red);
-    text-decoration: underline;
-    text-decoration-color: var(--red);
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 6px;
-}
+/* 導覽列沿用首頁的 .active 紅字與底線樣式 */
 /* 點快捷連結跳過去時，不要被上方導覽列擋住 */
 html { scroll-behavior: smooth; }
 #stack, #overview { scroll-margin-top: var(--hh); }
@@ -402,13 +395,7 @@ html { scroll-behavior: smooth; }
     min-height: 88vh;
     padding: 12vh 0;
 }
-.js .tl-item {
-    opacity: 0.28;
-    transition: opacity 0.5s ease;
-}
-.js .tl-item.active {
-    opacity: 1;
-}
+/* 淡入交給各個內容區塊的 .reveal，避免整個時間點持續半透明 */
  
 .tl-step {
     font-size: 0.85rem;
@@ -618,3 +605,4 @@ html { scroll-behavior: smooth; }
     .tl-date.swap { animation: none; }
     .tl-fill { transition: none; }
 }
+
