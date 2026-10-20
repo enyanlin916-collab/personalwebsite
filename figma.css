@@ -505,35 +505,55 @@ html { scroll-behavior: smooth; }
     align-items: start;
 }
 .cols-3 .tl-cell figcaption { margin-top: 0; }
-/* Wireframe：大圖 + 縮圖切換 */
-.wf-thumbs {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-top: 18px;
-}
-.wf-thumbs button {
-    padding: 0;
-    border: 2px solid var(--border);
+/* Wireframe 大圖：固定框，圖片在裡面往下滑 */
+.wf-main {
+    position: relative;
+    margin-top: 28px;
+    border: 2px solid var(--blue);
+    box-shadow: 8px 8px 0 var(--red);
     background: #fff;
-    cursor: pointer;
+}
+.wf-scroll {
     aspect-ratio: 16 / 10;
-    overflow: hidden;
-    opacity: 0.6;
-    transition: opacity 0.2s, border-color 0.2s;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) #fff;
 }
-.wf-thumbs button:hover { opacity: 1; }
-.wf-thumbs button.is-on {
-    opacity: 1;
-    border-color: var(--red);
-}
-.wf-thumbs img {
+.wf-scroll img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
 }
-/* Wireframe：大圖 + 縮圖切換 */
+.wf-tip {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.wf-tip.show { opacity: 1; }
+.wf-tip .arrow {
+    display: inline-block;
+    animation: tipBounce 1.2s ease-in-out infinite;
+}
+
+/* Wireframe 縮圖列 */
 .wf-thumbs {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -653,5 +673,6 @@ html { scroll-behavior: smooth; }
     .paper-tip .arrow { animation: none; }
     .tl-date.swap { animation: none; }
     .tl-fill { transition: none; }
+    .wf-tip .arrow { animation: none; }
 }
 
