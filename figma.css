@@ -529,7 +529,11 @@
  
     .process { padding-top: 80px; }
     .process-inner { padding: 0 24px; }
- 
+       .overview { padding-top: 60px; }
+    .overview-inner { padding: 24px 24px 0; }
+   
+    .overview { padding-top: 60px; }
+    .overview-inner { padding: 24px 24px 0; }
     .tl {
         grid-template-columns: 1fr;
         gap: 0;
