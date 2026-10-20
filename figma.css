@@ -609,10 +609,10 @@ html { scroll-behavior: smooth; }
     .tl-date { font-size: 1.25rem; white-space: normal; }  /* 手機只顯示一行 */
     .tl-phase { margin-top: 0; }
     .tl-track { display: none; }
- 
+    .wf-thumbs { gap: 6px; }
     .tl-item { min-height: 70vh; padding: 8vh 0; }
     .fnav { padding: 40px 24px 70px; }
-       .tl-grid { gap: 28px; }
+    .tl-grid { gap: 28px; }
     .tl-cell-media.is-mobile { width: min(100%, 220px); }
     .nav-sep { display: none; }
 }
