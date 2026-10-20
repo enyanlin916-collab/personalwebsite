@@ -6,7 +6,19 @@
 :root {
     --hh: 90px;   /* 上方導覽列高度,JS 會自動量測並更新 */
 }
- 
+/* 導覽列：本頁快捷連結 */
+.nav-sep {
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    margin: 0 4px;
+    vertical-align: middle;
+    background: var(--border);
+}
+
+/* 點快捷連結跳過去時，不要被上方導覽列擋住 */
+html { scroll-behavior: smooth; }
+#stack, #overview { scroll-margin-top: var(--hh); }
 /* ==============================
    1. 一疊紙:往下滑翻頁
 ================================ */
