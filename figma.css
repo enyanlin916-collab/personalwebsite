@@ -203,7 +203,44 @@
     color: var(--red);
     margin-right: 6px;
 }
- 
+
+/* ==============================
+   專案摘要
+================================ */
+.overview {
+    padding: 80px 0 0;
+}
+.overview-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 28px 40px 0;
+    border-top: 2px solid var(--blue);
+}
+.overview-kicker {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--red);
+}
+.overview-inner h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 400;
+    margin: 8px 0 14px;
+}
+.overview-lead {
+    max-width: 680px;
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+.overview-more {
+    max-width: 680px;
+    margin-top: 22px;
+    padding-left: 18px;
+    border-left: 3px solid var(--red);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
 /* ==============================
    2. 長長的時間線
 ================================ */
