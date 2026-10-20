@@ -196,9 +196,12 @@
                     <h3>線框圖</h3>
                     <p>在這裡寫你怎麼規劃頁面結構與使用流程。</p>
                     <div class="wf" id="wf">
-                    <div class="tl-media wf-main">
-                    <img src="wireframe01.png" alt="Wireframe 01" id="wf-img">
-                    </div>
+                    <div class="wf-main">
+    <div class="wf-scroll" id="wf-scroll">
+        <img src="wireframe01.png" alt="Wireframe 01" id="wf-img">
+    </div>
+    <div class="wf-tip" id="wf-tip" aria-hidden="true"><span class="arrow">↓</span> 往下滑看完整設計</div>
+</div>
 
                     <div class="wf-thumbs" role="tablist" aria-label="Wireframe 圖片">
                     <button type="button" class="is-on" data-src="wireframe01.png" data-title="首頁" data-text="在這裡寫首頁線框的說明。"><img src="wireframe01.png" alt="Wireframe 01"></button>
@@ -561,22 +564,41 @@
         }, { rootMargin: '-45% 0px -45% 0px' });   // 只看畫面正中間那一條線
         items.forEach(function (el) { io.observe(el); });
     }
-        /* ---------- Wireframe 縮圖切換 ---------- */
+     /* ---------- Wireframe 縮圖切換 + 長圖往下滑 ---------- */
     var wf = document.getElementById('wf');
     if (wf) {
-        var wfImg   = document.getElementById('wf-img');
-        var wfTitle = document.getElementById('wf-title');
-        var wfText  = document.getElementById('wf-text');
-        var wfBtns  = Array.prototype.slice.call(wf.querySelectorAll('.wf-thumbs button'));
+        var wfScroll = document.getElementById('wf-scroll');
+        var wfImg    = document.getElementById('wf-img');
+        var wfTip    = document.getElementById('wf-tip');
+        var wfTitle  = document.getElementById('wf-title');
+        var wfText   = document.getElementById('wf-text');
+        var wfBtns   = Array.prototype.slice.call(wf.querySelectorAll('.wf-thumbs button'));
+        var wfSeen   = {};   // 記錄哪幾張已經滑過，滑過就不再提示
+
+        function updateWfTip() {
+            var scrollable = wfScroll.scrollHeight - wfScroll.clientHeight > 8;
+            wfTip.classList.toggle('show', scrollable && !wfSeen[wfImg.getAttribute('src')]);
+        }
+
+        wfScroll.addEventListener('scroll', function () {
+            if (wfScroll.scrollTop > 8) wfSeen[wfImg.getAttribute('src')] = true;
+            updateWfTip();
+        }, { passive: true });
+        wfImg.addEventListener('load', updateWfTip);
+        window.addEventListener('resize', updateWfTip);
+
         wfBtns.forEach(function (btn) {
             btn.addEventListener('click', function () {
                 wfBtns.forEach(function (b) { b.classList.toggle('is-on', b === btn); });
                 wfImg.src = btn.dataset.src;
                 wfImg.alt = btn.querySelector('img').alt;
+                wfScroll.scrollTop = 0;   // 換圖時回到最上面
                 wfTitle.textContent = btn.dataset.title;
                 wfText.textContent = btn.dataset.text;
+                updateWfTip();
             });
         });
+        updateWfTip();
     }
  
 })();
