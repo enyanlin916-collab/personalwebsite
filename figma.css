@@ -1,6 +1,5 @@
 /* ==============================
    FIGMA PROJECT PAGE
-   (載入順序:hw3-113450006.css → figma.css)
 ================================ */
  
 :root {
@@ -15,7 +14,14 @@
     vertical-align: middle;
     background: var(--border);
 }
-
+/* 導覽列：目前所在區塊（紅字 + 底線） */
+.site-nav a.is-active {
+    color: var(--red);
+    text-decoration: underline;
+    text-decoration-color: var(--red);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 6px;
+}
 /* 點快捷連結跳過去時，不要被上方導覽列擋住 */
 html { scroll-behavior: smooth; }
 #stack, #overview { scroll-margin-top: var(--hh); }
