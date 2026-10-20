@@ -221,7 +221,16 @@
                  <!-- 3. UI Design：兩格 -->
                 <article class="tl-item" data-group="UI DESIGN" data-date="Visual&#10;Design" data-phase="STEP 03">
                     <h3>介面設計</h3>
-                    <p>在這裡寫你的配色、字體，以及桌機與手機版的設計。</p>
+                    <p>因為 </p>
+                    <figure class="tl-cell">
+                    <div class="tl-cell-media is-auto">
+                    <img src="components.png" alt="Components">
+                    </div>
+                    <figcaption>
+                    <strong>Components</strong>
+                    <span>這些按鍵（包括按鈕、卡、導覽列等）是我在頁面設計之前先建立的，這些元件讓我在後續的設計中可以更有效地管理，除了可以重複使用且更好管理外，畫面也看起來更整齊了。</span>
+                    </figcaption>
+                    </figure>
                     <div class="tl-grid cols-ui">
                         <figure class="tl-cell">
                             <div class="tl-cell-media">
@@ -233,7 +242,7 @@
                             </figcaption>
                         </figure>
                         <figure class="tl-cell">
-                            <div class="tl-cell-media is-mobile">
+                            <div class="tl-cell-media">
                             <img src="ui-mobile.png" alt="Mobile">
                             </div>
                             <figcaption>
@@ -242,6 +251,41 @@
                             </figcaption>
                         </figure>
                     </div>
+                    <div class="mx" id="mx">
+    <div class="mx-viewer">
+        <div class="mx-frame">
+            <img src="mobile01.png" alt="Mobile 01" id="mx-img">
+        </div>
+        <div class="mx-nav">
+            <button type="button" class="mx-btn" id="mx-prev">← 上一頁</button>
+            <span class="mx-count" id="mx-count">1 / 9</span>
+            <button type="button" class="mx-btn" id="mx-next">下一頁 →</button>
+        </div>
+    </div>
+
+    <div class="mx-cards">
+        <div class="mx-card">
+            <strong>小標題一</strong>
+            <span>在這裡寫改善內容的說明。</span>
+        </div>
+        <div class="mx-card">
+            <strong>小標題二</strong>
+            <span>在這裡寫改善內容的說明。</span>
+        </div>
+        <div class="mx-card">
+            <strong>小標題三</strong>
+            <span>在這裡寫改善內容的說明。</span>
+        </div>
+        <div class="mx-card">
+            <strong>小標題四</strong>
+            <span>在這裡寫改善內容的說明。</span>
+        </div>
+        <div class="mx-card">
+            <strong>小標題五</strong>
+            <span>在這裡寫改善內容的說明。</span>
+        </div>
+    </div>
+</div>
                 </article>
 
                 <!-- 4. Prototype：一張 -->
@@ -599,6 +643,34 @@
             });
         });
         updateWfTip();
+    }
+        /* ---------- 手機版直式圖片：上一頁 / 下一頁 ---------- */
+    var mxImg = document.getElementById('mx-img');
+    if (mxImg) {
+        var mxSrc = [
+            'mobile01.png', 'mobile02.png', 'mobile03.png',
+            'mobile04.png', 'mobile05.png', 'mobile06.png',
+            'mobile07.png', 'mobile08.png', 'mobile09.png'
+        ];
+        var mxPrev  = document.getElementById('mx-prev');
+        var mxNext  = document.getElementById('mx-next');
+        var mxCount = document.getElementById('mx-count');
+        var mxNow   = 0;
+
+        // 先預載，切頁時不會閃一下
+        mxSrc.forEach(function (s) { new Image().src = s; });
+
+        function mxShow(i) {
+            mxNow = Math.max(0, Math.min(mxSrc.length - 1, i));
+            mxImg.src = mxSrc[mxNow];
+            mxImg.alt = 'Mobile ' + String(mxNow + 1).padStart(2, '0');
+            mxCount.textContent = (mxNow + 1) + ' / ' + mxSrc.length;
+            mxPrev.disabled = mxNow === 0;
+            mxNext.disabled = mxNow === mxSrc.length - 1;
+        }
+        mxPrev.addEventListener('click', function () { mxShow(mxNow - 1); });
+        mxNext.addEventListener('click', function () { mxShow(mxNow + 1); });
+        mxShow(0);
     }
  
 })();
