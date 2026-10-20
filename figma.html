@@ -436,6 +436,69 @@
             }
         });
     }
+    /* ---------- 導覽列：點擊跳轉、手動捲動都更新目前區塊 ---------- */
+    var sectionLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+    var navSections = sectionLinks.map(function (link) {
+        return { link: link, section: document.getElementById(link.hash.slice(1)) };
+    }).filter(function (entry) { return entry.section; });
+
+    function updateActiveLink() {
+        if (!navSections.length) return;
+        var marker = header.getBoundingClientRect().bottom + 24;
+        var currentSection = navSections[0];
+        navSections.forEach(function (entry) {
+            if (entry.section.getBoundingClientRect().top <= marker) currentSection = entry;
+        });
+        if (window.scrollY + window.innerHeight >= root.scrollHeight - 2) {
+            currentSection = navSections[navSections.length - 1];
+        }
+        navSections.forEach(function (entry) {
+            var active = entry === currentSection;
+            entry.link.classList.toggle('active', active);
+            if (active) entry.link.setAttribute('aria-current', 'location');
+            else entry.link.removeAttribute('aria-current');
+        });
+    }
+    var navFrame = 0;
+    function scheduleNavUpdate() {
+        if (navFrame) return;
+        navFrame = requestAnimationFrame(function () {
+            navFrame = 0;
+            updateActiveLink();
+        });
+    }
+    window.addEventListener('scroll', scheduleNavUpdate, { passive: true });
+    window.addEventListener('resize', scheduleNavUpdate);
+    window.addEventListener('hashchange', scheduleNavUpdate);
+    window.addEventListener('pageshow', scheduleNavUpdate);
+    window.addEventListener('load', function () {
+        setHeaderHeight();
+        scheduleNavUpdate();
+    });
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+            setHeaderHeight();
+            scheduleNavUpdate();
+        });
+    }
+    updateActiveLink();
+
+    /* ---------- 沿用首頁的捲動淡入，每次重新進入畫面都播放 ---------- */
+    var revealBlocks = document.querySelectorAll(
+        '.overview-inner > *, .process-inner > .section-title, .tl-item > *'
+    );
+    if ('IntersectionObserver' in window && !reduce) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            });
+        }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+        revealBlocks.forEach(function (el) {
+            el.classList.add('reveal');
+            revealObserver.observe(el);
+        });
+    }
+
     /* ==========================================
        2. 時間線
        ========================================== */
@@ -494,3 +557,4 @@
  
 </body>
 </html>
+
