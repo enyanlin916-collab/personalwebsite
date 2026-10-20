@@ -423,7 +423,16 @@
 
     // 不再監聽 window.scroll 來翻頁。
     // 長圖由 .paper-media 的原生捲動顯示，滑到底也不會跳下一張。
-
+    if (nav) {
+        nav.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A' && nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.textContent = '☰';
+                setHeaderHeight();
+            }
+        });
+    }
     /* ==========================================
        2. 時間線
        ========================================== */
@@ -475,6 +484,7 @@
         }, { rootMargin: '-45% 0px -45% 0px' });   // 只看畫面正中間那一條線
         items.forEach(function (el) { io.observe(el); });
     }
+    
  
 })();
 </script>
