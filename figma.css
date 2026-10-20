@@ -575,6 +575,7 @@ html { scroll-behavior: smooth; }
     .fnav { padding: 40px 24px 70px; }
        .tl-grid { gap: 28px; }
     .tl-cell-media.is-mobile { width: min(100%, 220px); }
+    .nav-sep { display: none; }
 }
 /* ==============================
    減少動態:直接切換,不做動畫
