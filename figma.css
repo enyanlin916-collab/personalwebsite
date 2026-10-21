@@ -736,9 +736,8 @@ html { scroll-behavior: smooth; }
     inset: 0;
     z-index: 1;
     display: grid;
-    place-items: end center;
-    padding-bottom: 24px;
-    background: linear-gradient(to top, rgba(30, 58, 107, 0.35), transparent 40%);
+    place-items: center;
+    background: rgba(30, 58, 107, 0.45);
     cursor: pointer;
     transition: opacity 0.4s;
 }
@@ -748,23 +747,32 @@ html { scroll-behavior: smooth; }
 }
 .proto-hint-pill {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 20px;
+    gap: 6px;
+    padding: 18px 32px;
+    border-radius: 14px;
     background: var(--red);
     color: #fff;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    animation: hintPulse 1.8s ease-in-out infinite;
 }
-.proto-hint-pill .pointer {
-    display: inline-block;
-    animation: tipBounce 1.2s ease-in-out infinite;
+.proto-hint-pill small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+@keyframes hintPulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
 }
 @media (prefers-reduced-motion: reduce) {
-    .proto-hint-pill .pointer { animation: none; }
+    .proto-hint-pill { animation: none; }
 }
+
 
 /* ==============================
    3. 頁尾導覽
