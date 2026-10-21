@@ -878,6 +878,19 @@ html { scroll-behavior: smooth; }
     padding-bottom: 4px;
 }
  
+.text-highlight {
+    background: linear-gradient(
+        to bottom,
+        transparent 65%,
+        #F5E6A3 65%,
+        #F5E6A3 95%,
+        transparent 95%
+    );
+    padding: 0 3px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
 /* ==============================
    手機版
 ================================ */
