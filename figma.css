@@ -404,13 +404,20 @@ html { scroll-behavior: smooth; }
     color: var(--muted);
 }
 
-/* Wireframe 與 UI Design：段落跟圖片同寬，用一般換行 */
-.tl-item[data-date="Wireframe"] > p:first-of-type,
-.tl-item[data-group="UI DESIGN"] > p:first-of-type {
+/* 所有時間點的簡介：跟內容同寬，用一般換行 */
+.tl-item > p:first-of-type {
     max-width: none;
     text-wrap: wrap;
     line-break: auto;
     word-break: normal;
+}
+
+/* UI Design：簡介與 Components 圖之間留空 */
+.tl-item[data-group="UI DESIGN"] > p:first-of-type {
+    margin-bottom: 0;
+}
+.tl-item[data-group="UI DESIGN"] > .tl-cell:first-of-type {
+    margin-top: 40px;
 }
 
 /* UI Design：簡介與 Components 圖之間留空 */
