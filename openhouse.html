@@ -1,1 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open House Marketing | 林恩言 Pita</title>
+<link rel="stylesheet" href="hw3-113450006.css">
+<link rel="stylesheet" href="figma.css">
+<link rel="stylesheet" href="openhouse.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-figma">
 
+<header class="site-header">
+  <a class="logo" href="index.html">Enyan Lin's Personal Homepage</a>
+  <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="site-nav">☰</button>
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html">回首頁</a>
+    <a href="index.html#projects">作品集</a>
+    <a href="#stack">作品展示</a>
+    <a href="#overview">專案概覽</a>
+    <a href="#design">視覺與內容</a>
+    <a href="#event">現場執行</a>
+    <a href="#reflection">專案反思</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- 作品展示:紙疊 -->
+<section class="stack-section" id="stack">
+  <div class="stack-stage">
+    <div class="stack-head">
+      <p class="stack-kicker">MARKETING &amp; CONTENT</p>
+      <h1 class="stack-title">NYCU Open House</h1>
+    </div>
+    <p class="stack-count" aria-live="polite"><span id="stack-now">01</span> / 06</p>
+    <div class="stack" id="stack-papers">
+      <!-- 換成你的作品圖:主視覺、貼文、現場照片等,張數要改的話記得同步改上方「/ 06」 -->
+      <figure class="paper"><div class="paper-media"><img src="openhouse01.png" alt="主視覺"></div></figure>
+      <figure class="paper"><div class="paper-media"><img src="openhouse02.png" alt="貼文 1"></div></figure>
+      <figure class="paper"><div class="paper-media"><img src="openhouse03.png" alt="貼文 2"></div></figure>
+      <figure class="paper"><div class="paper-media"><img src="openhouse04.png" alt="貼文 3"></div></figure>
+      <figure class="paper"><div class="paper-media"><img src="openhouse05.png" alt="現場 1"></div></figure>
+      <figure class="paper"><div class="paper-media"><img src="openhouse06.png" alt="現場 2"></div></figure>
+    </div>
+    <div class="stack-controls" aria-label="作品切換">
+      <button type="button" class="stack-btn" id="stack-prev">← 上一張</button>
+      <button type="button" class="stack-btn" id="stack-next">下一張 →</button>
+      <a class="stack-skip" href="#overview">跳到專案概覽 ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- 左側固定時間軸 + 右側內容 -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <h2 class="section-title">Project Story</h2>
+    <div class="tl">
+      <div class="tl-rail" aria-hidden="true">
+        <div class="tl-sticky">
+          <p class="tl-group" id="tl-group">OVERVIEW</p>
+          <div class="tl-date" id="tl-date">Project<br>Overview</div>
+          <p class="tl-phase" id="tl-phase">01</p>
+          <div class="tl-track"><div class="tl-fill" id="tl-fill"></div><ul class="tl-dots" id="tl-dots"></ul></div>
+        </div>
+      </div>
+
+      <div class="tl-items">
+
+        <!-- 01 -->
+        <article class="tl-item" id="overview" data-group="OVERVIEW" data-date="Project&#10;Overview" data-phase="01">
+          <h3>專案概覽</h3>
+          <p>NYCU Open House 是陽明交通大學的企業校園徵才博覽會。我因為對行銷和美編有興趣,也想多了解企業職涯,所以去面試,最後加入行銷部。[ 補一句活動規模:例如 活動日期、參與企業數、參與學生數 ]</p>
+          <div class="fact-row">
+            <span class="fact"><b>角色</b> 行銷部</span>
+            <span class="fact"><b>活動</b> [ 年度 / 日期 ]</span>
+            <span class="fact"><b>團隊</b> [ 行銷部 0 人 ]</span>
+          </div>
+          <h4 class="sub-h">參與動機</h4>
+          <p class="sub-p">[ 2~3 句:為什麼想做行銷?為什麼想了解企業職涯?這個活動為什麼適合你? ]</p>
+          <h4 class="sub-h">我負責的事</h4>
+          <div class="role-grid">
+            <div class="mx-card"><strong>主視覺設計</strong><span>設計活動主視覺,並延伸到各種宣傳素材。</span></div>
+            <div class="mx-card"><strong>社群貼文與排版</strong><span>製作貼文圖卡,維持整體風格一致。</span></div>
+            <div class="mx-card"><strong>文案撰寫</strong><span>撰寫貼文與活動文案,讓資訊清楚好讀。</span></div>
+            <div class="mx-card"><strong>企業服務台</strong><span>活動當天在現場協助企業,處理各種需求。</span></div>
+            <div class="mx-card"><strong>贊助商影片</strong><span>拍攝與剪輯贊助商介紹影片。</span></div>
+            <div class="mx-card"><strong>回顧影片</strong><span>記錄活動現場,剪成回顧影片。</span></div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="tl-item" id="design" data-group="DESIGN" data-date="Visual &amp;&#10;Content" data-phase="02">
+          <h3>視覺與內容設計</h3>
+          <p>從主視覺開始,我把同一套視覺延伸到社群貼文、排版與文案,讓活動的整體形象前後一致。</p>
+
+          <figure class="tl-cell" style="margin-top:36px">
+            <div class="tl-cell-media"><img src="openhouse-keyvisual.png" alt="主視覺"></div>
+            <figcaption>
+              <strong>Key Visual</strong>
+              <span>[ 設計概念:主題、配色、字體怎麼選?為什麼? ]</span>
+            </figcaption>
+          </figure>
+
+          <div class="tl-grid cols-posts">
+            <figure class="tl-cell"><div class="post-media"><img src="post1.png" alt="貼文 1"></div>
+              <figcaption><strong>Post 01</strong><span>[ 一句話:這則貼文的目的 ]</span></figcaption></figure>
+            <figure class="tl-cell"><div class="post-media"><img src="post2.png" alt="貼文 2"></div>
+              <figcaption><strong>Post 02</strong><span>[ 一句話:這則貼文的目的 ]</span></figcaption></figure>
+            <figure class="tl-cell"><div class="post-media"><img src="post3.png" alt="貼文 3"></div>
+              <figcaption><strong>Post 03</strong><span>[ 一句話:這則貼文的目的 ]</span></figcaption></figure>
+          </div>
+
+          <h4 class="sub-h">排版與文案思考</h4>
+          <p class="sub-p">[ 說明你怎麼決定版面層次、字級、語氣和標題。如果有觸及或互動數據,也放在這裡。 ]</p>
+        </article>
+
+        <!-- 04 -->
+        <article class="tl-item" id="event" data-group="EVENT" data-date="Event&#10;Execution" data-phase="04">
+          <h3>活動現場執行</h3>
+          <p>博覽會當天,我在企業服務台協助企業報到、引導動線,並和其他工作人員協作處理現場狀況。</p>
+          <div class="tl-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+            <figure class="tl-cell"><div class="tl-cell-media"><img src="onsite1.jpg" alt="服務台現場"></div>
+              <figcaption><strong>Service Desk</strong><span>[ 照片說明 ]</span></figcaption></figure>
+            <figure class="tl-cell"><div class="tl-cell-media"><img src="onsite2.jpg" alt="與企業互動"></div>
+              <figcaption><strong>Collaboration</strong><span>[ 照片說明 ]</span></figcaption></figure>
+          </div>
+          <h4 class="sub-h">現場遇到的狀況</h4>
+          <p class="sub-p">[ 挑一件印象最深的事:發生什麼、你怎麼處理、結果如何。 ]</p>
+        </article>
+
+        <!-- 06 -->
+        <article class="tl-item" id="reflection" data-group="REFLECTION" data-date="Reflection&#10;&amp; Learnings" data-phase="06">
+          <h3>專案反思</h3>
+          <h4 class="sub-h">專案收穫</h4>
+          <p class="sub-p">[ 你學到了什麼:設計、文案、團隊合作、企業視角。 ]</p>
+          <h4 class="sub-h">限制</h4>
+          <p class="sub-p">[ 你覺得哪裡做得不夠好?例如時間、資源、數據追蹤。 ]</p>
+          <h4 class="sub-h">未來改善方向</h4>
+          <p class="sub-p">[ 如果重來一次,你會怎麼改? ]</p>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="fnav">
+  <a href="index.html#projects">← 回到所有作品</a>
+  <a href="brand.html">下一個專案 →</a>
+</nav>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Pita Lin. All rights reserved. 引用請 <a href="mailto:enyanlin916@gmail.com">來信聯絡</a></p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  var root = document.documentElement, header = document.querySelector('.site-header');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setHH() { root.style.setProperty('--hh', (header ? header.offsetHeight : 90) + 'px'); }
+  setHH(); window.addEventListener('resize', setHH);
+
+  var toggle = document.querySelector('.nav-toggle'), nav = document.getElementById('site-nav');
+  toggle.addEventListener('click', function () {
+    var o = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(o));
+    toggle.textContent = o ? '✕' : '☰'; setHH();
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' && nav.classList.contains('open')) {
+      nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.textContent = '☰'; setHH();
+    }
+  });
+
+  /* 1. 紙疊 */
+  var papers = Array.prototype.slice.call(document.querySelectorAll('#stack .paper'));
+  var count = papers.length, current = 0, turning = false, VISIBLE = 3;
+  var nowEl = document.getElementById('stack-now'), prevBtn = document.getElementById('stack-prev'), nextBtn = document.getElementById('stack-next');
+  var OUT = 'translate(-64%, -6%) rotate(-11deg) scale(1)';
+  document.querySelector('.stack-count').lastChild.textContent = ' / ' + String(count).padStart(2, '0');
+  function slot(p) { p = Math.min(p, VISIBLE - 1); return 'translateY(' + (p * 9) + 'px) scale(' + (1 - p * 0.03) + ')'; }
+  function btns() { prevBtn.disabled = turning || current === 0; nextBtn.disabled = turning || current === count - 1; }
+  papers.forEach(function (paper) {
+    var media = paper.querySelector('.paper-media');
+    var tip = document.createElement('div');
+    tip.className = 'paper-tip'; tip.setAttribute('aria-hidden', 'true');
+    tip.innerHTML = '<span class="arrow">↓</span> 往下滑看完整設計';
+    paper.appendChild(tip); paper._tip = tip; paper._scrolled = false;
+    media.addEventListener('scroll', function () { if (media.scrollTop > 8) paper._scrolled = true; updTip(paper); }, { passive: true });
+    var img = media.querySelector('img'); if (img) img.addEventListener('load', function () { updTip(paper); });
+  });
+  function updTip(p) {
+    var m = p.querySelector('.paper-media');
+    p._tip.classList.toggle('show', p.classList.contains('is-current') && m.scrollHeight - m.clientHeight > 8 && !p._scrolled);
+  }
+  window.addEventListener('resize', function () { papers.forEach(updTip); });
+  function paint(instant) {
+    papers.forEach(function (paper, i) {
+      var pos = (i - current + count) % count;
+      if (instant) paper.style.transition = 'none';
+      paper.style.zIndex = count - pos; paper.style.transform = slot(pos);
+      paper.style.opacity = pos < VISIBLE ? '1' : '0';
+      paper.classList.toggle('is-current', pos === 0);
+      paper.setAttribute('aria-hidden', pos === 0 ? 'false' : 'true');
+      paper.querySelector('.paper-media').tabIndex = pos === 0 ? 0 : -1;
+    });
+    nowEl.textContent = String(current + 1).padStart(2, '0');
+    papers.forEach(updTip); btns();
+  }
+  paint(true);
+  requestAnimationFrame(function () { papers.forEach(function (p) { p.style.transition = ''; }); });
+  function change(d) {
+    if (turning) return;
+    var t = current + d; if (t < 0 || t >= count) return;
+    turning = true; btns();
+    if (d > 0) {
+      var out = papers[current]; out.style.zIndex = count + 2; out.style.transform = OUT;
+      setTimeout(function () {
+        current = t; out.style.transition = 'none'; paint(false);
+        requestAnimationFrame(function () { out.style.transition = ''; turning = false; btns(); });
+      }, reduce ? 0 : 390);
+    } else {
+      var inc = papers[t]; inc.style.transition = 'none'; inc.style.zIndex = count + 2; inc.style.transform = OUT;
+      inc.getBoundingClientRect(); inc.style.opacity = '1'; current = t; paint(false);
+      setTimeout(function () { turning = false; btns(); }, reduce ? 0 : 390);
+    }
+  }
+  prevBtn.addEventListener('click', function () { change(-1); });
+  nextBtn.addEventListener('click', function () { change(1); });
+
+  /* 2. 導覽列高亮 */
+  var navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+  var entries = navLinks.map(function (l) { return { link: l, section: document.getElementById(l.hash.slice(1)) }; })
+    .filter(function (e) { return e.section; });
+  function updActive() {
+    if (!entries.length) return;
+    var marker = header.getBoundingClientRect().bottom + 24, cur = entries[0];
+    entries.forEach(function (e) { if (e.section.getBoundingClientRect().top <= marker) cur = e; });
+    if (window.scrollY + window.innerHeight >= root.scrollHeight - 2) cur = entries[entries.length - 1];
+    entries.forEach(function (e) { e.link.classList.toggle('active', e === cur); });
+  }
+  window.addEventListener('scroll', function () { requestAnimationFrame(updActive); }, { passive: true });
+  window.addEventListener('resize', updActive); window.addEventListener('load', updActive);
+  updActive();
+
+  /* 3. 捲動淡入 */
+  if ('IntersectionObserver' in window && !reduce) {
+    var ro = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('is-visible', e.isIntersecting); });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.process-inner > .section-title, .tl-item > *').forEach(function (el) {
+      el.classList.add('reveal'); ro.observe(el);
+    });
+  }
+
+  /* 4. 時間軸 */
+  var items = Array.prototype.slice.call(document.querySelectorAll('.tl-item'));
+  var dotsEl = document.getElementById('tl-dots'), dateEl = document.getElementById('tl-date');
+  var phaseEl = document.getElementById('tl-phase'), fillEl = document.getElementById('tl-fill'), groupEl = document.getElementById('tl-group');
+  var dots = [], cur = -1;
+  items.forEach(function (item) {
+    var li = document.createElement('li'), s = document.createElement('span');
+    s.textContent = item.dataset.date.replace(/\n/g, ' '); li.appendChild(s);
+    li.addEventListener('click', function () { item.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); });
+    dotsEl.appendChild(li); dots.push(li);
+  });
+  function activate(i) {
+    if (i === cur || i < 0) return; cur = i;
+    items.forEach(function (el, k) { el.classList.toggle('active', k === i); });
+    dots.forEach(function (el, k) { el.classList.toggle('active', k === i); el.classList.toggle('done', k < i); });
+    fillEl.style.height = (items.length > 1 ? (i / (items.length - 1)) * 100 : 0) + '%';
+    dateEl.classList.remove('swap'); void dateEl.offsetWidth; dateEl.classList.add('swap');
+    dateEl.textContent = items[i].dataset.date;
+    groupEl.textContent = items[i].dataset.group || '';
+    phaseEl.textContent = 'STEP ' + items[i].dataset.phase;
+  }
+  activate(0);
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) activate(items.indexOf(e.target)); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
