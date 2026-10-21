@@ -616,6 +616,18 @@ html { scroll-behavior: smooth; }
     align-items: start;
     margin-top: 48px;
 }
+.mx {
+    align-items: stretch;
+}
+.mx-viewer {
+    display: flex;
+    flex-direction: column;
+}
+.mx-frame {
+    aspect-ratio: auto;   /* 取消 9:16，改成撐高 */
+    flex: 1;              /* 吃滿按鈕列以外的所有高度 */
+    min-height: 0;
+}
 .mx-frame {
     aspect-ratio: 9 / 16;
     overflow-x: hidden;
