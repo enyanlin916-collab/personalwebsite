@@ -16,3 +16,45 @@
 .role-grid{grid-template-columns:minmax(0,1fr)}
 .tl-grid.cols-posts{grid-template-columns:minmax(0,1fr)}
 }
+
+.phone-stage{position:relative;display:grid;grid-template-columns:110px 1fr 110px;align-items:center;margin-top:36px}
+.phone-lines{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.pl{fill:none;stroke:var(--border);stroke-width:1.5;stroke-dasharray:6 6;transition:stroke .3s}
+.pl.on{stroke:var(--red);stroke-width:2;animation:flow .8s linear infinite}
+.pd{fill:var(--blue);transition:fill .3s}.pd.on{fill:var(--red)}
+@keyframes flow{to{stroke-dashoffset:-12}}
+.post-col{display:flex;flex-direction:column;gap:18px;position:relative;z-index:1}
+.post-card{padding:0;aspect-ratio:4/5;overflow:hidden;background:var(--yellow);border:2px solid var(--blue);cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;opacity:.75}
+.post-card img{display:block;width:100%;height:100%;object-fit:cover}
+.post-card:hover{opacity:1}
+.post-card.on{opacity:1;border-color:var(--red);box-shadow:4px 4px 0 var(--red);transform:translateY(-3px)}
+.post-card:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.phone{position:relative;z-index:1;justify-self:center;width:220px;padding:18px 10px 14px;background:#fff;border:3px solid var(--blue);border-radius:30px;box-shadow:8px 8px 0 var(--red)}
+.phone-notch{width:56px;height:5px;margin:0 auto 10px;border-radius:3px;background:var(--border)}
+.phone-head{display:flex;align-items:center;gap:8px;padding:0 4px 8px;font-size:.72rem}
+.phone-avatar{width:20px;height:20px;border-radius:50%;background:var(--yellow);border:1.5px solid var(--red)}
+.phone-shot{aspect-ratio:4/5;background:var(--yellow);overflow:hidden}
+.phone-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.phone-icons{padding:8px 4px 4px;font-size:1rem;letter-spacing:.3em;color:var(--blue)}
+.phone-lines-txt{padding:0 4px}
+.phone-lines-txt i{display:block;height:5px;margin-top:6px;border-radius:3px;background:var(--border)}
+.phone-lines-txt i:last-child{width:60%}
+.phone-caption{grid-column:1/-1;margin-top:34px;text-align:center}
+.phone-caption strong{display:block;font-size:.85rem;letter-spacing:.08em;color:var(--red)}
+.phone-caption span{display:block;max-width:520px;margin:6px auto 0;font-size:.9rem;line-height:1.7;color:var(--muted)}
+.phone-hero{height:auto;min-height:calc(100svh - var(--hh))}
+.phone-hero .stack-stage{height:auto;min-height:inherit;flex-direction:column;justify-content:center;padding:100px 40px 60px}
+.phone-hero .phone-stage{width:min(760px,100%)}
+.phone-hint{margin-bottom:8px;font-size:.85rem;letter-spacing:.08em;color:var(--blue);text-align:center}
+.phone-skip{margin-top:28px}
+@media(max-width:768px){.phone-hero .stack-stage{padding:90px 20px 50px}}
+@media(max-width:768px){
+.phone-stage{grid-template-columns:1fr;gap:26px}
+.phone-lines{display:none}
+.phone{grid-row:1}
+.post-col{flex-direction:row;overflow-x:auto;gap:12px;padding:4px 4px 8px;grid-row:2}
+.post-col+.phone+.post-col{grid-row:3}
+.post-card{flex:0 0 96px}
+.phone-caption{grid-row:4}
+}
+@media(prefers-reduced-motion:reduce){.pl.on{animation:none}.post-card{transition:none}}
