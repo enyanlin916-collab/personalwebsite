@@ -23,7 +23,7 @@
 .phone-hint{margin-bottom:8px;font-size:.85rem;letter-spacing:.08em;color:var(--blue);text-align:center}
 .phone-skip{margin-top:28px}
 
-.phone-stage{position:relative;display:grid;grid-template-columns:150px 1fr 150px;align-items:center;width:min(1000px,100%);margin-top:70px}
+.phone-stage{position:relative;display:grid;grid-template-columns:260px 1fr 260px;align-items:center;width:min(1080px,100%);margin-top:70px}
 .phone-lines{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .pl{fill:none;stroke:var(--border);stroke-width:1.5;stroke-dasharray:6 6;transition:stroke .3s}
 .pl.on{stroke:var(--red);stroke-width:2;animation:flow .8s linear infinite}
@@ -34,11 +34,15 @@
 .post-col{display:flex;flex-direction:column;gap:22px;position:relative;z-index:1}
 .post-col:first-of-type{transform:translateY(-48px)}
 .phone ~ .post-col{transform:translateY(48px)}
-.post-card{padding:0;aspect-ratio:4/5;overflow:hidden;background:var(--yellow);border:2px solid var(--blue);cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;opacity:.75}
+.post-card{padding:0;width:190px;aspect-ratio:4/5;overflow:hidden;background:var(--yellow);border:2px solid var(--blue);cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;opacity:.75}
 .post-card img{display:block;width:100%;height:100%;object-fit:cover}
 .post-card:hover{opacity:1}
 .post-card.on{opacity:1;border-color:var(--red);box-shadow:4px 4px 0 var(--red);transform:translateY(-3px)}
 .post-card:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.post-col:first-of-type .post-card:nth-child(odd){align-self:flex-end}
+.post-col:first-of-type .post-card:nth-child(even){align-self:flex-start}
+.phone ~ .post-col .post-card:nth-child(odd){align-self:flex-start}
+.phone ~ .post-col .post-card:nth-child(even){align-self:flex-end}
 
 .phone{position:relative;z-index:1;justify-self:center;width:300px;padding:22px 12px 16px;background:#fff;border:3px solid var(--blue);border-radius:38px;box-shadow:8px 8px 0 var(--red)}
 .phone-notch{width:64px;height:5px;margin:0 auto 12px;border-radius:3px;background:var(--border)}
@@ -65,6 +69,7 @@
 .post-col+.phone+.post-col{grid-row:3}
 .post-card{flex:0 0 96px}
 .phone-caption{grid-row:4;margin-top:0}
+.post-col .post-card{align-self:auto!important}
 }
 @media(prefers-reduced-motion:reduce){.pl.on{animation:none}.post-card{transition:none}}
 
