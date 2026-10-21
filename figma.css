@@ -404,8 +404,9 @@ html { scroll-behavior: smooth; }
     color: var(--muted);
 }
 
-/* Wireframe：段落跟圖片同寬，用一般換行 */
-.tl-item[data-date="Wireframe"] > p:first-of-type {
+/* Wireframe 與 UI Design：段落跟圖片同寬，用一般換行 */
+.tl-item[data-date="Wireframe"] > p:first-of-type,
+.tl-item[data-group="UI DESIGN"] > p:first-of-type {
     max-width: none;
     text-wrap: wrap;
     line-break: auto;
@@ -415,6 +416,9 @@ html { scroll-behavior: smooth; }
 /* UI Design：簡介與 Components 圖之間留空 */
 .tl-item[data-group="UI DESIGN"] > p:first-of-type {
     margin-bottom: 0;
+}
+.tl-item[data-group="UI DESIGN"] > .tl-cell:first-of-type {
+    margin-top: 40px;
 }
 .tl-item[data-group="UI DESIGN"] > .tl-cell:first-of-type {
     margin-top: 40px;
@@ -678,6 +682,7 @@ html { scroll-behavior: smooth; }
     color: var(--muted);
 }
 .tl-embed {
+    position: relative;
     margin-top: 28px;
     aspect-ratio: 1440 / 900;
     border: 2px solid var(--blue);
@@ -690,7 +695,37 @@ html { scroll-behavior: smooth; }
     height: 100%;
     border: 0;
 }
- 
+
+.proto-full {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    border: 2px solid var(--blue);
+    border-radius: 20px;
+    padding: 5px 12px;
+    background: var(--bg);
+    color: var(--blue);
+    font: inherit;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.proto-full:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+/* 全螢幕時填滿整個畫面 */
+.tl-embed:fullscreen {
+    aspect-ratio: auto;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    box-shadow: none;
+}
+
+
 /* ==============================
    3. 頁尾導覽
 ================================ */
