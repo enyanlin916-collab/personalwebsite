@@ -235,9 +235,6 @@ html { scroll-behavior: smooth; }
     background: var(--red);
 }
 
-.overview {
-    padding: 80px 0 0;
-}
 .overview-inner {
     max-width: 1040px;
     margin: 0 auto;
@@ -699,6 +696,32 @@ html { scroll-behavior: smooth; }
     font-size: 0.85rem;
     line-height: 1.7;
     color: var(--muted);
+}
+.mx-viewer { position: relative; }
+.mx-tip {
+    position: absolute;
+    left: 50%;
+    bottom: 78px;   /* 在手機框底部、按鈕列上方 */
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.mx-tip.show { opacity: 1; }
+.mx-tip .arrow {
+    display: inline-block;
+    animation: tipBounce 1.2s ease-in-out infinite;
 }
 .tl-embed {
     position: relative;
