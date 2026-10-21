@@ -263,6 +263,10 @@
             <span class="mx-count" id="mx-count">1 / 9</span>
             <button type="button" class="mx-btn" id="mx-next">下一頁 →</button>
         </div>
+        <div class="mx-frame">
+    <img src="mobile01.png" alt="Mobile 01" id="mx-img">
+</div>
+<div class="mx-tip" id="mx-tip" aria-hidden="true"><span class="arrow">↓</span> 往下滑看完整設計</div>
     </div>
 
     <div class="mx-cards">
@@ -684,6 +688,20 @@
             mxCount.textContent = (mxNow + 1) + ' / ' + mxSrc.length;
             mxPrev.disabled = mxNow === 0;
             mxNext.disabled = mxNow === mxSrc.length - 1;
+            var mxFrame = document.querySelector('.mx-frame');
+var mxTip   = document.getElementById('mx-tip');
+var mxSeen  = {};
+
+function updateMxTip() {
+    var scrollable = mxFrame.scrollHeight - mxFrame.clientHeight > 8;
+    mxTip.classList.toggle('show', scrollable && !mxSeen[mxNow]);
+}
+mxFrame.addEventListener('scroll', function () {
+    if (mxFrame.scrollTop > 8) mxSeen[mxNow] = true;
+    updateMxTip();
+}, { passive: true });
+mxImg.addEventListener('load', updateMxTip);
+window.addEventListener('resize', updateMxTip);
         }
         mxPrev.addEventListener('click', function () { mxShow(mxNow - 1); });
         mxNext.addEventListener('click', function () { mxShow(mxNow + 1); });
