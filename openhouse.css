@@ -92,6 +92,38 @@
 .phone-caption span{font-size:1.05rem;max-width:600px}
 .tl-item h3{font-size:clamp(1.7rem,3.2vw,2.3rem)}
 
+.triple-showcase {
+    width: min(900px, 100%);
+    margin: 80px auto;
+    text-align: center;
+}
+
+.triple-showcase h3 {
+    margin-bottom: 28px;
+    color: var(--blue);
+}
+
+.triple-posts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border: 2px solid var(--blue);
+    box-shadow: 8px 8px 0 var(--red);
+}
+
+.triple-posts img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.triple-showcase p {
+    margin: 24px auto 0;
+    max-width: 650px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
 @media(max-width:768px){
 .phone-hero .stack-stage{padding:90px 20px 50px}
 .phone-stage{grid-template-columns:1fr;gap:26px;margin-top:30px}
