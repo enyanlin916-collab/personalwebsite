@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="hw3-113450006.css">
     <link rel="stylesheet" type="text/css" href="figma.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://embed.figma.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -288,13 +289,13 @@
                 <article class="tl-item" data-date="Prototype" data-phase="STEP 04">
                     <h3>互動原型</h3>
                     <p>在這裡寫你怎麼做原型、測試後改了什麼。</p>
-                    <div class="tl-embed">
+                    <div class="tl-embed" id="proto">
                     <iframe
-                    src="https://embed.figma.com/proto/90W2jOZ6jTUecluNKDHIdC/Untitled?node-id=1-2&t=g0Esm1PFhVumrfPm-1&embed-host=share"
+                    src="https://embed.figma.com/proto/90W2jOZ6jTUecluNKDHIdC/Untitled?node-id=1-2&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;hide-ui=1&amp;hotspot-hints=0&amp;embed-host=share"
                     title="Figma Prototype"
-                    allowfullscreen
-                    loading="lazy">
+                    allowfullscreen>
                     </iframe>
+                    <button type="button" class="proto-full" id="proto-full">⛶ 全螢幕</button>
                     </div>
                     <div class="tl-media">
                     <img src="prototype.png" alt="Prototype">
@@ -669,6 +670,15 @@
         mxNext.addEventListener('click', function () { mxShow(mxNow + 1); });
         mxShow(0);
     }
+    /* ---------- Prototype 全螢幕 ---------- */
+var protoBox = document.getElementById('proto');
+var protoBtn = document.getElementById('proto-full');
+if (protoBox && protoBtn) {
+    protoBtn.addEventListener('click', function () {
+        var req = protoBox.requestFullscreen || protoBox.webkitRequestFullscreen;
+        if (req) req.call(protoBox);
+    });
+}
  
 })();
 </script>
