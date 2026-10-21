@@ -307,6 +307,24 @@
         </div>
     </div>
 </section>
+    
+    <!-- 反思 -->
+<section class="reflection" id="reflection">
+    <div class="reflection-inner">
+        <h2 class="section-title">Reflection</h2>
+
+        <h3 class="reflection-name">
+            專案反思
+            <span>Project Reflection</span>
+        </h3>
+
+        <p>介面設計不只是要追求視覺美感，更重要的是要梳理整個操作流程。從使用者的角度來看，很多介面最大的問題就是太雜亂、找不到重點，所以要做出一個既美觀又好操作的頁面真的並非一件容易的事，需要大量的心思及時間投入。</p>
+
+        <p>結束這份專案後，我意識到其實從提出解決辦法到真的解決是兩件不同的事，我雖然已經重新設計出我所認為清楚又美觀的頁面，但是目前尚未進行正式的使用者測試，改版後的介面是否真的已有效改善原本既有的問題呢？未來若有機會執行相關專案，我希望除了前期的測試與設計外，也可以持續蒐集操作回饋，讓作品不只是建立在假設上而已，而是有充分證據支持。</p>
+
+        <p>這次實作不只是讓我熟悉了Figma，更讓我發現介面設計不只是要有美感，而是需要透過問題分析與邏輯規劃，在資訊清晰度、操作直覺性與視覺三者之間取得平衡。</p>
+    </div>
+</section>
  
     <nav class="fnav">
         <a href="index.html#projects">← 回到所有作品</a>
@@ -700,6 +718,9 @@ if (protoBox && protoFrame) {
     loadProto();
     mq.addEventListener('change', loadProto);
 }
+    var revealBlocks = document.querySelectorAll(
+    '.overview-inner > *, .reflection-inner > *, .process-inner > .section-title, .tl-item > *'
+);
  
 })();
 </script>
