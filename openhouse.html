@@ -28,29 +28,36 @@
 </header>
 
 <main>
-
-<!-- 作品展示:紙疊 -->
-<section class="stack-section" id="stack">
+<!-- 作品展示:手機貼文 -->
+<section class="stack-section phone-hero" id="stack">
   <div class="stack-stage">
     <div class="stack-head">
       <p class="stack-kicker">MARKETING &amp; CONTENT</p>
       <h1 class="stack-title">NYCU Open House</h1>
     </div>
-    <p class="stack-count" aria-live="polite"><span id="stack-now">01</span> / 06</p>
-    <div class="stack" id="stack-papers">
-      <!-- 換成你的作品圖:主視覺、貼文、現場照片等,張數要改的話記得同步改上方「/ 06」 -->
-      <figure class="paper"><div class="paper-media"><img src="openhouse01.png" alt="主視覺"></div></figure>
-      <figure class="paper"><div class="paper-media"><img src="openhouse02.png" alt="貼文 1"></div></figure>
-      <figure class="paper"><div class="paper-media"><img src="openhouse03.png" alt="貼文 2"></div></figure>
-      <figure class="paper"><div class="paper-media"><img src="openhouse04.png" alt="貼文 3"></div></figure>
-      <figure class="paper"><div class="paper-media"><img src="openhouse05.png" alt="現場 1"></div></figure>
-      <figure class="paper"><div class="paper-media"><img src="openhouse06.png" alt="現場 2"></div></figure>
+    <p class="phone-hint">點選左右兩邊的貼文，看看它在手機裡的樣子</p>
+    <div class="phone-stage" id="phone-stage">
+      <svg class="phone-lines" id="phone-lines" aria-hidden="true"></svg>
+      <div class="post-col">
+        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 01"><img src="post1.png" alt="貼文 1"></button>
+        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 02"><img src="post2.png" alt="貼文 2"></button>
+        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 03"><img src="post3.png" alt="貼文 3"></button>
+      </div>
+      <div class="phone" aria-live="polite">
+        <div class="phone-notch"></div>
+        <div class="phone-head"><span class="phone-avatar"></span><span class="phone-name">nycu_openhouse</span></div>
+        <div class="phone-shot"><img id="phone-img" src="post1.png" alt="目前選取的貼文"></div>
+        <div class="phone-icons" aria-hidden="true">♡ ○ ➤</div>
+        <div class="phone-lines-txt" aria-hidden="true"><i></i><i></i></div>
+      </div>
+      <div class="post-col">
+        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 04"><img src="post4.png" alt="貼文 4"></button>
+        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 05"><img src="post5.png" alt="貼文 5"></button>
+        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 06"><img src="post6.png" alt="貼文 6"></button>
+      </div>
+      <div class="phone-caption"><strong id="pc-title"></strong><span id="pc-text"></span></div>
     </div>
-    <div class="stack-controls" aria-label="作品切換">
-      <button type="button" class="stack-btn" id="stack-prev">← 上一張</button>
-      <button type="button" class="stack-btn" id="stack-next">下一張 →</button>
-      <a class="stack-skip" href="#overview">跳到專案概覽 ↓</a>
-    </div>
+    <a class="stack-skip phone-skip" href="#overview">跳到專案概覽 ↓</a>
   </div>
 </section>
 
@@ -287,6 +294,41 @@
       es.forEach(function (e) { if (e.isIntersecting) activate(items.indexOf(e.target)); });
     }, { rootMargin: '-45% 0px -45% 0px' });
     items.forEach(function (el) { io.observe(el); });
+  }
+    var stage=document.getElementById('phone-stage');
+  if(stage){
+    var posts=[
+      {t:'Post 01',c:'[ 文案思考 1 ]'},{t:'Post 02',c:'[ 文案思考 2 ]'},{t:'Post 03',c:'[ 文案思考 3 ]'},
+      {t:'Post 04',c:'[ 文案思考 4 ]'},{t:'Post 05',c:'[ 文案思考 5 ]'},{t:'Post 06',c:'[ 文案思考 6 ]'}];
+    var cards=Array.prototype.slice.call(stage.querySelectorAll('.post-card'));
+    var phone=stage.querySelector('.phone'), svg=document.getElementById('phone-lines');
+    var pImg=document.getElementById('phone-img'), pT=document.getElementById('pc-title'), pC=document.getElementById('pc-text');
+    var NS='http://www.w3.org/2000/svg', paths=[], dots=[];
+    cards.forEach(function(){
+      var p=document.createElementNS(NS,'path'); p.setAttribute('class','pl'); svg.appendChild(p); paths.push(p);
+      var d=document.createElementNS(NS,'circle'); d.setAttribute('r','3.5'); d.setAttribute('class','pd'); svg.appendChild(d); dots.push(d);
+    });
+    function draw(){
+      var s=stage.getBoundingClientRect(), pr=phone.getBoundingClientRect();
+      svg.setAttribute('width',s.width); svg.setAttribute('height',s.height);
+      cards.forEach(function(c,k){
+        var r=c.getBoundingClientRect(), left=k<3, slot=k%3;
+        var sx=(left?r.right:r.left)-s.left, sy=r.top+r.height/2-s.top;
+        var ex=(left?pr.left:pr.right)-s.left, ey=pr.top+pr.height*(0.3+0.2*slot)-s.top, mx=(sx+ex)/2;
+        paths[k].setAttribute('d','M'+sx+' '+sy+' C'+mx+' '+sy+' '+mx+' '+ey+' '+ex+' '+ey);
+        dots[k].setAttribute('cx',ex); dots[k].setAttribute('cy',ey);
+      });
+    }
+    function select(k){
+      cards.forEach(function(c,i){c.classList.toggle('on',i===k); c.setAttribute('aria-pressed',String(i===k)); paths[i].classList.toggle('on',i===k); dots[i].classList.toggle('on',i===k);});
+      pImg.src=cards[k].querySelector('img').getAttribute('src');
+      pT.textContent=posts[k].t; pC.textContent=posts[k].c;
+    }
+    cards.forEach(function(c,k){c.addEventListener('click',function(){select(k);});});
+    select(0); draw();
+    window.addEventListener('resize',draw); window.addEventListener('load',draw);
+    if('ResizeObserver' in window) new ResizeObserver(draw).observe(stage);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw);
   }
 })();
 </script>
