@@ -404,16 +404,20 @@ html { scroll-behavior: smooth; }
     color: var(--muted);
 }
 
-/* Wireframe：文字與圖片同欄寬，減少不自然的斷行 */
+/* Wireframe：段落跟圖片同寬，用一般換行 */
 .tl-item[data-date="Wireframe"] > p:first-of-type {
-    max-width: 100%;
-    line-break: strict;
-    text-wrap: pretty;
+    max-width: none;
+    text-wrap: wrap;
+    line-break: auto;
+    word-break: normal;
 }
 
-/* UI Design：簡介與第一張圖片之間保留約一行空白 */
+/* UI Design：簡介與 Components 圖之間留空 */
 .tl-item[data-group="UI DESIGN"] > p:first-of-type {
-    margin-bottom: 1.8em;
+    margin-bottom: 0;
+}
+.tl-item[data-group="UI DESIGN"] > .tl-cell:first-of-type {
+    margin-top: 40px;
 }
  
 .tl-media {
