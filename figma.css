@@ -731,7 +731,40 @@ html { scroll-behavior: smooth; }
     border: 0;
     box-shadow: none;
 }
-
+.proto-hint {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-items: end center;
+    padding-bottom: 24px;
+    background: linear-gradient(to top, rgba(30, 58, 107, 0.35), transparent 40%);
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+.proto-hint.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.proto-hint-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+.proto-hint-pill .pointer {
+    display: inline-block;
+    animation: tipBounce 1.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    .proto-hint-pill .pointer { animation: none; }
+}
 
 /* ==============================
    3. 頁尾導覽
