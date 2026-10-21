@@ -840,6 +840,10 @@ html { scroll-behavior: smooth; }
     .tl {
         grid-template-columns: 1fr;
         gap: 0;
+       .mx-frame {
+       aspect-ratio: 9 / 16;
+       flex: none;
+      }
     }
     /* 時間軸變成黏在上方的一條 */
     .tl-rail {
