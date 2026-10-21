@@ -680,13 +680,14 @@ if (protoBox && protoBtn) {
         if (req) req.call(protoBox);
     });
 }
-    /* ---------- Prototype 提示：點一下就消失 ---------- */
-Array.prototype.forEach.call(document.querySelectorAll('.proto-hint'), function (hint) {
-    hint.addEventListener('click', function () {
-        hint.classList.add('is-hidden');
-    });
+/* 提示：點到 iframe 時消失 */
+window.addEventListener('blur', function () {
+    if (document.activeElement === protoFrame) {
+        Array.prototype.forEach.call(document.querySelectorAll('.proto-hint'), function (hint) {
+            hint.classList.add('is-hidden');
+        });
+    }
 });
-
     /* ---------- Prototype：依裝置載入桌機版或手機版 ---------- */
 var protoBox = document.getElementById('proto');
 var protoFrame = document.getElementById('proto-frame');
