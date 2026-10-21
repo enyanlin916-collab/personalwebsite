@@ -731,6 +731,8 @@ html { scroll-behavior: smooth; }
     border: 0;
     box-shadow: none;
 }
+
+/* 點擊提示遮罩 */
 .proto-hint {
     position: absolute;
     inset: 0;
@@ -769,10 +771,22 @@ html { scroll-behavior: smooth; }
     0%, 100% { transform: scale(1); }
     50%      { transform: scale(1.06); }
 }
+
+/* 手機版：直式、置中 */
+.tl-embed.is-mobile {
+    aspect-ratio: 390 / 844;   /* 改成你手機 Frame 的實際尺寸 */
+    width: min(100%, 340px);
+    margin-left: auto;
+    margin-right: auto;
+}
+.tl-embed.is-mobile .proto-hint-pill {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .proto-hint-pill { animation: none; }
 }
-
 
 /* ==============================
    3. 頁尾導覽
