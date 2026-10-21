@@ -84,9 +84,6 @@
 .phone-lines-txt i{display:block;height:5px;margin-top:6px;border-radius:3px;background:var(--border)}
 .phone-lines-txt i:last-child{width:60%}
 
-.phone-caption{grid-column:1/-1;margin-top:90px;text-align:center}
-.phone-caption strong{display:block;font-size:.85rem;letter-spacing:.08em;color:var(--red)}
-.phone-caption span{display:block;max-width:520px;margin:6px auto 0;font-size:.9rem;line-height:1.7;color:var(--muted)}
 
 /* ===== 字體放大 ===== */
 .tl-item p{font-size:1.05rem;line-height:1.9}
@@ -95,8 +92,6 @@
 .tl-cell figcaption span{font-size:1rem;line-height:1.85}
 .fact{font-size:1rem;padding:9px 18px}
 .phone-hint{font-size:1rem}
-.phone-caption strong{font-size:1rem}
-.phone-caption span{font-size:1.05rem;max-width:600px}
 .tl-item h3{font-size:clamp(1.7rem,3.2vw,2.3rem)}
 
 
@@ -136,7 +131,6 @@
 .post-col:first-of-type,.phone ~ .post-col{transform:none}
 .post-col+.phone+.post-col{grid-row:3}
 .post-card{flex:0 0 96px}
-.phone-caption{grid-row:4;margin-top:0}
 .post-col .post-card{align-self:auto!important}
 }
 @media(prefers-reduced-motion:reduce){.pl.on{animation:none}.post-card{transition:none}}
