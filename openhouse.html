@@ -55,7 +55,6 @@
         <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 05"><img src="post5.png" alt="貼文 5"></button>
         <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 06"><img src="post6.png" alt="貼文 6"></button>
       </div>
-      <div class="phone-caption"><strong id="pc-title"></strong><span id="pc-text"></span></div>
     </div>
     <a class="stack-skip phone-skip" href="#overview">跳到專案概覽 ↓</a>
   </div>
@@ -298,20 +297,10 @@
   /* 5. 手機貼文展示 */
   var stage = document.getElementById('phone-stage');
   if (stage) {
-    var posts = [
-      { t: 'Post 01', c: '[ 文案思考 1 ]' },
-      { t: 'Post 02', c: '[ 文案思考 2 ]' },
-      { t: 'Post 03', c: '[ 文案思考 3 ]' },
-      { t: 'Post 04', c: '[ 文案思考 4 ]' },
-      { t: 'Post 05', c: '[ 文案思考 5 ]' },
-      { t: 'Post 06', c: '[ 文案思考 6 ]' }
-    ];
     var cards = Array.prototype.slice.call(stage.querySelectorAll('.post-card'));
     var phone = stage.querySelector('.phone');
     var svg = document.getElementById('phone-lines');
     var pImg = document.getElementById('phone-img');
-    var pT = document.getElementById('pc-title');
-    var pC = document.getElementById('pc-text');
     var NS = 'http://www.w3.org/2000/svg';
     var paths = [];
     var pdots = [];
@@ -356,8 +345,6 @@
         pdots[i].classList.toggle('on', i === k);
       });
       pImg.src = cards[k].querySelector('img').getAttribute('src');
-      pT.textContent = posts[k].t;
-      pC.textContent = posts[k].c;
     };
 
     cards.forEach(function (c, k) {
