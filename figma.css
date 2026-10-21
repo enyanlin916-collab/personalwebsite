@@ -403,6 +403,18 @@ html { scroll-behavior: smooth; }
     max-width: 560px;
     color: var(--muted);
 }
+
+/* Wireframe：文字與圖片同欄寬，減少不自然的斷行 */
+.tl-item[data-date="Wireframe"] > p:first-of-type {
+    max-width: 100%;
+    line-break: strict;
+    text-wrap: pretty;
+}
+
+/* UI Design：簡介與第一張圖片之間保留約一行空白 */
+.tl-item[data-group="UI DESIGN"] > p:first-of-type {
+    margin-bottom: 1.8em;
+}
  
 .tl-media {
     margin-top: 28px;
