@@ -687,6 +687,20 @@ if (protoHint) {
         protoHint.classList.add('is-hidden');
     });
 }
+    /* ---------- Prototype：依裝置載入桌機版或手機版 ---------- */
+var protoBox = document.getElementById('proto');
+var protoFrame = document.getElementById('proto-frame');
+if (protoBox && protoFrame) {
+    var mq = window.matchMedia('(max-width: 768px)');
+    function loadProto() {
+        var useMobile = mq.matches;
+        protoBox.classList.toggle('is-mobile', useMobile);
+        var src = useMobile ? protoBox.dataset.mobile : protoBox.dataset.desktop;
+        if (protoFrame.getAttribute('src') !== src) protoFrame.src = src;
+    }
+    loadProto();
+    mq.addEventListener('change', loadProto);
+}
  
 })();
 </script>
