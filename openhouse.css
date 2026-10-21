@@ -3,6 +3,9 @@
 .sub-p{max-width:none!important;font-size:.9rem;line-height:1.7;color:var(--muted)}
 .role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
 .role-grid .mx-card{height:100%}
+.role-grid .mx-card{padding:20px 22px}
+.role-grid .mx-card strong{font-size:1.1rem}
+.role-grid .mx-card span{margin-top:8px;font-size:1rem;line-height:1.8}
 .tl-grid.cols-posts{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .post-media{aspect-ratio:4/5;overflow:hidden;background:var(--yellow);border:2px solid var(--blue);box-shadow:5px 5px 0 var(--red)}
 .post-media img{display:block;width:100%;height:100%;object-fit:cover}
