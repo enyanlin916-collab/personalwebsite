@@ -1,0 +1,18 @@
+/* openhouse.html 補充樣式(搭配 hw3-113450006.css + figma.css) */
+.sub-h{margin:44px 0 6px;font-size:1.15rem;font-weight:700;color:var(--blue)}
+.sub-p{max-width:none!important;font-size:.9rem;line-height:1.7;color:var(--muted)}
+.role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.role-grid .mx-card{height:100%}
+.tl-grid.cols-posts{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.post-media{aspect-ratio:4/5;overflow:hidden;background:var(--yellow);border:2px solid var(--blue);box-shadow:5px 5px 0 var(--red)}
+.post-media img{display:block;width:100%;height:100%;object-fit:cover}
+.tl-cell-media{background:var(--yellow)}
+.tl-cell-media img{object-fit:cover}
+.fact-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.fact{padding:8px 16px;background:var(--yellow);border:1px solid var(--blue);border-radius:20px;font-size:.85rem;color:var(--blue)}
+.fact b{color:var(--red)}
+#overview,#design,#event,#reflection{scroll-margin-top:calc(var(--hh) + 12px)}
+@media(max-width:768px){
+.role-grid{grid-template-columns:minmax(0,1fr)}
+.tl-grid.cols-posts{grid-template-columns:minmax(0,1fr)}
+}
