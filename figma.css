@@ -795,6 +795,14 @@ html { scroll-behavior: smooth; }
     padding: 14px 20px;
     font-size: 0.95rem;
 }
+/* Prototype 下方說明：跟畫面同寬、拉開距離 */
+.tl-item .proto-note {
+    max-width: none;
+    margin-top: 36px;
+    line-break: auto;
+    word-break: normal;
+    text-wrap: wrap;
+}
 
 @media (prefers-reduced-motion: reduce) {
     .proto-hint-pill { animation: none; }
@@ -874,6 +882,11 @@ html { scroll-behavior: smooth; }
     .tl-cell-media.is-mobile { width: min(100%, 220px); }
     .mx { grid-template-columns: 1fr; gap: 28px; }
     .mx-viewer { width: min(100%, 260px); margin: 0 auto; }
+   .tl-embed.is-mobile + .proto-note {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+}
     .nav-sep { display: none; }
 }
 /* ==============================
