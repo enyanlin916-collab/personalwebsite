@@ -15,6 +15,122 @@
 .fact{padding:8px 16px;background:var(--yellow);border:1px solid var(--blue);border-radius:20px;font-size:.85rem;color:var(--blue)}
 .fact b{color:var(--red)}
 #overview,#design,#event,#reflection{scroll-margin-top:calc(var(--hh) + 12px)}
+
+/* ===== Posts & Copy ===== */
+
+/* 上方兩張排版圖片 */
+.oh-layout-section {
+    margin-top: 48px;
+}
+
+.oh-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.oh-layout-card {
+    margin: 0;
+    min-width: 0;
+}
+
+.oh-layout-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--blue);
+    box-shadow: 6px 6px 0 var(--red);
+}
+
+/* 兩張圖片下方的說明 */
+.oh-layout-desc {
+    max-width: none !important;
+    margin-top: 30px;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+/* ===== 文案展示區 ===== */
+
+.oh-copy-section {
+    margin-top: 80px;
+}
+
+.oh-copy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    align-items: start;
+    margin-top: 28px;
+}
+
+/* 左側文案卡片 */
+.oh-copy-card {
+    min-width: 0;
+    padding: 28px;
+    background: var(--yellow);
+    border: 2px solid var(--blue);
+    box-shadow: 6px 6px 0 var(--red);
+}
+
+/* 右側文案說明 */
+.oh-copy-analysis {
+    min-width: 0;
+    padding: 28px 0;
+}
+
+/* 小標籤 */
+.oh-copy-label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--red);
+}
+
+/* 標題 */
+.oh-copy-card h4,
+.oh-copy-analysis h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: var(--blue);
+}
+
+/* 內文 */
+.oh-copy-content p,
+.oh-copy-analysis p {
+    max-width: none;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--text);
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+
+    .oh-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .oh-copy-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .oh-copy-section {
+        margin-top: 60px;
+    }
+
+    .oh-copy-analysis {
+        padding: 12px 0;
+    }
+}
+
 @media(max-width:768px){
 .role-grid{grid-template-columns:minmax(0,1fr)}
 .tl-grid.cols-posts{grid-template-columns:minmax(0,1fr)}
