@@ -6,7 +6,7 @@
     <title>Figma Project | 林恩言 Pita</title>
     <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" type="text/css" href="hw3-113450006.css">
-    <link rel="stylesheet" type="text/css" href="figma.css">
+    <link rel="stylesheet" type="text/css" href="figma.css?v=20261023-timeline6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://embed.figma.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
     <a href="index.html#projects">作品集</a>
     <a href="#stack">作品展示</a>
     <a href="#overview">專案摘要</a>
-    <a href="#process">設計歷程</a>
+    <a href="#research">設計歷程</a>
     <a href="#reflection">專案反思</a>
 </nav>
 </header>
@@ -112,9 +112,38 @@
     </div>
 </section>
 
-<!-- 專案摘要 -->
-<section class="overview" id="overview">
-    <div class="overview-inner">
+
+ 
+ 
+    <!-- ==========================================
+         2. 時間線:左邊的日期會跟著捲動換
+         每個 <article class="tl-item"> 就是一個時間點
+         改 data-date(日期)和 data-phase(階段名稱),左邊就會自動更新
+         要增加時間點:複製整個 <article>,貼在最後一個後面
+         ========================================== -->
+ <section class="process" id="process">
+    <div class="process-inner">
+        <h2 class="section-title">Project Story</h2>
+
+        <div class="tl">
+            <div class="tl-rail" aria-hidden="true">
+                <div class="tl-sticky">
+                    <p class="tl-group" id="tl-group">OVERVIEW</p>
+                    <div class="tl-date" id="tl-date">Project<br>Overview</div>
+                    <p class="tl-phase" id="tl-phase">STEP 01</p>
+                    <div class="tl-track">
+                        <div class="tl-fill" id="tl-fill"></div>
+                        <ul class="tl-dots" id="tl-dots"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tl-items">
+
+                <!-- 1. Overview：專案背景與概覽 -->
+                <article class="tl-item tl-item-overview" id="overview"
+                         data-group="OVERVIEW" data-date="Project&#10;Overview" data-phase="STEP 01">
+<div class="overview-inner">
         <h2 class="section-title">Overview</h2>
 
         <h3 class="overview-name">
@@ -130,36 +159,11 @@
             不同於平常的設計角度，我這次以使用者的角度出發，透過 Persona、User Journey Map 與現況問題分析，梳理使用者的需求、操作情境及原本介面中需要改善的地方，在設計過程中，我先將前期分析轉化為 Wireframe，再進一步規劃介面設計，最後製作互動原型，呈現改版後的操作流程與預期體驗。
         </p>
     </div>
-</section>
- 
- 
-    <!-- ==========================================
-         2. 時間線:左邊的日期會跟著捲動換
-         每個 <article class="tl-item"> 就是一個時間點
-         改 data-date(日期)和 data-phase(階段名稱),左邊就會自動更新
-         要增加時間點:複製整個 <article>,貼在最後一個後面
-         ========================================== -->
- <section class="process" id="process">
-    <div class="process-inner">
-        <h2 class="section-title">Design Process</h2>
+                </article>
 
-        <div class="tl">
-            <div class="tl-rail" aria-hidden="true">
-                <div class="tl-sticky">
-                    <p class="tl-group" id="tl-group">UX DESIGN</p>
-                    <div class="tl-date" id="tl-date">Research<br>&amp; Analysis</div>
-                    <p class="tl-phase" id="tl-phase">STEP 01</p>
-                    <div class="tl-track">
-                        <div class="tl-fill" id="tl-fill"></div>
-                        <ul class="tl-dots" id="tl-dots"></ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tl-items">
 
                 <!-- 1. Research & Analysis：三格 -->
-                <article class="tl-item" data-group="UX DESIGN" data-date="Research&#10;&amp; Analysis" data-phase="STEP 01">
+                <article class="tl-item" id="research" data-group="UX DESIGN" data-date="Research&#10;&amp; Analysis" data-phase="STEP 02">
                     <h3><span class="text-highlight">研究與分析</span></h3>
                     <p>透過使用者分析，從梳理使用的流程到最後的歸納核心痛點，我培養了如何以使用者為核心設計思考，也學習到從經驗出發去規劃，我也必須要有系統性的整理資料，建立清楚的問題脈絡，後續的介面設計才可以有明確的參考方向。</p>
                     <div class="tl-block">
@@ -194,7 +198,7 @@
 </article>
 
                 <!-- 2. UX Design：一張 -->
-                <article class="tl-item" data-group="UX DESIGN" data-date="Wireframe" data-phase="STEP 02">
+                <article class="tl-item" data-group="UX DESIGN" data-date="Wireframe" data-phase="STEP 03">
                     <h3><span class="text-highlight">線框圖</span></h3>
                     <p>透過 Wireframe，我重新思考資訊該如何呈現以及使用者的操作動線，將核心痛點轉變成具體的頁面架構，為降低操作負擔，我讓重要資訊清楚呈現，並簡化操作流程，同時強化訂單狀態的可見性，讓使用者能隨時掌握進度。</p>
                     <div class="wf" id="wf">
@@ -221,7 +225,7 @@
                     <p class="tl-note">根據前面搜集到的資訊，先擬定好版面的框架，並安排好各個區塊的配置。</p>
                 </article>
                  <!-- 3. UI Design：兩格 -->
-                <article class="tl-item" data-group="UI DESIGN" data-date="Visual&#10;Design" data-phase="STEP 03">
+                <article class="tl-item" data-group="UI DESIGN" data-date="Visual&#10;Design" data-phase="STEP 04">
                     <h3><span class="text-highlight">介面設計</span></h3>
                     <p>我以Wireframe為架構進一步設計，透過色彩、排版與視覺層級，讓版面看起來美觀以外，重要資訊也可以清楚看見，同時我也設計了桌機與手機的配置，讓使用者可以在不同裝置上操作。</p>
                     <figure class="tl-cell">
@@ -288,7 +292,7 @@
                 </article>
 
                 <!-- 4. Prototype：一張 -->
-                <article class="tl-item" data-date="Prototype" data-phase="STEP 04">
+                <article class="tl-item" data-group="PROTOTYPE" data-date="Prototype" data-phase="STEP 05">
                     <h3><span class="text-highlight">互動原型</span></h3>
                     <div class="tl-embed" id="proto"
      data-desktop="https://embed.figma.com/proto/90W2jOZ6jTUecluNKDHIdC/Untitled?node-id=1-2&amp;scaling=scale-down-width&amp;content-scaling=fixed&amp;hide-ui=1&amp;hotspot-hints=0&amp;embed-host=share"
@@ -305,14 +309,10 @@
                     <p class="tl-note proto-note">透過Prototype，我可以檢視頁面之間的銜接、操作回饋與整體流程是否符合原先的設計規劃，經過了幾次的測試後，產出了最後版本，總共設計了約26條workflow與10個按鍵，讓介面設計變成更貼近真實使用的情境。</p>
                 </article>
 
-            </div>
-        </div>
-    </div>
-</section>
-    
-    <!-- 反思 -->
-<section class="reflection" id="reflection">
-    <div class="reflection-inner">
+                <!-- 6. Reflection：專案反思 -->
+                <article class="tl-item tl-item-reflection" id="reflection"
+                         data-group="REFLECTION" data-date="Reflection" data-phase="STEP 06">
+<div class="reflection-inner">
         <h2 class="section-title">Reflection</h2>
 
         <h3 class="reflection-name">
@@ -326,7 +326,14 @@
 
         <p>這次實作不只是讓我熟悉了<span class="text-highlight">Figma</span>，更讓我發現介面設計不只是要有美感，而是需要透過問題分析與邏輯規劃，在<span class="text-highlight">資訊清晰度</span>、<span class="text-highlight">操作直覺性</span>與<span class="text-highlight">視覺</span>三者之間取得平衡。</p>
     </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
 </section>
+    
+    
  
     <nav class="fnav" aria-label="專案切換">
         <a href="openhouse.html">下一個專案 →</a>
@@ -557,7 +564,7 @@
 
     /* ---------- 沿用首頁的捲動淡入，每次重新進入畫面都播放 ---------- */
     var revealBlocks = document.querySelectorAll(
-        '.overview-inner > *, .process-inner > .section-title, .tl-item > *'
+        '.process-inner > .section-title, .tl-item > :not(.overview-inner):not(.reflection-inner), .tl-item > .overview-inner > *, .tl-item > .reflection-inner > *'
     );
     if ('IntersectionObserver' in window && !reduce) {
         var revealObserver = new IntersectionObserver(function (entries) {
@@ -733,9 +740,7 @@ if (protoBox && protoFrame) {
     loadProto();
     mq.addEventListener('change', loadProto);
 }
-    var revealBlocks = document.querySelectorAll(
-    '.overview-inner > *, .reflection-inner > *, .process-inner > .section-title, .tl-item > *'
-);
+
  
 })();
 </script>
