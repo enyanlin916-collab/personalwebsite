@@ -250,6 +250,68 @@
     -webkit-box-decoration-break: clone;
 }
 
+/* ===== 企業說明會展示 ===== */
+
+.seminar-section {
+    margin-top: 36px;
+}
+
+.seminar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+/* 兩組之間的距離 */
+.seminar-row + .seminar-row {
+    margin-top: 60px;
+}
+
+/* 左邊照片 */
+.seminar-photo {
+    margin: 0;
+    min-width: 0;
+}
+
+.seminar-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--blue);
+    box-shadow: 6px 6px 0 var(--red);
+}
+
+/* 右邊文字 */
+.seminar-text {
+    min-width: 0;
+}
+
+.seminar-text h4 {
+    font-size: 1.2rem;
+    color: var(--red);
+    margin-bottom: 16px;
+}
+
+.seminar-text p {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+/* 手機版：改為上下排列 */
+@media (max-width: 768px) {
+    .seminar-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .seminar-row + .seminar-row {
+        margin-top: 48px;
+    }
+}
+
 
 
 @media(max-width:768px){
