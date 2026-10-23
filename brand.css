@@ -1,0 +1,408 @@
+/* U2 / Small Business Logo Design
+   自訂樣式只套用在 brand.html；不影響其他作品頁。
+*/
+:root {
+  --u2-navy: #202d51;
+  --u2-ink: #1c2848;
+  --u2-black: #101114;
+  --u2-paper: #faf9f5;
+  --u2-soft: #e9edf4;
+  --u2-muted: #687386;
+  --u2-line: #d8dee7;
+}
+html { scroll-behavior: smooth; }
+body.brand-page {
+  background: var(--u2-paper);
+  color: var(--u2-ink);
+  overflow-x: hidden;
+}
+.brand-page *, .brand-page *::before, .brand-page *::after { box-sizing: border-box; }
+.brand-page .site-header {
+  padding: 18px clamp(20px, 4vw, 64px);
+  background: rgba(250,249,245,.96);
+  border-bottom: 1px solid var(--u2-line);
+}
+.brand-page .site-header .logo {
+  font-size: clamp(.92rem, 1.15vw, 1.13rem);
+  color: var(--u2-ink);
+}
+.brand-page .site-nav { align-items: center; }
+.brand-page .site-nav a {
+  color: var(--u2-ink);
+  margin-left: clamp(10px, 1.6vw, 24px);
+  font-size: .82rem;
+  padding-bottom: 3px;
+}
+.brand-page .site-nav a:hover,
+.brand-page .site-nav a.active { color: var(--u2-navy); opacity: .6; }
+.brand-page .site-nav a.active { border-color: var(--u2-navy); }
+.brand-page .nav-toggle { color: var(--u2-ink); border-color: var(--u2-ink); }
+.brand-page main { display: block; }
+.brand-wrap { width: min(1120px, calc(100% - 96px)); margin: 0 auto; }
+.brand-section { padding: clamp(78px, 10vw, 146px) 0; scroll-margin-top: 85px; }
+.brand-section--tinted { background: var(--u2-soft); }
+.brand-kicker {
+  display: block;
+  margin-bottom: 19px;
+  color: var(--u2-muted);
+  font-family: Arial, sans-serif;
+  font-size: .73rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.brand-section h2 {
+  margin: 0 0 22px;
+  color: var(--u2-ink);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.45;
+  letter-spacing: .015em;
+  font-weight: 600;
+}
+.brand-section h3 {
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+  line-height: 1.55;
+  color: var(--u2-ink);
+}
+.brand-section p { font-size: clamp(.97rem, 1.2vw, 1.05rem); line-height: 2; }
+.brand-muted { color: var(--u2-muted); }
+.brand-section-head { max-width: 800px; margin-bottom: 45px; }
+.brand-section-head p { color: var(--u2-muted); }
+.brand-section-head--center { text-align: center; margin: 0 auto 48px; }
+.brand-rule { height: 1px; width: 100%; background: var(--u2-line); }
+
+/* Hero: 以 Logo 為唯一視覺主角 */
+.brand-hero {
+  position: relative;
+  min-height: min(880px, calc(100svh - 70px));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 38px 48px 44px;
+  color: #fff;
+  background: var(--u2-navy);
+  isolation: isolate;
+}
+.brand-hero__top,
+.brand-hero__bottom {
+  width: min(1120px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  letter-spacing: .13em;
+  color: rgba(255,255,255,.75);
+}
+.brand-hero__top strong { color: #fff; font-weight: 600; }
+.brand-hero__logo {
+  width: min(540px, 75vw);
+  height: min(475px, 48vw);
+  max-height: 55vh;
+  min-height: 245px;
+  margin: 28px 0;
+}
+.brand-hero__bottom a { color: #fff; font-size: .8rem; text-decoration: none; }
+.brand-hero__bottom a:hover { opacity: .7; }
+
+/* 圖片位置：圖片尚未上傳時顯示佔位；上傳後自動顯示正式圖片 */
+.brand-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: 100%;
+  background: #edf0f6;
+}
+.brand-art img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  z-index: 2;
+}
+.brand-art.has-image img { opacity: 1; }
+.brand-art__placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  padding: 20px;
+  text-align: center;
+  color: var(--u2-muted);
+}
+.brand-art__placeholder small {
+  font: 500 .76rem/1.6 Arial, sans-serif;
+  letter-spacing: .02em;
+}
+.brand-art.has-image .brand-art__placeholder { visibility: hidden; }
+.brand-art__symbol {
+  width: 92px;
+  height: 92px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-family: "Lora", Georgia, serif;
+  font-size: 2.3rem;
+  letter-spacing: -.09em;
+  padding-right: 6px;
+}
+.brand-art--hero { background: transparent; }
+.brand-art--hero .brand-art__placeholder { color: #fff; }
+.brand-art--hero .brand-art__symbol { width: 205px; height: 205px; font-size: 5.6rem; border-width: 2px; }
+
+/* Project overview */
+.brand-overview {
+  display: grid;
+  grid-template-columns: minmax(0,1.25fr) minmax(260px,.75fr);
+  gap: clamp(48px, 8vw, 110px);
+  align-items: start;
+}
+.brand-overview__intro { max-width: 650px; }
+.brand-overview__intro p { margin-bottom: 18px; }
+.brand-facts { border-top: 1px solid var(--u2-ink); }
+.brand-facts div {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 16px;
+  border-bottom: 1px solid var(--u2-line);
+  padding: 18px 0;
+}
+.brand-facts dt { color: var(--u2-muted); font-size: .83rem; }
+.brand-facts dd { margin: 0; font-size: .92rem; line-height: 1.8; }
+
+/* Brief: 雙向訊息氣泡，不冒充客戶原話 */
+.brand-brief-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+.brand-dialogue { display: flex; flex-direction: column; gap: 22px; }
+.brand-dialogue__item { width: 91%; }
+.brand-dialogue__item--reply { align-self: flex-end; }
+.brand-dialogue__speaker {
+  display: block;
+  margin: 0 0 10px 5px;
+  color: var(--u2-muted);
+  font: 700 .72rem Arial, sans-serif;
+  letter-spacing: .12em;
+}
+.brand-dialogue__item--reply .brand-dialogue__speaker { text-align: right; margin-right: 5px; }
+.brand-bubble {
+  position: relative;
+  padding: 28px 30px;
+  border: 1px solid #ccd5e2;
+  border-radius: 20px 20px 20px 5px;
+  background: white;
+}
+.brand-bubble::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  bottom: -9px;
+  width: 17px;
+  height: 17px;
+  transform: rotate(45deg);
+  background: inherit;
+  border-right: 1px solid #ccd5e2;
+  border-bottom: 1px solid #ccd5e2;
+}
+.brand-bubble p { margin: 0; }
+.brand-dialogue__item--reply .brand-bubble {
+  background: var(--u2-navy);
+  border-color: var(--u2-navy);
+  color: white;
+  border-radius: 20px 20px 5px 20px;
+}
+.brand-dialogue__item--reply .brand-bubble::after {
+  left: auto;
+  right: 17px;
+  border: 0;
+}
+.brand-brief-aside { padding-left: 22px; border-left: 1px solid var(--u2-line); }
+.brand-brief-aside h3 { margin-bottom: 20px; }
+.brand-brief-aside p { color: var(--u2-muted); }
+.brand-tags { display:flex; flex-wrap:wrap; gap: 10px; margin: 28px 0 0; }
+.brand-tags span {
+  padding: 9px 13px;
+  border: 1px solid #bfc9d9;
+  border-radius: 100px;
+  font-size: .83rem;
+  letter-spacing: .02em;
+  color: var(--u2-ink);
+  background: #fff;
+}
+
+/* Sketch / Exploration */
+.brand-sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 22px;
+}
+.brand-sketch-grid figure { min-width: 0; margin: 0; }
+.brand-art--sketch { aspect-ratio: 4 / 5; background: #fff; border: 1px solid var(--u2-line); }
+.brand-art--sketch .brand-art__placeholder { gap: 15px; }
+.brand-sketch-grid figcaption { margin-top: 16px; color: var(--u2-muted); font-size: .85rem; line-height: 1.8; }
+.brand-exploration-note {
+  margin-top: 36px;
+  padding: 24px 28px;
+  border-left: 3px solid var(--u2-navy);
+  background: #fff;
+}
+.brand-exploration-note p { margin: 0; color: var(--u2-muted); }
+
+/* 調整過程 */
+.brand-process {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+.brand-process__step { position: relative; min-width: 0; }
+.brand-process__step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -23px;
+  top: 32%;
+  z-index: 3;
+  width: 22px;
+  color: var(--u2-muted);
+  text-align: center;
+}
+.brand-art--iteration { aspect-ratio: 5 / 4; background: white; border: 1px solid var(--u2-line); }
+.brand-process__step h3 { margin: 18px 0 8px; font-size: 1.1rem; }
+.brand-process__step p { margin: 0; font-size: .9rem; color: var(--u2-muted); }
+.brand-final-heading { margin: 95px 0 30px; }
+.brand-final-heading h3 { margin: 0 0 8px; font-size: 1.55rem; }
+.brand-final-heading p { color: var(--u2-muted); }
+.brand-variants {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+}
+.brand-variant { min-width: 0; margin: 0; }
+.brand-art--variant { aspect-ratio: 4 / 5; border: 1px solid var(--u2-line); }
+.brand-art--variant.brand-art--navy { background: var(--u2-navy); border-color: var(--u2-navy); }
+.brand-art--variant.brand-art--white { background: white; }
+.brand-art--variant.brand-art--black { background: var(--u2-black); border-color: var(--u2-black); }
+.brand-art--navy .brand-art__placeholder,
+.brand-art--black .brand-art__placeholder { color: #fff; }
+.brand-art--white .brand-art__placeholder { color: var(--u2-navy); }
+.brand-variant figcaption { padding-top: 17px; display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.brand-variant figcaption strong { font-size: 1rem; }
+.brand-variant figcaption span { color: var(--u2-muted); font-size: .82rem; }
+
+/* 品牌應用：兩張卡片＋名片橫向展示 */
+.brand-app-grid { display:grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: 24px; }
+.brand-app-card {
+  min-width: 0;
+  border: 1px solid var(--u2-line);
+  background: white;
+  overflow: hidden;
+}
+.brand-app-card--avatar { grid-column: span 5; }
+.brand-app-card--banner { grid-column: span 7; }
+.brand-app-card--business { grid-column: 1 / -1; display:grid; grid-template-columns: 1fr 1.3fr; }
+.brand-app-card__media { padding: 34px; background: #f0f2f6; }
+.brand-app-card--avatar .brand-app-card__media { display: grid; place-items:center; min-height: 330px; }
+.brand-art--avatar {
+  width: min(230px, 100%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--u2-line);
+  background: white;
+}
+.brand-app-card--banner .brand-app-card__media { min-height:330px; display: grid; align-items:center; }
+.brand-art--banner { aspect-ratio: 16 / 8; background: var(--u2-navy); }
+.brand-art--banner .brand-art__placeholder { color: white; }
+.brand-app-card--business .brand-app-card__media { display: grid; place-items:center; min-height: 370px; order:2; }
+.brand-art--business { aspect-ratio: 1.7; max-width: 440px; background: white; box-shadow: 10px 14px 24px rgba(24,38,73,.12); }
+.brand-app-card__body { padding: 26px 30px 31px; }
+.brand-app-card--business .brand-app-card__body { display:flex; flex-direction:column; justify-content:center; padding: 45px; }
+.brand-app-card__body span { display:block; color: var(--u2-muted); font:700 .72rem Arial,sans-serif; letter-spacing:.12em; margin-bottom: 12px; }
+.brand-app-card__body h3 { margin:0 0 10px; }
+.brand-app-card__body p { margin: 0; color: var(--u2-muted); font-size: .93rem; }
+
+/* Reflection and footer */
+.brand-reflection {
+  background: var(--u2-navy);
+  color: white;
+}
+.brand-reflection h2,
+.brand-reflection h3 { color: white; }
+.brand-reflection .brand-kicker { color: rgba(255,255,255,.65); }
+.brand-reflection__grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 58px;
+  margin-top: 32px;
+}
+.brand-reflection__grid article { border-top: 1px solid rgba(255,255,255,.38); padding-top: 22px; }
+.brand-reflection__grid article p { color: rgba(255,255,255,.76); }
+.brand-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 34px max(40px, calc((100vw - 1120px)/2));
+  border-top: 1px solid var(--u2-line);
+  color: var(--u2-muted);
+  font-size: .86rem;
+}
+.brand-footer a { color: var(--u2-ink); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .brand-page .site-nav a { margin-left: 13px; font-size: .76rem; }
+  .brand-wrap { width: min(100% - 64px, 1120px); }
+  .brand-brief-grid { gap: 40px; }
+  .brand-app-card--avatar, .brand-app-card--banner { grid-column: span 6; }
+}
+@media (max-width: 768px) {
+  .brand-page .site-header { padding: 16px 20px; }
+  .brand-page .site-nav a { margin-left: 0; padding: 11px 0; }
+  .brand-page .site-nav { align-items: stretch; }
+  .brand-wrap { width: calc(100% - 40px); }
+  .brand-section { padding: 76px 0; scroll-margin-top: 72px; }
+  .brand-hero { min-height: calc(100svh - 70px); padding: 30px 20px 30px; }
+  .brand-hero__top,.brand-hero__bottom { font-size: .64rem; }
+  .brand-hero__logo { width: min(450px, 95%); height: 55vh; }
+  .brand-art--hero .brand-art__symbol { width: 170px; height: 170px; font-size: 4.4rem; }
+  .brand-overview, .brand-brief-grid, .brand-reflection__grid { grid-template-columns: 1fr; gap: 34px; }
+  .brand-brief-aside { border-left:0; border-top:1px solid var(--u2-line); padding:26px 0 0; }
+  .brand-sketch-grid, .brand-process, .brand-variants { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+  .brand-process__step:not(:last-child)::after { display:none; }
+  .brand-variants .brand-variant:last-child { grid-column: 1 / -1; max-width: min(100%,440px); width:100%; margin:auto; }
+  .brand-app-card--avatar,.brand-app-card--banner,.brand-app-card--business { grid-column:1/-1; }
+  .brand-app-card--business { grid-template-columns:1fr; }
+  .brand-app-card--business .brand-app-card__media { order:0; }
+  .brand-app-card--business .brand-app-card__body { padding: 26px 30px 31px; }
+  .brand-footer { padding: 28px 20px; }
+}
+@media (max-width: 500px) {
+  .brand-hero__bottom { flex-direction:column; align-items:flex-start; }
+  .brand-section h2 { font-size: 1.9rem; }
+  .brand-sketch-grid, .brand-process, .brand-variants { grid-template-columns: 1fr; }
+  .brand-variants .brand-variant:last-child { grid-column:auto; }
+  .brand-art--sketch { aspect-ratio: 5 / 4; }
+  .brand-art--variant { aspect-ratio: 5 / 4; }
+  .brand-dialogue__item { width: 96%; }
+  .brand-bubble { padding: 21px; }
+  .brand-app-card__media { padding: 18px; }
+  .brand-app-card--avatar .brand-app-card__media,
+  .brand-app-card--banner .brand-app-card__media { min-height: 240px; }
+  .brand-art--business { width:100%; }
+  .brand-reflection__grid { gap: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
