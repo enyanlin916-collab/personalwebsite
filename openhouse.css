@@ -130,17 +130,25 @@
     word-break: normal;
 }
 
-/* 預覽只顯示前 7 行，超出的內容顯示省略號 */
+/* 文案只存一份；收起時顯示前 7 行，超出部分以省略號表示 */
 .oh-copy-full {
+    position: relative;
     margin-top: 0;
 }
 
 .oh-copy-full.is-collapsed {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 7;
-    line-clamp: 7;
+    max-height: 13.3em; /* 7 行 × line-height 1.9 */
     overflow: hidden;
+}
+
+.oh-copy-full.is-collapsed::after {
+    content: "…";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-left: 1.4em;
+    background: linear-gradient(to right, transparent, var(--yellow) 55%);
+    color: var(--text);
 }
 
 /* 全文只存在一次，點擊按鈕展開／收起 */
