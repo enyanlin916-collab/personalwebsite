@@ -130,23 +130,39 @@
     word-break: normal;
 }
 
-.oh-copy-details {
+/* 預覽只顯示前 7 行，超出的內容顯示省略號 */
+.oh-copy-full {
+    margin-top: 0;
+}
+
+.oh-copy-full.is-collapsed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    line-clamp: 7;
+    overflow: hidden;
+}
+
+/* 全文只存在一次，點擊按鈕展開／收起 */
+.oh-copy-toggle {
     width: 100%;
     min-width: 0;
     margin-top: auto;
-    padding-top: 16px;
+    padding: 16px 0 0;
+    background: transparent;
+    border: 0;
     border-top: 1px solid var(--blue);
-}
-
-.oh-copy-details summary {
     color: var(--red);
+    font: inherit;
     font-size: 0.9rem;
     font-weight: 700;
+    text-align: left;
     cursor: pointer;
 }
 
-.oh-copy-full {
-    margin-top: 18px;
+.oh-copy-toggle:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
 }
 
 .oh-copy-points {
