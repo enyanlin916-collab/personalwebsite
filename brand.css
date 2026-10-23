@@ -21,20 +21,20 @@ body.brand-page {
 }
 .brand-page *, .brand-page *::before, .brand-page *::after { box-sizing: border-box; }
 .brand-page .site-header {
-  padding: 18px clamp(20px, 4vw, 64px);
+  padding: 30px 40px;
   background: rgba(255,251,234,.96);
   border-bottom: 1px solid var(--u2-line);
 }
 .brand-page .site-header .logo {
-  font-size: clamp(.92rem, 1.15vw, 1.13rem);
+  font-size: 1.3em;
   color: var(--u2-ink);
 }
-.brand-page .site-nav { align-items: center; }
+.brand-page .site-nav { align-items: center; gap: 8px 0; }
 .brand-page .site-nav a {
   color: var(--u2-ink);
-  margin-left: clamp(10px, 1.6vw, 24px);
-  font-size: .82rem;
-  padding-bottom: 3px;
+  margin-left: 24px;
+  font-size: .9em;
+  padding-bottom: 2px;
 }
 .brand-page .site-nav a:hover,
 .brand-page .site-nav a.active {
@@ -380,14 +380,16 @@ body.brand-page {
 
 /* Responsive */
 @media (max-width: 1000px) {
-  .brand-page .site-nav a { margin-left: 13px; font-size: .76rem; }
+  .brand-page .site-nav { gap: 8px 0; }
+  .brand-page .site-nav a { margin-left: 13px; font-size: .9em; }
   .brand-wrap { width: min(100% - 64px, 1120px); }
   .brand-brief-grid { gap: 40px; }
   .brand-app-card--avatar, .brand-app-card--banner { grid-column: span 6; }
 }
 @media (max-width: 768px) {
   .brand-page .site-header { padding: 16px 20px; }
-  .brand-page .site-nav a { margin-left: 0; padding: 11px 0; }
+  .brand-page .site-header .logo { font-size: 1em; }
+  .brand-page .site-nav a { margin-left: 0; padding: 10px 0; font-size: .95em; }
   .brand-page .site-nav { align-items: stretch; }
   .brand-page .site-nav a.active {
     border-bottom-color: transparent;
@@ -429,4 +431,26 @@ body.brand-page {
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* 和 Napoli / Open House 一致的專案切換導覽 */
+.brand-page + .fnav { display: none; }
+body.brand-page > .fnav {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 60px 40px 90px;
+  font-size: .95rem;
+}
+body.brand-page > .fnav a {
+  color: var(--u2-ink);
+  border-bottom: 1px solid var(--u2-accent);
+  padding-bottom: 4px;
+}
+body.brand-page > .fnav a:hover { color: var(--u2-accent); opacity: 1; }
+body.brand-page > .site-footer { text-align: center; }
+@media (max-width: 768px) {
+  body.brand-page > .fnav { padding: 40px 24px 70px; }
 }
