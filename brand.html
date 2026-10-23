@@ -6,7 +6,7 @@
   <meta name="description" content="U2 小型企業 Logo 設計專案：客戶需求、設計發想、定稿過程與品牌應用。">
   <title>U2 Logo Design | Enyan Lin Portfolio</title>
   <link rel="stylesheet" href="hw3-113450006.css">
-  <link rel="stylesheet" href="brand.css?v=20261023-nav">
+  <link rel="stylesheet" href="brand.css?v=20261023-timeline">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,12 +18,10 @@
     <nav class="site-nav" id="site-nav" aria-label="專案導覽">
       <a href="index.html">回首頁</a>
       <a href="index.html#projects">作品集</a>
+      <a href="#hero">作品展示</a>
       <a href="#overview">專案簡介</a>
-      <a href="#brief">客戶需求</a>
-      <a href="#exploration">設計發想</a>
-      <a href="#refinement">定稿過程</a>
-      <a href="#applications">應用展示</a>
-      <a href="#reflection">反思</a>
+      <a href="#process">設計歷程</a>
+      <a href="#reflection">專案反思</a>
     </nav>
   </header>
 
@@ -47,8 +45,26 @@
       </div>
     </section>
 
+    <!-- U2 Design Process：左側固定時間線，右側專案內容 -->
+    <section class="brand-process-shell" id="process" aria-labelledby="brand-story-heading">
+      <div class="brand-process-inner">
+        <h2 class="brand-story-title" id="brand-story-heading">Project Story</h2>
+        <div class="brand-timeline">
+          <aside class="brand-timeline-rail" aria-label="專案時間線">
+            <div class="brand-timeline-sticky">
+              <p class="brand-timeline-group" id="brand-tl-group">OVERVIEW</p>
+              <div class="brand-timeline-date" id="brand-tl-date">Project&#10;Overview</div>
+              <p class="brand-timeline-phase" id="brand-tl-phase">STEP 01</p>
+              <nav class="brand-timeline-track" aria-label="專案階段跳轉">
+                <div class="brand-timeline-fill" id="brand-tl-fill"></div>
+                <ol class="brand-timeline-dots" id="brand-tl-dots"></ol>
+              </nav>
+            </div>
+          </aside>
+          <div class="brand-timeline-content">
+
     <!-- 02｜專案簡介 -->
-    <section class="brand-section" id="overview">
+    <section class="brand-section brand-timeline-item" id="overview" data-group="OVERVIEW" data-date="Project&#10;Overview" data-phase="01" data-timeline-label="Project Overview">
       <div class="brand-wrap brand-overview">
         <div class="brand-overview__intro">
           <span class="brand-kicker">01 / PROJECT OVERVIEW</span>
@@ -66,7 +82,7 @@
     </section>
 
     <!-- 03｜客戶需求對話框 + 設計概念 -->
-    <section class="brand-section brand-section--tinted" id="brief">
+    <section class="brand-section brand-section--tinted brand-timeline-item" id="brief" data-group="DESIGN" data-date="Client&#10;Brief" data-phase="02" data-timeline-label="Client Brief">
       <div class="brand-wrap">
         <div class="brand-section-head">
           <span class="brand-kicker">02 / CLIENT BRIEF & DESIGN CONCEPT</span>
@@ -113,7 +129,7 @@
     </section>
 
     <!-- 04｜草圖與設計探索 -->
-    <section class="brand-section" id="exploration">
+    <section class="brand-section brand-timeline-item" id="exploration" data-group="DESIGN" data-date="Design&#10;Exploration" data-phase="03" data-timeline-label="Design Exploration">
       <div class="brand-wrap">
         <div class="brand-section-head">
           <span class="brand-kicker">03 / DESIGN EXPLORATION</span>
@@ -148,7 +164,7 @@
     </section>
 
     <!-- 05｜定稿過程 -->
-    <section class="brand-section brand-section--tinted" id="refinement">
+    <section class="brand-section brand-section--tinted brand-timeline-item" id="refinement" data-group="DESIGN" data-date="Logo&#10;Refinement" data-phase="04" data-timeline-label="Logo Refinement">
       <div class="brand-wrap">
         <div class="brand-section-head">
           <span class="brand-kicker">04 / REFINEMENT & FINALIZATION</span>
@@ -213,7 +229,7 @@
     </section>
 
     <!-- 06｜真實品牌應用 -->
-    <section class="brand-section" id="applications">
+    <section class="brand-section brand-timeline-item" id="applications" data-group="APPLICATION" data-date="Brand&#10;Applications" data-phase="05" data-timeline-label="Brand Applications">
       <div class="brand-wrap">
         <div class="brand-section-head">
           <span class="brand-kicker">05 / BRAND APPLICATIONS</span>
@@ -265,7 +281,7 @@
     </section>
 
     <!-- 07｜反思 -->
-    <section class="brand-section brand-reflection" id="reflection">
+    <section class="brand-section brand-reflection brand-timeline-item" id="reflection" data-group="REFLECTION" data-date="Reflection" data-phase="06" data-timeline-label="Reflection">
       <div class="brand-wrap">
         <span class="brand-kicker">06 / REFLECTION</span>
         <h2>專案反思</h2>
@@ -278,6 +294,10 @@
             <h3>如果重新設計</h3>
             <p>［這裡可以寫：現在回頭看，你覺得有哪些部分還能調整，例如初期需求訪談、提案比較、縮放測試或應用規範等。］</p>
           </article>
+        </div>
+      </div>
+    </section>
+          </div>
         </div>
       </div>
     </section>
@@ -339,6 +359,95 @@
         window.addEventListener('scroll', highlight, { passive: true });
         window.addEventListener('resize', highlight);
         highlight();
+      }
+
+      /* 和 Napoli / Open House 同樣的左側階段時間線 */
+      var brandHeader = document.querySelector('.site-header');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function measureHeader() {
+        document.documentElement.style.setProperty(
+          '--brand-header-height',
+          (brandHeader ? brandHeader.offsetHeight : 90) + 'px'
+        );
+      }
+      measureHeader();
+      window.addEventListener('resize', measureHeader);
+
+      var timelineItems = Array.from(document.querySelectorAll('.brand-timeline-item'));
+      var timelineDots = document.getElementById('brand-tl-dots');
+      var timelineDate = document.getElementById('brand-tl-date');
+      var timelineGroup = document.getElementById('brand-tl-group');
+      var timelinePhase = document.getElementById('brand-tl-phase');
+      var timelineFill = document.getElementById('brand-tl-fill');
+      var timelineCurrent = -1;
+
+      if (timelineItems.length && timelineDots && timelineDate &&
+          timelineGroup && timelinePhase && timelineFill) {
+
+        var dotNodes = [];
+        timelineItems.forEach(function (item, index) {
+          var li = document.createElement('li');
+          var button = document.createElement('button');
+          button.type = 'button';
+          var label = item.getAttribute('data-timeline-label') ||
+                      item.getAttribute('data-date').replace(/\n/g, ' ');
+          button.setAttribute('aria-label', '前往 ' + label);
+          button.setAttribute('title', label);
+          button.innerHTML = '<span></span>';
+          button.querySelector('span').textContent = label;
+          button.addEventListener('click', function () {
+            item.scrollIntoView({
+              behavior: reduceMotion ? 'auto' : 'smooth',
+              block: 'start'
+            });
+          });
+          li.appendChild(button);
+          timelineDots.appendChild(li);
+          dotNodes.push(li);
+        });
+
+        function activateTimeline(index) {
+          if (index < 0 || index === timelineCurrent) return;
+          timelineCurrent = index;
+          var activeItem = timelineItems[index];
+          timelineItems.forEach(function (item, j) {
+            item.classList.toggle('active', j === index);
+          });
+          dotNodes.forEach(function (li, j) {
+            li.classList.toggle('active', j === index);
+            li.classList.toggle('done', j < index);
+            li.querySelector('button').setAttribute('aria-current', j === index ? 'step' : 'false');
+          });
+          timelineFill.style.height = (timelineItems.length > 1 ?
+            (index / (timelineItems.length - 1)) * 100 : 0) + '%';
+          timelineDate.classList.remove('swap');
+          void timelineDate.offsetWidth;
+          timelineDate.classList.add('swap');
+          timelineDate.textContent = activeItem.getAttribute('data-date');
+          timelineGroup.textContent = activeItem.getAttribute('data-group') || '';
+          timelinePhase.textContent = 'STEP ' + activeItem.getAttribute('data-phase');
+        }
+
+        var timelineTicking = false;
+        function syncTimeline() {
+          var marker = Math.max(150, window.innerHeight * .48);
+          var current = 0;
+          timelineItems.forEach(function (item, index) {
+            if (item.getBoundingClientRect().top <= marker) current = index;
+          });
+          activateTimeline(current);
+          timelineTicking = false;
+        }
+        function scheduleTimelineSync() {
+          if (!timelineTicking) {
+            timelineTicking = true;
+            window.requestAnimationFrame(syncTimeline);
+          }
+        }
+        window.addEventListener('scroll', scheduleTimelineSync, { passive: true });
+        window.addEventListener('resize', scheduleTimelineSync);
+        window.addEventListener('load', scheduleTimelineSync);
+        syncTimeline();
       }
     })();
   </script>
