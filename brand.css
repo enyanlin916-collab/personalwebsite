@@ -2,13 +2,16 @@
    自訂樣式只套用在 brand.html；不影響其他作品頁。
 */
 :root {
+  /* U2 Logo 保留自己的品牌深藍，其他區塊延續個人網站配色 */
   --u2-navy: #202d51;
-  --u2-ink: #1c2848;
+  --u2-ink: #1E3A6B;
   --u2-black: #101114;
-  --u2-paper: #faf9f5;
-  --u2-soft: #e9edf4;
-  --u2-muted: #687386;
-  --u2-line: #d8dee7;
+  --u2-paper: #FFFBEA;
+  --u2-soft: #FAF0D0;
+  --u2-yellow: #F5E6A3;
+  --u2-accent: #E2352F;
+  --u2-muted: #6B6B6B;
+  --u2-line: #E5E0CF;
 }
 html { scroll-behavior: smooth; }
 body.brand-page {
@@ -19,7 +22,7 @@ body.brand-page {
 .brand-page *, .brand-page *::before, .brand-page *::after { box-sizing: border-box; }
 .brand-page .site-header {
   padding: 18px clamp(20px, 4vw, 64px);
-  background: rgba(250,249,245,.96);
+  background: rgba(255,251,234,.96);
   border-bottom: 1px solid var(--u2-line);
 }
 .brand-page .site-header .logo {
@@ -34,22 +37,34 @@ body.brand-page {
   padding-bottom: 3px;
 }
 .brand-page .site-nav a:hover,
-.brand-page .site-nav a.active { color: var(--u2-navy); opacity: .6; }
-.brand-page .site-nav a.active { border-color: var(--u2-navy); }
+.brand-page .site-nav a.active {
+  color: var(--u2-accent);
+  opacity: 1;
+}
+.brand-page .site-nav a.active { border-color: var(--u2-accent); }
 .brand-page .nav-toggle { color: var(--u2-ink); border-color: var(--u2-ink); }
 .brand-page main { display: block; }
 .brand-wrap { width: min(1120px, calc(100% - 96px)); margin: 0 auto; }
 .brand-section { padding: clamp(78px, 10vw, 146px) 0; scroll-margin-top: 85px; }
 .brand-section--tinted { background: var(--u2-soft); }
 .brand-kicker {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 19px;
-  color: var(--u2-muted);
+  color: var(--u2-accent);
   font-family: Arial, sans-serif;
   font-size: .73rem;
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
+}
+.brand-kicker::before {
+  content: "";
+  display: block;
+  flex: 0 0 23px;
+  height: 2px;
+  background: var(--u2-accent);
 }
 .brand-section h2 {
   margin: 0 0 22px;
@@ -114,7 +129,7 @@ body.brand-page {
   place-items: center;
   overflow: hidden;
   width: 100%;
-  background: #edf0f6;
+  background: #FBF4E1;
 }
 .brand-art img {
   display: block;
@@ -191,7 +206,7 @@ body.brand-page {
 .brand-dialogue__speaker {
   display: block;
   margin: 0 0 10px 5px;
-  color: var(--u2-muted);
+  color: var(--u2-accent);
   font: 700 .72rem Arial, sans-serif;
   letter-spacing: .12em;
 }
@@ -199,9 +214,9 @@ body.brand-page {
 .brand-bubble {
   position: relative;
   padding: 28px 30px;
-  border: 1px solid #ccd5e2;
+  border: 1px solid var(--u2-line);
   border-radius: 20px 20px 20px 5px;
-  background: white;
+  background: #fffef8;
 }
 .brand-bubble::after {
   content: "";
@@ -212,8 +227,8 @@ body.brand-page {
   height: 17px;
   transform: rotate(45deg);
   background: inherit;
-  border-right: 1px solid #ccd5e2;
-  border-bottom: 1px solid #ccd5e2;
+  border-right: 1px solid var(--u2-line);
+  border-bottom: 1px solid var(--u2-line);
 }
 .brand-bubble p { margin: 0; }
 .brand-dialogue__item--reply .brand-bubble {
@@ -233,12 +248,12 @@ body.brand-page {
 .brand-tags { display:flex; flex-wrap:wrap; gap: 10px; margin: 28px 0 0; }
 .brand-tags span {
   padding: 9px 13px;
-  border: 1px solid #bfc9d9;
+  border: 1px solid #D5C896;
   border-radius: 100px;
   font-size: .83rem;
   letter-spacing: .02em;
   color: var(--u2-ink);
-  background: #fff;
+  background: var(--u2-paper);
 }
 
 /* Sketch / Exploration */
@@ -254,8 +269,8 @@ body.brand-page {
 .brand-exploration-note {
   margin-top: 36px;
   padding: 24px 28px;
-  border-left: 3px solid var(--u2-navy);
-  background: #fff;
+  border-left: 3px solid var(--u2-accent);
+  background: #fffef8;
 }
 .brand-exploration-note p { margin: 0; color: var(--u2-muted); }
 
@@ -274,7 +289,7 @@ body.brand-page {
   top: 32%;
   z-index: 3;
   width: 22px;
-  color: var(--u2-muted);
+  color: var(--u2-accent);
   text-align: center;
 }
 .brand-art--iteration { aspect-ratio: 5 / 4; background: white; border: 1px solid var(--u2-line); }
@@ -305,13 +320,14 @@ body.brand-page {
 .brand-app-card {
   min-width: 0;
   border: 1px solid var(--u2-line);
-  background: white;
+  background: #fffef8;
   overflow: hidden;
+  box-shadow: 5px 5px 0 rgba(226,53,47,.07);
 }
 .brand-app-card--avatar { grid-column: span 5; }
 .brand-app-card--banner { grid-column: span 7; }
 .brand-app-card--business { grid-column: 1 / -1; display:grid; grid-template-columns: 1fr 1.3fr; }
-.brand-app-card__media { padding: 34px; background: #f0f2f6; }
+.brand-app-card__media { padding: 34px; background: #F8EFD6; }
 .brand-app-card--avatar .brand-app-card__media { display: grid; place-items:center; min-height: 330px; }
 .brand-art--avatar {
   width: min(230px, 100%);
@@ -338,7 +354,8 @@ body.brand-page {
 }
 .brand-reflection h2,
 .brand-reflection h3 { color: white; }
-.brand-reflection .brand-kicker { color: rgba(255,255,255,.65); }
+.brand-reflection .brand-kicker { color: rgba(255,255,255,.83); }
+.brand-reflection .brand-kicker::before { background: var(--u2-accent); }
 .brand-reflection__grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -359,6 +376,7 @@ body.brand-page {
   font-size: .86rem;
 }
 .brand-footer a { color: var(--u2-ink); text-decoration: underline; text-underline-offset: 4px; }
+.brand-footer a:hover { color: var(--u2-accent); }
 
 /* Responsive */
 @media (max-width: 1000px) {
@@ -371,6 +389,12 @@ body.brand-page {
   .brand-page .site-header { padding: 16px 20px; }
   .brand-page .site-nav a { margin-left: 0; padding: 11px 0; }
   .brand-page .site-nav { align-items: stretch; }
+  .brand-page .site-nav a.active {
+    border-bottom-color: transparent;
+    text-decoration: underline;
+    text-decoration-color: var(--u2-accent);
+    text-underline-offset: 5px;
+  }
   .brand-wrap { width: calc(100% - 40px); }
   .brand-section { padding: 76px 0; scroll-margin-top: 72px; }
   .brand-hero { min-height: calc(100svh - 70px); padding: 30px 20px 30px; }
