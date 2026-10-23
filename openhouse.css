@@ -365,6 +365,32 @@
     color: var(--muted);
 }
 
+/* 文案設計思考：三個重點 */
+.oh-copy-points {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.oh-copy-point h5 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.oh-copy-point p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+.oh-copy-point:not(:last-child) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
 /* 手機版 */
 @media (max-width: 768px) {
 
