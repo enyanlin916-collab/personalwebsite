@@ -600,6 +600,20 @@ body.brand-page > .site-footer { text-align: center; }
   text-align: center;
 }
 
+.u2-sketch-card figcaption strong {
+  display: block;
+  font-weight: 700;
+}
+
+.u2-sketch-card figcaption .u2-sketch-description {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
 .u2-arrow-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
