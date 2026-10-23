@@ -199,6 +199,12 @@
     }
 }
 
+/* 修正圖片說明中的螢光筆過長問題 */
+.tl-cell figcaption .text-highlight {
+    display: inline;
+    margin-top: 0;
+}
+
 @media(max-width:768px){
 .role-grid{grid-template-columns:minmax(0,1fr)}
 .tl-grid.cols-posts{grid-template-columns:minmax(0,1fr)}
