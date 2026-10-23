@@ -967,3 +967,37 @@ html { scroll-behavior: smooth; }
     .wf-tip .arrow { animation: none; }
 }
 
+
+/* Overview 與 Reflection 改為時間線中的首尾階段 */
+.page-figma .tl-item-overview .overview-inner,
+.page-figma .tl-item-reflection .reflection-inner {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+.page-figma .tl-item-overview .section-title,
+.page-figma .tl-item-reflection .section-title {
+    margin-bottom: 28px;
+}
+.page-figma .tl-item-overview .overview-name,
+.page-figma .tl-item-reflection .reflection-name {
+    margin-top: 0;
+}
+.page-figma .tl-item-overview .overview-lead,
+.page-figma .tl-item-overview .overview-more,
+.page-figma .tl-item-reflection .reflection-inner p {
+    max-width: none;
+    line-height: 1.9;
+    text-wrap: wrap;
+}
+.page-figma .tl-item-reflection .reflection-inner p { margin-bottom: 1.4em; }
+.page-figma .tl-item-overview,
+.page-figma .tl-item-reflection {
+    scroll-margin-top: calc(var(--hh) + 12px);
+}
+@media (max-width: 768px) {
+    .page-figma .tl-item-overview,
+    .page-figma .tl-item-reflection {
+        scroll-margin-top: calc(var(--hh) + 70px);
+    }
+}
