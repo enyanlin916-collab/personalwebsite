@@ -446,3 +446,48 @@
     text-align: center;
     color: var(--muted);
 }
+
+/* 社群排版：每張圖片下方的製作範圍圖解 */
+.oh-layout-note {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.oh-layout-map {
+    display: grid;
+    grid-template-columns: repeat(3, 16px);
+    grid-template-rows: repeat(2, 16px);
+    gap: 3px;
+    flex: none;
+}
+
+.oh-layout-map span {
+    display: block;
+    border: 1px solid var(--blue);
+    background: var(--yellow);
+}
+
+.oh-layout-map span.mine {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.oh-layout-note-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    line-height: 1.55;
+}
+
+.oh-layout-note-text strong {
+    font-size: 0.88rem;
+    color: var(--blue);
+}
+
+.oh-layout-note-text span {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
