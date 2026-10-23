@@ -454,3 +454,114 @@ body.brand-page > .site-footer { text-align: center; }
 @media (max-width: 768px) {
   body.brand-page > .fnav { padding: 40px 24px 70px; }
 }
+
+
+/* ===== U2: 與前兩篇相同的固定左側時間線 ===== */
+.brand-process-shell { padding: 105px 0 35px; background: var(--u2-paper); }
+.brand-process-inner { width: min(1040px, calc(100% - 80px)); margin: 0 auto; }
+.brand-story-title { margin: 0 0 28px; color: var(--u2-ink); font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 500; }
+.brand-timeline { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 56px; align-items: start; }
+.brand-timeline-rail { min-width: 0; align-self: stretch; }
+.brand-timeline-sticky {
+  position: sticky; top: calc(var(--brand-header-height, 90px) + 36px);
+  height: calc(100svh - var(--brand-header-height,90px) - 72px);
+  display: flex; flex-direction: column;
+}
+.brand-timeline-group { margin:0 0 8px; color: var(--u2-accent); font-size:.8rem; font-weight:700; letter-spacing:.12em; }
+.brand-timeline-date {
+  color: var(--u2-ink); font-size:clamp(1.7rem,2.8vw,2.3rem);
+  font-weight:700; line-height:1.15; letter-spacing:.01em; white-space:pre-line;
+}
+.brand-timeline-date.swap { animation:brand-date-in .45s cubic-bezier(.3,1.4,.5,1); }
+@keyframes brand-date-in {
+  from { opacity:0; transform:translateY(14px) rotate(-3deg); }
+  to { opacity:1; transform:none; }
+}
+.brand-timeline-phase { margin-top: 6px; color:var(--u2-muted); font-size:.95rem; }
+.brand-timeline-track { position:relative; flex:1; width:2px; margin:32px 0 8px 7px; background:var(--u2-line); }
+.brand-timeline-fill { position:absolute; inset:0 auto auto 0; width:100%; height:0; background:var(--u2-accent); transition:height .45s ease; }
+.brand-timeline-dots {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  justify-content:space-between; list-style:none; margin:0; padding:0;
+}
+.brand-timeline-dots li { position:relative; height:0; }
+.brand-timeline-dots button {
+  position:absolute; left:-6px; top:-17px; display:flex; align-items:center; gap:18px;
+  padding:10px 0; border:0; background:none; color:var(--u2-muted);
+  cursor:pointer; font:inherit; font-size:.82rem; white-space:nowrap;
+}
+.brand-timeline-dots button::before {
+  content:""; box-sizing:border-box; display:block; width:12px; height:12px;
+  flex:0 0 12px; border:2px solid var(--u2-line); border-radius:50%;
+  background:var(--u2-paper); transition:transform .3s,background .3s,border-color .3s;
+}
+.brand-timeline-dots button span { position:absolute; left:24px; top:8px; }
+.brand-timeline-dots li.done button::before { border-color:var(--u2-accent); }
+.brand-timeline-dots li.active button { color:var(--u2-accent); font-weight:700; }
+.brand-timeline-dots li.active button::before { background:var(--u2-accent); border-color:var(--u2-accent); transform:scale(1.3); }
+.brand-timeline-dots button:focus-visible { outline:2px solid var(--u2-accent); outline-offset:4px; }
+.brand-timeline-content { min-width:0; }
+.brand-page .brand-timeline-item {
+  padding:clamp(70px,11vh,120px) 0;
+  min-height: 85vh;
+  scroll-margin-top:calc(var(--brand-header-height,90px) + 12px);
+  background:transparent;
+}
+.brand-page .brand-timeline-item > .brand-wrap { width:100%; margin:0; max-width:none; }
+.brand-page .brand-timeline-item .brand-section-head { margin-bottom:36px; }
+.brand-page .brand-timeline-item .brand-section h2 { font-size:clamp(1.8rem,2.8vw,2.6rem); }
+/* 實際內容維持奶油色，時間線中的原深色反思改用同樣底色 */
+.brand-page .brand-timeline-item.brand-reflection { color:var(--u2-ink); }
+.brand-page .brand-timeline-item.brand-reflection h2,
+.brand-page .brand-timeline-item.brand-reflection h3 { color:var(--u2-ink); }
+.brand-page .brand-timeline-item.brand-reflection .brand-kicker { color:var(--u2-accent); }
+.brand-page .brand-timeline-item.brand-reflection__grid article { border-color:var(--u2-line); }
+.brand-page .brand-timeline-item.brand-reflection .brand-reflection__grid article { border-color:var(--u2-line); }
+.brand-page .brand-timeline-item.brand-reflection .brand-reflection__grid article p { color:var(--u2-muted); }
+/* 時間線內容欄不再塞滿三欄的大圖 */
+.brand-timeline-content .brand-overview { grid-template-columns:1fr; gap:26px; }
+.brand-timeline-content .brand-brief-grid { grid-template-columns:1fr; gap:38px; }
+.brand-timeline-content .brand-brief-aside { padding:26px 0 0; border-left:0; border-top:1px solid var(--u2-line); }
+.brand-timeline-content .brand-sketch-grid,
+.brand-timeline-content .brand-process { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.brand-timeline-content .brand-variants { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.brand-timeline-content .brand-variant:last-child { grid-column:1/-1; max-width:min(100%,380px); margin:auto; }
+.brand-timeline-content .brand-app-card--avatar,
+.brand-timeline-content .brand-app-card--banner,
+.brand-timeline-content .brand-app-card--business { grid-column:1/-1; }
+.brand-timeline-content .brand-app-card--business { grid-template-columns:1fr; }
+.brand-timeline-content .brand-app-card--business .brand-app-card__media { order:0; }
+.brand-timeline-content .brand-app-card--business .brand-app-card__body { padding:26px 30px 31px; }
+.brand-timeline-content .brand-reflection__grid { grid-template-columns:1fr; gap:30px; }
+.brand-timeline-content .brand-final-heading { margin-top:68px; }
+@media (max-width:768px) {
+  .brand-process-shell { padding:70px 0 25px; }
+  .brand-process-inner { width:calc(100% - 48px); }
+  .brand-timeline { grid-template-columns:minmax(0,1fr); gap:0; }
+  .brand-timeline-rail {
+    position:sticky; top:var(--brand-header-height,70px); z-index:8;
+    margin:0 -24px; padding:10px 24px; background:var(--u2-paper);
+    border-bottom:1px solid var(--u2-line);
+  }
+  .brand-timeline-sticky {
+    position:static; height:auto; flex-direction:row;
+    align-items:baseline; gap:14px;
+  }
+  .brand-timeline-group,.brand-timeline-track { display:none; }
+  .brand-timeline-date { font-size:1.25rem; white-space:normal; }
+  .brand-timeline-phase { margin-top:0; font-size:.8rem; white-space:nowrap; }
+  .brand-page .brand-timeline-item {
+    min-height:70vh; padding:65px 0 85px;
+    scroll-margin-top:calc(var(--brand-header-height,70px) + 70px);
+  }
+}
+@media (max-width:500px) {
+  .brand-timeline-content .brand-sketch-grid,
+  .brand-timeline-content .brand-process,
+  .brand-timeline-content .brand-variants { grid-template-columns:1fr; }
+  .brand-timeline-content .brand-variant:last-child { grid-column:auto; max-width:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .brand-timeline-date.swap { animation:none; }
+  .brand-timeline-fill { transition:none; }
+}
