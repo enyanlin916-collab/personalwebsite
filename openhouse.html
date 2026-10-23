@@ -193,18 +193,7 @@
                 <h4>貼文文案</h4>
 
                 <div class="oh-copy-content">
-
-    <p>
-        【2026 秋季就業博覽會｜行前通知】<br>
-        明天就是一年一度的秋季就業博覽會啦🍂<br>
-        出發前記得詳讀這份行前通知，
-        重要資訊一次掌握，
-    </p>
-
-    <details class="oh-copy-details">
-        <summary>查看完整文案 ↓</summary>
-
-        <div class="oh-copy-full">
+    <div class="oh-copy-full is-collapsed" id="oh-post-copy">
             【 2026 秋季就業博覽會| 行前通知 】
                       <br>明天就是一年一度的秋季就業博覽會啦🍂
                       <br>相信大家都很期待很久了吧！
@@ -229,9 +218,8 @@
 <br>
 <br>#OpenHouse #OH秋季徵才 #OH #陽明交大 #職涯發展
         </div>
-    </details>
-
-</div>
+    <button type="button" class="oh-copy-toggle" aria-expanded="false" aria-controls="oh-post-copy">查看完整文案 ↓</button>
+</div>>
 
             </div>
 
@@ -610,6 +598,18 @@
     window.addEventListener('load', draw);
     if ('ResizeObserver' in window) new ResizeObserver(draw).observe(stage);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  }
+
+  /* 文案僅保留一份：超過預覽行數時以省略號收起 */
+  var postCopy = document.getElementById('oh-post-copy');
+  var postCopyToggle = document.querySelector('.oh-copy-toggle');
+  if (postCopy && postCopyToggle) {
+    postCopyToggle.addEventListener('click', function () {
+      var currentlyExpanded = postCopyToggle.getAttribute('aria-expanded') === 'true';
+      postCopy.classList.toggle('is-collapsed', currentlyExpanded);
+      postCopyToggle.setAttribute('aria-expanded', String(!currentlyExpanded));
+      postCopyToggle.textContent = currentlyExpanded ? '查看完整文案 ↓' : '收起文案 ↑';
+    });
   }
 })();
 </script>
