@@ -411,10 +411,10 @@
 @media(prefers-reduced-motion:reduce){.pl.on{animation:none}.post-card{transition:none}}
 
 
-/* 博覽會照片下方的小字說明 */
-.expo-photo-caption {
+/* 每張博覽會照片下方的獨立標註 */
+.expo-photo figcaption {
     max-width: none !important;
-    margin: 20px 0 0;
+    margin: 18px 0 0;
     font-size: 0.85rem;
     line-height: 1.7;
     text-align: center;
