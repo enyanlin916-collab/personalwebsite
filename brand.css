@@ -66,13 +66,30 @@ body.brand-page {
   height: 2px;
   background: var(--u2-accent);
 }
+/* 和 Napoli / Open House 的時間線主標題尺寸與字重相同 */
 .brand-section h2 {
-  margin: 0 0 22px;
+  margin: 8px 0 14px;
   color: var(--u2-ink);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.45;
-  letter-spacing: .015em;
-  font-weight: 600;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  line-height: 1.5;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+/* 黃色螢光筆：只標示文字下緣，不讓背景延伸整行 */
+.brand-page .text-highlight {
+  display: inline;
+  background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    #F5E6A3 65%,
+    #F5E6A3 95%,
+    transparent 95%
+  );
+  padding: 0 3px;
+  margin: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .brand-section h3 {
   font-size: clamp(1.15rem, 1.7vw, 1.55rem);
@@ -416,7 +433,7 @@ body.brand-page {
 }
 @media (max-width: 500px) {
   .brand-hero__bottom { flex-direction:column; align-items:flex-start; }
-  .brand-section h2 { font-size: 1.9rem; }
+  .brand-section h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); }
   .brand-sketch-grid, .brand-process, .brand-variants { grid-template-columns: 1fr; }
   .brand-variants .brand-variant:last-child { grid-column:auto; }
   .brand-art--sketch { aspect-ratio: 5 / 4; }
@@ -459,7 +476,21 @@ body.brand-page > .site-footer { text-align: center; }
 /* ===== U2: 與前兩篇相同的固定左側時間線 ===== */
 .brand-process-shell { padding: 105px 0 35px; background: var(--u2-paper); }
 .brand-process-inner { width: min(1040px, calc(100% - 80px)); margin: 0 auto; }
-.brand-story-title { margin: 0 0 28px; color: var(--u2-ink); font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 500; }
+.brand-story-title {
+  margin: 0 0 30px;
+  color: var(--u2-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+.brand-story-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--u2-accent);
+}
 .brand-timeline { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 56px; align-items: start; }
 .brand-timeline-rail { min-width: 0; align-self: stretch; }
 .brand-timeline-sticky {
@@ -509,7 +540,7 @@ body.brand-page > .site-footer { text-align: center; }
 }
 .brand-page .brand-timeline-item > .brand-wrap { width:100%; margin:0; max-width:none; }
 .brand-page .brand-timeline-item .brand-section-head { margin-bottom:36px; }
-.brand-page .brand-timeline-item .brand-section h2 { font-size:clamp(1.8rem,2.8vw,2.6rem); }
+/* 主標題改用上面的共同字級；此處避免時間線覆蓋 */
 /* 實際內容維持奶油色，時間線中的原深色反思改用同樣底色 */
 .brand-page .brand-timeline-item.brand-reflection { color:var(--u2-ink); }
 .brand-page .brand-timeline-item.brand-reflection h2,
