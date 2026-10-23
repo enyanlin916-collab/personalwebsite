@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     min-width: 0;
-    height: 100%;
+    height: auto;
     padding: 26px 20px;
     background: var(--yellow);
     border: 2px solid var(--blue);
@@ -118,6 +118,7 @@
     flex: 1;
     flex-direction: column;
     min-width: 0;
+    min-height: 0;
 }
 
 .tl-item .oh-copy-content p,
@@ -130,14 +131,15 @@
     word-break: normal;
 }
 
-/* 文案只存一份；收起時顯示前 7 行，超出部分以省略號表示 */
+/* 文案只存一份；桌面版預覽會自動填滿卡片剩餘空間 */
 .oh-copy-full {
     position: relative;
     margin-top: 0;
 }
 
 .oh-copy-full.is-collapsed {
-    max-height: 13.3em; /* 7 行 × line-height 1.9 */
+    flex: 1 1 0;
+    min-height: 0;
     overflow: hidden;
 }
 
@@ -155,11 +157,11 @@
 .oh-copy-toggle {
     width: 100%;
     min-width: 0;
-    margin-top: auto;
-    padding: 16px 0 0;
+    flex-shrink: 0;
+    margin-top: 16px;
+    padding: 0;
     background: transparent;
     border: 0;
-    border-top: 1px solid var(--blue);
     color: var(--red);
     font: inherit;
     font-size: 0.9rem;
@@ -188,6 +190,12 @@
     .oh-copy-grid {
         grid-template-columns: 1fr;
         gap: 28px;
+    }
+
+    /* 手機版沒有左右等高限制，維持精簡的 7 行預覽 */
+    .oh-copy-full.is-collapsed {
+        flex: none;
+        max-height: 13.3em;
     }
 
     .oh-copy-section {
