@@ -41,7 +41,6 @@
       <div class="post-col">
         <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 01"><img src="post1.png" alt="貼文 1"></button>
         <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 02"><img src="post2.png" alt="貼文 2"></button>
-        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 03"><img src="post3.png" alt="貼文 3"></button>
       </div>
       <div class="phone" aria-live="polite">
         <div class="phone-notch"></div>
@@ -53,7 +52,6 @@
       <div class="post-col">
         <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 04"><img src="post4.png" alt="貼文 4"></button>
         <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 05"><img src="post5.png" alt="貼文 5"></button>
-        <button type="button" class="post-card" aria-pressed="false" aria-label="貼文 06"><img src="post6.png" alt="貼文 6"></button>
       </div>
     </div>
     <a class="stack-skip phone-skip" href="#overview">跳到專案概覽 ↓</a>
@@ -578,12 +576,14 @@
       svg.setAttribute('height', s.height);
       cards.forEach(function (c, k) {
         var r = c.getBoundingClientRect();
-        var left = k < 3;
-        var slot = k % 3;
+        var leftCount = stage.querySelector('.post-col').querySelectorAll('.post-card').length;
+        var left = k < leftCount;
+        var slot = left ? k : k - leftCount;
+        var sideCount = left ? leftCount : cards.length - leftCount;
         var sx = (left ? r.right : r.left) - s.left;
         var sy = r.top + r.height / 2 - s.top;
         var ex = (left ? pr.left : pr.right) - s.left;
-        var ey = pr.top + pr.height * (0.3 + 0.2 * slot) - s.top;
+        var ey = pr.top + pr.height * ((slot + 1) / (sideCount + 1)) - s.top;
         var mx = (sx + ex) / 2;
         paths[k].setAttribute('d', 'M' + sx + ' ' + sy + ' C' + mx + ' ' + sy + ' ' + mx + ' ' + ey + ' ' + ex + ' ' + ey);
         pdots[k].setAttribute('cx', ex);
