@@ -410,3 +410,13 @@
 }
 @media(prefers-reduced-motion:reduce){.pl.on{animation:none}.post-card{transition:none}}
 
+
+/* 博覽會照片下方的小字說明 */
+.expo-photo-caption {
+    max-width: none !important;
+    margin: 20px 0 0;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    text-align: center;
+    color: var(--muted);
+}
