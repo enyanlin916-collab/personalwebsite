@@ -60,16 +60,19 @@
 
 .oh-copy-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+    gap: 24px;
+    align-items: stretch;
     margin-top: 28px;
 }
 
 /* 左側文案卡片 */
 .oh-copy-card {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    padding: 28px;
+    height: 100%;
+    padding: 26px 20px;
     background: var(--yellow);
     border: 2px solid var(--blue);
     box-shadow: 6px 6px 0 var(--red);
@@ -107,6 +110,47 @@
     font-size: 0.95rem;
     line-height: 1.9;
     color: var(--text);
+}
+
+/* 讓左側預覽文案正確換行，展開全文時也不會超出卡片 */
+.oh-copy-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.tl-item .oh-copy-content p,
+.oh-copy-full {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.oh-copy-details {
+    width: 100%;
+    min-width: 0;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--blue);
+}
+
+.oh-copy-details summary {
+    color: var(--red);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.oh-copy-full {
+    margin-top: 18px;
+}
+
+.oh-copy-points {
+    min-width: 0;
 }
 
 /* 手機版 */
