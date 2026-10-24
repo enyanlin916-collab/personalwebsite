@@ -556,3 +556,40 @@ body.composite-page {
   .composite-page .composite-hero__bottom { bottom: 24px; }
   .composite-page .composite-hero__bottom .hero-scroll { width: 110px; height: 110px; }
 }
+
+/* Match Figma / Open House: compact red pill, not the U2 circular CTA. */
+.composite-page .composite-hero__bottom { bottom: 20px; }
+.composite-page .composite-hero__skip {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 9px 17px;
+  border: 2px solid var(--cp-red);
+  border-radius: 24px;
+  background: var(--cp-red);
+  color: #fff;
+  font: inherit;
+  font-size: .84rem;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.composite-page .composite-hero__skip:hover {
+  background: var(--cp-ink);
+  border-color: var(--cp-ink);
+  color: #fff;
+  opacity: 1;
+}
+.composite-page .composite-hero__skip:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+@media (max-width:768px) {
+  .composite-page .composite-hero__bottom { bottom: 12px; }
+  .composite-page .composite-hero__skip { min-height: 38px; padding: 8px 11px; font-size: .74rem; }
+}
