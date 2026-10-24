@@ -856,3 +856,41 @@ body.brand-page > .site-footer { text-align: center; }
 @media (max-width: 620px) {
   .brand-page #applications .brand-mockups__grid { grid-template-columns: 1fr; gap: 26px; }
 }
+
+/* 戶外防水帆布為直式照片：左側完整呈現圖片，右側顯示說明 */
+.brand-page #applications .brand-app-card--banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: stretch;
+}
+.brand-page #applications .brand-app-card--banner .brand-app-card__media {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: clamp(18px, 3vw, 34px);
+}
+.brand-page #applications .brand-art--banner {
+  width: min(100%, 340px);
+  aspect-ratio: 3 / 4;
+  background: #fff;
+}
+.brand-page #applications .brand-art--banner img {
+  object-fit: contain;
+}
+.brand-page #applications .brand-app-card--banner .brand-app-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 3.5vw, 40px);
+}
+@media (max-width: 650px) {
+  .brand-page #applications .brand-app-card--banner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .brand-page #applications .brand-art--banner {
+    width: min(100%, 340px);
+  }
+  .brand-page #applications .brand-app-card--banner .brand-app-card__body {
+    padding: 26px 30px 31px;
+  }
+}
