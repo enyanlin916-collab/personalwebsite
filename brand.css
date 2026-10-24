@@ -894,3 +894,31 @@ body.brand-page > .site-footer { text-align: center; }
     padding: 26px 30px 31px;
   }
 }
+
+
+/* 社群頭貼：Facebook 粉絲專頁的橫式截圖，不裁切成圓形 */
+.brand-page #applications .brand-app-card--avatar .brand-app-card__media {
+  min-height: 0;
+  padding: clamp(16px, 3vw, 30px);
+}
+.brand-page #applications .brand-art--avatar {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0;
+  border: 1px solid var(--u2-line);
+  background: #fff;
+}
+/* 圖片載入後按原始比例呈現，不剪裁 Facebook 頁面的文字與細節 */
+.brand-page #applications .brand-art--avatar.has-image {
+  display: block;
+  aspect-ratio: auto;
+}
+.brand-page #applications .brand-art--avatar.has-image .brand-art__placeholder {
+  display: none;
+}
+.brand-page #applications .brand-art--avatar.has-image img {
+  position: static;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
