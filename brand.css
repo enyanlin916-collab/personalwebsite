@@ -374,6 +374,12 @@ body.brand-page {
 }
 .brand-art--refinement-pair { aspect-ratio: 4 / 3; }
 
+/* 配色比較：兩張圖片統一 4:3，較大的圖片只裁去邊緣以填滿相同尺寸 */
+.brand-refinement-stage[aria-labelledby="brand-refine-colors"] .brand-art--refinement-pair img {
+  object-fit: cover;
+  object-position: center;
+}
+
 /* 字體比較：兩張圖固定相同比例，填滿版面但僅裁切多餘的白邊 */
 .brand-refinement-stage[aria-labelledby="brand-refine-type"] .brand-art--refinement-pair img {
   object-fit: cover;
@@ -807,6 +813,13 @@ body.brand-page > .site-footer { text-align: center; }
 /* 手機上也維持字體比較圖的 4:3 比例，避免上下文字被截掉 */
 @media (max-width: 560px) {
   .brand-refinement-stage[aria-labelledby="brand-refine-type"] .brand-art--refinement-pair {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* 手機版配色比較也維持同樣比例 */
+@media (max-width: 560px) {
+  .brand-refinement-stage[aria-labelledby="brand-refine-colors"] .brand-art--refinement-pair {
     aspect-ratio: 4 / 3;
   }
 }
