@@ -736,3 +736,68 @@ body.brand-page > .site-footer { text-align: center; }
   .brand-refinement-pair { grid-template-columns: 1fr; gap: 24px; }
   .brand-art--refinement-pair { aspect-ratio: 16 / 10; }
 }
+
+
+/* 最終 Logo：深藍／白／黑三排，每排左純標誌、右含字版本。 */
+.brand-page #refinement .brand-variants {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+  row-gap: 28px;
+  margin-top: 30px;
+}
+.brand-page #refinement .brand-variant {
+  grid-column: auto;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+}
+.brand-page #refinement .brand-art--variant {
+  aspect-ratio: 16 / 10;
+}
+.brand-page #refinement .brand-art--variant img {
+  padding: clamp(8px, 1.5vw, 20px);
+  object-fit: contain;
+}
+.brand-page #refinement .brand-variant figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding-top: 12px;
+}
+.brand-page #refinement .brand-variant figcaption strong {
+  font-size: .92rem;
+}
+.brand-page #refinement .brand-variant figcaption span {
+  font-size: .79rem;
+}
+@media (max-width: 560px) {
+  .brand-page #refinement .brand-variants {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+  .brand-page #refinement .brand-art--variant { aspect-ratio: 4 / 3; }
+  .brand-page #refinement .brand-art--variant img { padding: 5px; }
+  .brand-page #refinement .brand-variant figcaption {
+    display: block;
+    padding-top: 8px;
+  }
+  .brand-page #refinement .brand-variant figcaption span {
+    display: block;
+    margin-top: 2px;
+  }
+  .brand-page #refinement .brand-art__placeholder {
+    padding: 6px;
+    gap: 6px;
+  }
+  .brand-page #refinement .brand-art__symbol {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+  .brand-page #refinement .brand-art__placeholder small { font-size: .62rem; }
+}
