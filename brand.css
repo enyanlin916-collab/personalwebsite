@@ -136,8 +136,38 @@ body.brand-page {
   min-height: 245px;
   margin: 28px 0;
 }
-.brand-hero__bottom a { color: #fff; font-size: .8rem; text-decoration: none; }
-.brand-hero__bottom a:hover { opacity: .7; }
+/* 與 Napoli / Open House 相呼應的紅色往下導覽箭頭，置於開場正中央 */
+.brand-hero .brand-hero__bottom {
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.brand-hero__bottom .brand-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--u2-accent);
+  border-radius: 50%;
+  background: var(--u2-accent);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.brand-hero__bottom .brand-hero__scroll:hover {
+  opacity: 1;
+  transform: translateY(3px);
+  background: #fff;
+  border-color: #fff;
+  color: var(--u2-navy);
+}
+.brand-hero__bottom .brand-hero__scroll:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
 
 /* 圖片位置：圖片尚未上傳時顯示佔位；上傳後自動顯示正式圖片 */
 .brand-art {
