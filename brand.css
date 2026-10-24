@@ -312,6 +312,68 @@ body.brand-page {
 .brand-art--iteration { aspect-ratio: 5 / 4; background: white; border: 1px solid var(--u2-line); }
 .brand-process__step h3 { margin: 18px 0 8px; font-size: 1.1rem; }
 .brand-process__step p { margin: 0; font-size: .9rem; color: var(--u2-muted); }
+/* Logo 調整與定稿：1 張草圖、1 張數位化、2 張字體、2 張配色 */
+.brand-refinement-flow {
+  display: grid;
+  gap: 48px;
+  margin-top: 32px;
+}
+.brand-refinement-stage { min-width: 0; }
+.brand-refinement-stage + .brand-refinement-stage {
+  padding-top: 36px;
+  border-top: 1px solid var(--u2-line);
+}
+.brand-refinement-stage__heading {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.brand-refinement-stage__number {
+  padding-top: 7px;
+  color: var(--u2-accent);
+  font: 700 .85rem/1.5 Arial, sans-serif;
+  letter-spacing: .09em;
+}
+.brand-refinement-stage__heading h3 {
+  margin: 0 0 6px;
+  font-size: 1.26rem;
+  line-height: 1.55;
+}
+.brand-refinement-stage__heading p {
+  margin: 0;
+  color: var(--u2-muted);
+  font-size: .94rem;
+  line-height: 1.9;
+}
+.brand-refinement-media { min-width: 0; margin: 0; }
+.brand-art--refinement {
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--u2-line);
+  background: #fff;
+}
+.brand-art--refinement img { padding: 14px; }
+.brand-refinement-placeholder-label {
+  color: var(--u2-navy);
+  font: 600 1.5rem/1.3 Arial, sans-serif;
+  letter-spacing: .11em;
+}
+.brand-refinement-media figcaption {
+  margin-top: 12px;
+  color: var(--u2-muted);
+  font-size: .84rem;
+  line-height: 1.8;
+  letter-spacing: .02em;
+}
+.brand-refinement-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+}
+.brand-art--refinement-pair { aspect-ratio: 4 / 3; }
+
 .brand-final-heading { margin: 95px 0 30px; }
 .brand-final-heading h3 { margin: 0 0 8px; font-size: 1.55rem; }
 .brand-final-heading p { color: var(--u2-muted); }
@@ -664,4 +726,13 @@ body.brand-page > .site-footer { text-align: center; }
 @media (prefers-reduced-motion:reduce) {
   .brand-timeline-date.swap { animation:none; }
   .brand-timeline-fill { transition:none; }
+}
+
+/* 小螢幕時比較圖改為單欄，避免文字與圖片被壓縮 */
+@media (max-width: 560px) {
+  .brand-refinement-flow { gap: 36px; }
+  .brand-refinement-stage + .brand-refinement-stage { padding-top: 28px; }
+  .brand-refinement-stage__heading { grid-template-columns: 30px minmax(0,1fr); gap: 12px; }
+  .brand-refinement-pair { grid-template-columns: 1fr; gap: 24px; }
+  .brand-art--refinement-pair { aspect-ratio: 16 / 10; }
 }
