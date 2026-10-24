@@ -350,10 +350,10 @@ body.brand-page {
 .brand-refinement-media { min-width: 0; margin: 0; }
 .brand-art--refinement {
   aspect-ratio: 16 / 10;
-  border: 1px solid var(--u2-line);
-  background: #fff;
+  border: none;
+  background: transparent;
 }
-.brand-art--refinement img { padding: 14px; }
+.brand-art--refinement img { padding: 0; }
 .brand-refinement-placeholder-label {
   color: var(--u2-navy);
   font: 600 1.5rem/1.3 Arial, sans-serif;
