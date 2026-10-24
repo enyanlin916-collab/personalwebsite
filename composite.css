@@ -463,3 +463,47 @@ body.composite-page {
   .composite-rail-date.swap { animation: none; }
   .composite-rail-fill, .composite-hero .hero-scroll { transition: none; }
 }
+
+/* Fragments of Time: 作品展示與尚未完成的創作更新 */
+.composite-hero {
+  background:
+    linear-gradient(105deg, rgba(18,34,64,.80) 0%, rgba(18,34,64,.60) 40%, rgba(18,34,64,.22) 100%),
+    url("composite-mockup-01.webp") center center / cover no-repeat,
+    url("image-cover.png") center center / cover no-repeat;
+}
+.composite-page .fragments-section {
+  margin-top: 58px;
+  padding: 30px 0 0;
+  border-top: 1px solid var(--cp-line);
+}
+.composite-page .ongoing-note {
+  margin-top: 58px;
+  padding: 32px 34px;
+  border: 1px solid var(--cp-line);
+  border-left: 4px solid var(--cp-red);
+  background: #fff;
+}
+.composite-page .ongoing-note-heading h4 {
+  margin: 0 0 14px;
+  color: var(--cp-ink);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  line-height: 1.5;
+}
+.composite-page .ongoing-note p {
+  margin: 0;
+  color: var(--cp-muted);
+  line-height: 1.95;
+  font-size: clamp(.97rem, 1.2vw, 1.05rem);
+}
+.composite-page .ongoing-note-end {
+  display: block;
+  margin-top: 24px;
+  color: var(--cp-red);
+  font: 700 .74rem/1.5 Arial, sans-serif;
+  letter-spacing: .13em;
+}
+.composite-page .mockup-wrap .image-frame { aspect-ratio: 16 / 10; }
+@media(max-width:520px) {
+  .composite-page .ongoing-note { padding: 26px 22px; }
+  .composite-page .mockup-wrap .image-frame { aspect-ratio: 16 / 10; }
+}
