@@ -374,6 +374,12 @@ body.brand-page {
 }
 .brand-art--refinement-pair { aspect-ratio: 4 / 3; }
 
+/* 字體比較：兩張圖固定相同比例，填滿版面但僅裁切多餘的白邊 */
+.brand-refinement-stage[aria-labelledby="brand-refine-type"] .brand-art--refinement-pair img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .brand-variants {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -796,4 +802,11 @@ body.brand-page > .site-footer { text-align: center; }
     font-size: 1.4rem;
   }
   .brand-page #final-logo .brand-art__placeholder small { font-size: .62rem; }
+}
+
+/* 手機上也維持字體比較圖的 4:3 比例，避免上下文字被截掉 */
+@media (max-width: 560px) {
+  .brand-refinement-stage[aria-labelledby="brand-refine-type"] .brand-art--refinement-pair {
+    aspect-ratio: 4 / 3;
+  }
 }
