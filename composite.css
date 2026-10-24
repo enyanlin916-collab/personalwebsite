@@ -507,3 +507,52 @@ body.composite-page {
   .composite-page .ongoing-note { padding: 26px 22px; }
   .composite-page .mockup-wrap .image-frame { aspect-ratio: 16 / 10; }
 }
+
+/* Full-bleed photo hero: use the HTML image, without any overlaid heading. */
+.composite-page .composite-hero {
+  position: relative;
+  display: block;
+  height: calc(100svh - var(--composite-header-height));
+  min-height: 520px;
+  max-height: none;
+  overflow: hidden;
+  padding: 0;
+  background: #39322a;
+}
+.composite-page .composite-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.composite-page .composite-hero__bottom {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.composite-page .composite-hero__bottom .hero-scroll {
+  position: static;
+  display: inline-flex;
+  pointer-events: auto;
+  transform: none;
+  margin: 0;
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+}
+.composite-page .composite-hero__bottom .hero-scroll:hover {
+  transform: translateY(4px);
+}
+@media (max-width:768px) {
+  .composite-page .composite-hero { min-height: 440px; height: calc(100svh - var(--composite-header-height)); }
+  .composite-page .composite-hero__image { object-position: center; }
+  .composite-page .composite-hero__bottom { bottom: 24px; }
+  .composite-page .composite-hero__bottom .hero-scroll { width: 110px; height: 110px; }
+}
