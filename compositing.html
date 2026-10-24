@@ -1,65 +1,69 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Compositing | Enyan Lin</title>
-  <link rel="stylesheet" href="composite.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="影像合成作品集：創作發想、影像合成成果、助教經驗與學習反思。">
+  <title>Image Compositing | Enyan Lin Portfolio</title>
+  <link rel="stylesheet" href="hw3-113450006.css">
+  <link rel="stylesheet" href="composite.css?v=20261024-unified">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="composite-page">
-  <!-- Top Nav -->
-  <header class="project-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand">EN YAN LIN</a>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#works" class="active">Works</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-    </div>
+  <!-- 與其他作品集一致的網站導覽列 -->
+  <header class="site-header">
+    <a class="logo" href="index.html">Enyan Lin's Personal Homepage</a>
+    <button type="button" class="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="專案導覽">
+      <a href="index.html">回首頁</a>
+      <a href="index.html#projects">作品集</a>
+      <a href="#hero">作品展示</a>
+      <a href="#overview">專案概覽</a>
+      <a href="#works">創作作品</a>
+      <a href="#teaching">助教經驗</a>
+      <a href="#reflection">專案反思</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-kicker">IMAGE COMPOSITING : CREATIVE WORKS &amp; TA EXPERIENCE</p>
-      <h1>影像合成：創作與助教</h1>
-      <p class="hero-desc">
-        從課堂創作出發，透過影像合成探索不同的視覺可能，並在修課後獲選擔任課程助教。
-      </p>
-    </div>
+  <main>
+    <!-- 首頁大圖：使用目前已上傳的作品集封面 image-cover.png -->
+    <section class="composite-hero" id="hero" aria-label="影像合成專案展示">
+      <div class="hero-content">
+        <p class="hero-kicker">IMAGE COMPOSITING / CREATIVE WORKS &amp; TA EXPERIENCE</p>
+        <h1>影像合成：創作與助教</h1>
+        <p class="hero-desc">從課堂創作出發，透過影像合成探索不同的視覺可能，並在修課後獲選擔任課程助教。</p>
+      </div>
+      <a href="#overview" class="hero-scroll" aria-label="往下查看更多專案內容">
+        <span class="hero-scroll-label">更多專案內容</span>
+        <span class="hero-scroll-icon" aria-hidden="true">↓</span>
+      </a>
+    </section>
 
-    <a href="#overview" class="hero-scroll" aria-label="更多專案內容">
-      <span class="hero-scroll-label">更多專案內容</span>
-      <span class="hero-scroll-icon">↓</span>
-    </a>
-  </section>
-
-  <!-- Main -->
-  <main class="project-shell">
-    <!-- Timeline -->
-    <aside class="timeline">
-      <p class="timeline-kicker">IMAGE COMPOSITING</p>
-      <h2>Creative <br />Works</h2>
-      <p class="timeline-step">PROJECT 04</p>
-
-      <nav class="timeline-nav">
-        <a href="#overview" class="timeline-link active">Project Overview</a>
-        <a href="#works" class="timeline-link">Creative Works</a>
-        <a href="#teaching" class="timeline-link">Teaching Assistant</a>
-        <a href="#reflection" class="timeline-link">Reflection</a>
-      </nav>
-    </aside>
-
+    <!-- Project Story：同 Napoli / U2 的左側固定階段時間線 -->
+    <section class="composite-process" id="process" aria-labelledby="composite-story-title">
+      <div class="composite-process-inner">
+        <h2 class="composite-story-title" id="composite-story-title">Project Story</h2>
+        <div class="project-shell">
+          <aside class="composite-rail" aria-label="專案時間線">
+            <div class="composite-rail-sticky">
+              <p class="composite-rail-group" id="composite-tl-group">OVERVIEW</p>
+              <div class="composite-rail-date" id="composite-tl-date">Project&#10;Overview</div>
+              <p class="composite-rail-phase" id="composite-tl-phase">STEP 01</p>
+              <nav class="composite-rail-track" aria-label="專案階段跳轉">
+                <div class="composite-rail-fill" id="composite-tl-fill"></div>
+                <ol class="composite-rail-dots" id="composite-tl-dots"></ol>
+              </nav>
+            </div>
+          </aside>
     <div class="project-content">
       <!-- 01 Overview -->
-      <section id="overview" class="project-section">
+      <section id="overview" class="project-section composite-timeline-item" data-group="OVERVIEW" data-date="Project&#10;Overview" data-phase="01" data-timeline-label="Project Overview">
         <div class="section-label">01</div>
         <div class="section-head">
-          <p class="eyebrow">PROJECT OVERVIEW</p>
-          <h3>專案概覽</h3>
+          <p class="eyebrow">01 / PROJECT OVERVIEW</p>
+          <h3><span class="text-highlight">專案概覽</span></h3>
         </div>
 
         <p class="section-intro">
@@ -89,11 +93,11 @@
       </section>
 
       <!-- 02 Creative Works -->
-      <section id="works" class="project-section">
+      <section id="works" class="project-section composite-timeline-item" data-group="CREATIVE WORKS" data-date="Creative&#10;Works" data-phase="02" data-timeline-label="Creative Works">
         <div class="section-label">02</div>
         <div class="section-head">
-          <p class="eyebrow">CREATIVE WORKS</p>
-          <h3>影像合成作品</h3>
+          <p class="eyebrow">02 / CREATIVE WORKS</p>
+          <h3><span class="text-highlight">影像合成作品</span></h3>
         </div>
 
         <p class="section-intro">
@@ -203,11 +207,11 @@
       </section>
 
       <!-- 03 Teaching Assistant -->
-      <section id="teaching" class="project-section">
+      <section id="teaching" class="project-section composite-timeline-item" data-group="TEACHING" data-date="Teaching&#10;Assistant" data-phase="03" data-timeline-label="Teaching Assistant">
         <div class="section-label">03</div>
         <div class="section-head">
-          <p class="eyebrow">TEACHING ASSISTANT</p>
-          <h3>助教經驗</h3>
+          <p class="eyebrow">03 / TEACHING ASSISTANT</p>
+          <h3><span class="text-highlight">助教經驗</span></h3>
         </div>
 
         <p class="section-intro">
@@ -243,11 +247,11 @@
       </section>
 
       <!-- 04 Reflection -->
-      <section id="reflection" class="project-section">
+      <section id="reflection" class="project-section composite-timeline-item" data-group="REFLECTION" data-date="Reflection" data-phase="04" data-timeline-label="Reflection">
         <div class="section-label">04</div>
         <div class="section-head">
-          <p class="eyebrow">REFLECTION</p>
-          <h3>專案反思</h3>
+          <p class="eyebrow">04 / REFLECTION</p>
+          <h3><span class="text-highlight">專案反思</span></h3>
         </div>
 
         <p class="section-intro">
@@ -258,28 +262,176 @@
         </p>
       </section>
     </div>
+
+        </div>
+      </div>
+    </section>
   </main>
 
+  <nav class="fnav" aria-label="專案切換">
+    <a href="brand.html">← 上一個專案</a>
+    <a href="photography.html">下一個專案 →</a>
+  </nav>
+  <footer class="site-footer">
+    <p>&copy; 2026 Pita Lin. All rights reserved. 引用請 <a href="mailto:enyanlin916@gmail.com">來信聯絡</a></p>
+  </footer>
+
   <script>
-    const sections = document.querySelectorAll(".project-section");
-    const navLinks = document.querySelectorAll(".timeline-link");
+  (function () {
+    'use strict';
+    var header = document.querySelector('.site-header');
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navLinks.forEach((link) => link.classList.remove("active"));
-            const activeLink = document.querySelector(
-              '.timeline-link[href="#' + entry.target.id + '"]'
-            );
-            if (activeLink) activeLink.classList.add("active");
-          }
+    function updateHeaderHeight() {
+      document.documentElement.style.setProperty('--composite-header-height',
+        (header ? header.offsetHeight : 90) + 'px');
+    }
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+
+    // 手機導覽列
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var expanded = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? '✕' : '☰';
+        updateHeaderHeight();
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+          updateHeaderHeight();
         });
-      },
-      { threshold: 0.35 }
-    );
+      });
+    }
 
-    sections.forEach((section) => observer.observe(section));
+    // 導覽列：目前所在章節會以紅字與底線標示
+    var navTargets = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'))
+      .map(function (link) {
+        return { link: link, section: document.getElementById(link.hash.slice(1)) };
+      }).filter(function (item) { return item.section; });
+    function syncNav() {
+      if (!navTargets.length) return;
+      var marker = (header ? header.offsetHeight : 90) + 90;
+      var current = navTargets[0];
+      navTargets.forEach(function (item) {
+        if (item.section.getBoundingClientRect().top <= marker) current = item;
+      });
+      navTargets.forEach(function (item) {
+        item.link.classList.toggle('active', item === current);
+      });
+    }
+
+    // 左側時間線：章節名稱、進度圓點隨捲動同步
+    var items = Array.from(document.querySelectorAll('.composite-timeline-item'));
+    var dotsEl = document.getElementById('composite-tl-dots');
+    var dateEl = document.getElementById('composite-tl-date');
+    var groupEl = document.getElementById('composite-tl-group');
+    var phaseEl = document.getElementById('composite-tl-phase');
+    var fillEl = document.getElementById('composite-tl-fill');
+    var dots = [];
+    var activeIndex = -1;
+    if (items.length && dotsEl && dateEl && groupEl && phaseEl && fillEl) {
+      items.forEach(function (item, index) {
+        var li = document.createElement('li');
+        var button = document.createElement('button');
+        button.type = 'button';
+        var label = item.getAttribute('data-timeline-label');
+        button.setAttribute('aria-label', '前往 ' + label);
+        button.title = label;
+        var span = document.createElement('span');
+        span.textContent = label;
+        button.appendChild(span);
+        button.addEventListener('click', function () {
+          item.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+        });
+        li.appendChild(button);
+        dotsEl.appendChild(li);
+        dots.push(li);
+      });
+      function setActive(index) {
+        if (index < 0 || index === activeIndex) return;
+        activeIndex = index;
+        var item = items[index];
+        dots.forEach(function (li, i) {
+          li.classList.toggle('active', i === index);
+          li.classList.toggle('done', i < index);
+          li.querySelector('button').setAttribute('aria-current', i === index ? 'step' : 'false');
+        });
+        fillEl.style.height = (items.length > 1 ? index / (items.length - 1) * 100 : 0) + '%';
+        dateEl.classList.remove('swap');
+        void dateEl.offsetWidth;
+        dateEl.classList.add('swap');
+        dateEl.textContent = item.getAttribute('data-date');
+        groupEl.textContent = item.getAttribute('data-group') || '';
+        phaseEl.textContent = 'STEP ' + item.getAttribute('data-phase');
+      }
+      var ticking = false;
+      function updateOnScroll() {
+        var marker = Math.max(160, window.innerHeight * .48);
+        var index = 0;
+        items.forEach(function (item, i) {
+          if (item.getBoundingClientRect().top <= marker) index = i;
+        });
+        setActive(index);
+        syncNav();
+        ticking = false;
+      }
+      function scheduleUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateOnScroll);
+      }
+      window.addEventListener('scroll', scheduleUpdate, { passive: true });
+      window.addEventListener('resize', scheduleUpdate);
+      window.addEventListener('load', scheduleUpdate);
+      updateOnScroll();
+    } else {
+      window.addEventListener('scroll', syncNav, { passive: true });
+      syncNav();
+    }
+
+    // 與其他作品集相同的捲動漸顯；偏好減少動態時不套用
+    if ('IntersectionObserver' in window && !reducedMotion) {
+      var revealBlocks = document.querySelectorAll(
+        '.composite-story-title, .project-section > .section-head, ' +
+        '.project-section > .section-intro, .project-section > .overview-grid, ' +
+        '.project-section > .work-block, .project-section > .ongoing-section, ' +
+        '.project-section > .ta-grid'
+      );
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      revealBlocks.forEach(function (el) {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+      });
+    }
+
+    // 尚未上傳的作品圖，使用整齊的佔位文字，避免顯示破圖圖示
+    document.querySelectorAll('.image-frame img').forEach(function (img) {
+      var frame = img.closest('.image-frame');
+      if (!frame) return;
+      function showFallback() {
+        frame.classList.add('is-missing');
+        img.hidden = true;
+        if (!frame.querySelector('.image-fallback')) {
+          var fallback = document.createElement('span');
+          fallback.className = 'image-fallback';
+          fallback.textContent = '圖片準備中';
+          frame.appendChild(fallback);
+        }
+      }
+      img.addEventListener('error', showFallback);
+      if (img.complete && img.naturalWidth === 0) showFallback();
+    });
+  })();
   </script>
 </body>
 </html>
