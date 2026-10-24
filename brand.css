@@ -823,3 +823,36 @@ body.brand-page > .site-footer { text-align: center; }
     aspect-ratio: 4 / 3;
   }
 }
+
+/* 最終應用：兩張 Mockup，保留原始圖片比例 */
+.brand-page #applications .brand-mockups { margin-top: clamp(42px, 6vw, 72px); }
+.brand-page #applications .brand-mockups__heading { margin-bottom: 24px; }
+.brand-page #applications .brand-mockups__heading > span {
+  display: block; margin-bottom: 8px; color: var(--u2-accent);
+  font: 700 .72rem/1.5 Arial, sans-serif; letter-spacing: .14em;
+}
+.brand-page #applications .brand-mockups__heading h3 { margin: 0 0 8px; font-size: clamp(1.25rem, 2vw, 1.55rem); }
+.brand-page #applications .brand-mockups__heading p { margin: 0; color: var(--u2-muted); }
+.brand-page #applications .brand-mockups__grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
+}
+.brand-page #applications .brand-mockup { min-width: 0; margin: 0; }
+.brand-page #applications .brand-art--mockup {
+  aspect-ratio: 3 / 2; background: #f3f0e9; border: 1px solid var(--u2-line);
+}
+.brand-page #applications .brand-art--mockup img { object-fit: contain; }
+.brand-page #applications .brand-art--mockup .brand-art__placeholder { gap: 8px; }
+.brand-page #applications .brand-art--mockup .brand-art__placeholder strong {
+  font: 700 .95rem Arial, sans-serif; letter-spacing: .12em;
+}
+.brand-page #applications .brand-mockup figcaption {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 6px 12px; padding-top: 12px;
+}
+.brand-page #applications .brand-mockup figcaption span {
+  color: var(--u2-muted); font: 700 .7rem Arial, sans-serif; letter-spacing: .09em;
+}
+.brand-page #applications .brand-mockup figcaption strong { font-size: .92rem; }
+@media (max-width: 620px) {
+  .brand-page #applications .brand-mockups__grid { grid-template-columns: 1fr; gap: 26px; }
+}
