@@ -825,7 +825,7 @@ body.brand-page > .site-footer { text-align: center; }
 }
 
 /* 最終應用：兩張 Mockup，保留原始圖片比例 */
-.brand-page #applications .brand-mockups { margin-top: clamp(42px, 6vw, 72px); }
+.brand-page #applications .brand-mockups { margin: 0 0 clamp(48px, 7vw, 80px); }
 .brand-page #applications .brand-mockups__heading { margin-bottom: 24px; }
 .brand-page #applications .brand-mockups__heading > span {
   display: block; margin-bottom: 8px; color: var(--u2-accent);
