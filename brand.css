@@ -136,7 +136,7 @@ body.brand-page {
   min-height: 245px;
   margin: 28px 0;
 }
-/* 與 Napoli / Open House 相呼應的紅色往下導覽箭頭，置於開場正中央 */
+/* 首頁底部：完整的紅色圓形按鈕，文字與箭頭一起置中 */
 .brand-hero .brand-hero__bottom {
   justify-content: center;
   align-items: center;
@@ -147,49 +147,42 @@ body.brand-page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 11px;
-  width: max-content;
-  max-width: 100%;
-  color: #fff;
-  text-decoration: none;
-}
-.brand-hero__scroll-label {
-  font-size: .75rem;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: .14em;
-  white-space: nowrap;
-}
-.brand-hero__scroll-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
-  border: 2px solid var(--u2-accent);
+  gap: 4px;
+  width: 122px;
+  height: 122px;
+  flex: 0 0 122px;
   border-radius: 50%;
   background: var(--u2-accent);
   color: #fff;
-  font-size: 1.5rem;
-  line-height: 1;
-  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease;
 }
-.brand-hero__bottom .brand-hero__scroll:hover { opacity: 1; }
-.brand-hero__bottom .brand-hero__scroll:hover .brand-hero__scroll-icon {
-  transform: translateY(3px);
-  background: #fff;
-  border-color: #fff;
-  color: var(--u2-navy);
+.brand-hero__scroll-label {
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .07em;
+  white-space: nowrap;
+}
+.brand-hero__scroll-icon {
+  display: block;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.brand-hero__bottom .brand-hero__scroll:hover {
+  opacity: 1;
+  transform: translateY(4px);
+  background: #c92c27;
 }
 .brand-hero__bottom .brand-hero__scroll:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 5px;
-  border-radius: 5px;
 }
 @media (prefers-reduced-motion: reduce) {
-  .brand-hero__scroll-icon { transition: none; }
-  .brand-hero__bottom .brand-hero__scroll:hover .brand-hero__scroll-icon { transform: none; }
+  .brand-hero__bottom .brand-hero__scroll { transition: none; }
+  .brand-hero__bottom .brand-hero__scroll:hover { transform: none; }
 }
 
 /* 圖片位置：圖片尚未上傳時顯示佔位；上傳後自動顯示正式圖片 */
