@@ -593,3 +593,63 @@ body.composite-page {
   .composite-page .composite-hero__bottom { bottom: 12px; }
   .composite-page .composite-hero__skip { min-height: 38px; padding: 8px 11px; font-size: .74rem; }
 }
+
+/* Fragments of Time — larger editorial gallery and final-work explanation */
+@media (min-width: 1100px) {
+  .composite-page .composite-process-inner { width: min(1220px, calc(100% - 72px)); }
+  .composite-page .project-shell { grid-template-columns: 200px minmax(0, 1fr); gap: 38px; }
+}
+.composite-page .process-images { margin-bottom: 54px; gap: 26px; }
+.composite-page .process-images .image-frame { aspect-ratio: 4 / 5; }
+.composite-page .final-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: center;
+  padding: 34px 0 44px;
+  border-top: 1px solid var(--cp-line);
+}
+.composite-page .final-showcase__artwork .image-frame { aspect-ratio: 3 / 4; }
+.composite-page .final-showcase__eyebrow {
+  margin: 0 0 16px;
+  color: var(--cp-red);
+  font: 700 .73rem/1.6 Arial, sans-serif;
+  letter-spacing: .12em;
+}
+.composite-page .final-showcase__story h5 {
+  margin: 0 0 22px;
+  color: var(--cp-ink);
+  font-size: clamp(1.26rem, 1.9vw, 1.7rem);
+  line-height: 1.55;
+  font-weight: 700;
+}
+.composite-page .final-showcase__story p:not(.final-showcase__eyebrow) {
+  margin: 0 0 17px;
+  color: var(--cp-muted);
+  font-size: clamp(.94rem, 1.1vw, 1.03rem);
+  line-height: 1.95;
+}
+.composite-page .mockup-gallery { display: grid; grid-template-columns: 1fr; gap: 38px; }
+.composite-page .mockup-gallery .image-frame {
+  aspect-ratio: auto;
+  display: block;
+  background: #fff;
+}
+.composite-page .mockup-gallery .image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.composite-page .mockup-gallery .image-frame.is-missing { min-height: 340px; display: grid; place-items: center; }
+@media (max-width: 850px) {
+  .composite-page .final-showcase { grid-template-columns: 1fr; gap: 26px; }
+  .composite-page .final-showcase__artwork { max-width: 620px; width: 100%; margin: 0 auto; }
+  .composite-page .final-showcase__story { max-width: 700px; }
+}
+@media (max-width: 520px) {
+  .composite-page .process-images { gap: 22px; margin-bottom: 36px; }
+  .composite-page .process-images .image-frame { aspect-ratio: 4 / 5; }
+  .composite-page .final-showcase { padding-top: 28px; }
+  .composite-page .mockup-gallery .image-frame.is-missing { min-height: 220px; }
+}
