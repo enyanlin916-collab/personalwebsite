@@ -374,9 +374,6 @@ body.brand-page {
 }
 .brand-art--refinement-pair { aspect-ratio: 4 / 3; }
 
-.brand-final-heading { margin: 95px 0 30px; }
-.brand-final-heading h3 { margin: 0 0 8px; font-size: 1.55rem; }
-.brand-final-heading p { color: var(--u2-muted); }
 .brand-variants {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -626,7 +623,6 @@ body.brand-page > .site-footer { text-align: center; }
 .brand-timeline-content .brand-app-card--business .brand-app-card__media { order:0; }
 .brand-timeline-content .brand-app-card--business .brand-app-card__body { padding:26px 30px 31px; }
 .brand-timeline-content .brand-reflection__grid { grid-template-columns:1fr; gap:30px; }
-.brand-timeline-content .brand-final-heading { margin-top:68px; }
 
 .u2-sketch-flow {
   display: flex;
@@ -739,28 +735,28 @@ body.brand-page > .site-footer { text-align: center; }
 
 
 /* 最終 Logo：深藍／白／黑三排，每排左純標誌、右含字版本。 */
-.brand-page #refinement .brand-variants {
+.brand-page #final-logo .brand-variants {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 20px;
   row-gap: 28px;
   margin-top: 30px;
 }
-.brand-page #refinement .brand-variant {
+.brand-page #final-logo .brand-variant {
   grid-column: auto;
   width: 100%;
   max-width: none;
   min-width: 0;
   margin: 0;
 }
-.brand-page #refinement .brand-art--variant {
+.brand-page #final-logo .brand-art--variant {
   aspect-ratio: 16 / 10;
 }
-.brand-page #refinement .brand-art--variant img {
+.brand-page #final-logo .brand-art--variant img {
   padding: clamp(8px, 1.5vw, 20px);
   object-fit: contain;
 }
-.brand-page #refinement .brand-variant figcaption {
+.brand-page #final-logo .brand-variant figcaption {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -768,36 +764,36 @@ body.brand-page > .site-footer { text-align: center; }
   gap: 4px 12px;
   padding-top: 12px;
 }
-.brand-page #refinement .brand-variant figcaption strong {
+.brand-page #final-logo .brand-variant figcaption strong {
   font-size: .92rem;
 }
-.brand-page #refinement .brand-variant figcaption span {
+.brand-page #final-logo .brand-variant figcaption span {
   font-size: .79rem;
 }
 @media (max-width: 560px) {
-  .brand-page #refinement .brand-variants {
+  .brand-page #final-logo .brand-variants {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 10px;
     row-gap: 20px;
   }
-  .brand-page #refinement .brand-art--variant { aspect-ratio: 4 / 3; }
-  .brand-page #refinement .brand-art--variant img { padding: 5px; }
-  .brand-page #refinement .brand-variant figcaption {
+  .brand-page #final-logo .brand-art--variant { aspect-ratio: 4 / 3; }
+  .brand-page #final-logo .brand-art--variant img { padding: 5px; }
+  .brand-page #final-logo .brand-variant figcaption {
     display: block;
     padding-top: 8px;
   }
-  .brand-page #refinement .brand-variant figcaption span {
+  .brand-page #final-logo .brand-variant figcaption span {
     display: block;
     margin-top: 2px;
   }
-  .brand-page #refinement .brand-art__placeholder {
+  .brand-page #final-logo .brand-art__placeholder {
     padding: 6px;
     gap: 6px;
   }
-  .brand-page #refinement .brand-art__symbol {
+  .brand-page #final-logo .brand-art__symbol {
     width: 52px;
     height: 52px;
     font-size: 1.4rem;
   }
-  .brand-page #refinement .brand-art__placeholder small { font-size: .62rem; }
+  .brand-page #final-logo .brand-art__placeholder small { font-size: .62rem; }
 }
