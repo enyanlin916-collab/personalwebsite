@@ -144,21 +144,39 @@ body.brand-page {
 }
 .brand-hero__bottom .brand-hero__scroll {
   display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  width: max-content;
+  max-width: 100%;
+  color: #fff;
+  text-decoration: none;
+}
+.brand-hero__scroll-label {
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .14em;
+  white-space: nowrap;
+}
+.brand-hero__scroll-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 48px;
   height: 48px;
+  flex: 0 0 48px;
   border: 2px solid var(--u2-accent);
   border-radius: 50%;
   background: var(--u2-accent);
   color: #fff;
   font-size: 1.5rem;
   line-height: 1;
-  text-decoration: none;
-  transition: transform .2s ease, background .2s ease, color .2s ease;
+  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
-.brand-hero__bottom .brand-hero__scroll:hover {
-  opacity: 1;
+.brand-hero__bottom .brand-hero__scroll:hover { opacity: 1; }
+.brand-hero__bottom .brand-hero__scroll:hover .brand-hero__scroll-icon {
   transform: translateY(3px);
   background: #fff;
   border-color: #fff;
@@ -166,7 +184,12 @@ body.brand-page {
 }
 .brand-hero__bottom .brand-hero__scroll:focus-visible {
   outline: 3px solid #fff;
-  outline-offset: 4px;
+  outline-offset: 5px;
+  border-radius: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-hero__scroll-icon { transition: none; }
+  .brand-hero__bottom .brand-hero__scroll:hover .brand-hero__scroll-icon { transform: none; }
 }
 
 /* 圖片位置：圖片尚未上傳時顯示佔位；上傳後自動顯示正式圖片 */
