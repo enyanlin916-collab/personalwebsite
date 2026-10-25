@@ -6,7 +6,7 @@
   <meta name="description" content="影像合成作品集：創作發想、影像合成成果、助教經驗與學習反思。">
   <title>Image Compositing | Enyan Lin Portfolio</title>
   <link rel="stylesheet" href="hw3-113450006.css">
-  <link rel="stylesheet" href="composite.css?v=20261025-three-works">
+  <link rel="stylesheet" href="composite.css?v=20261025-ta-screenshot">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -295,10 +295,20 @@
           <h3><span class="text-highlight">助教經驗</span></h3>
         </div>
 
-        <p class="section-intro">
-          在修課後獲選擔任影像合成課程助教，讓我不只是以學生的角度創作，
-          也開始從協助他人理解工具操作與畫面建構的過程中，重新整理影像合成的流程與方法。
-        </p>
+        <!-- 助教介紹：左側文字，右側課程助教截圖 -->
+        <div class="ta-intro-layout">
+          <p class="section-intro">
+            在修課後獲選擔任影像合成課程助教，讓我不只是以學生的角度創作，
+            也開始從協助他人理解工具操作與畫面建構的過程中，重新整理影像合成的流程與方法。
+          </p>
+          <figure class="ta-proof image-card">
+            <div class="image-frame">
+              <!-- 將助教截圖以 ta-screenshot.png 上傳至與 compositing.html 相同的資料夾 -->
+              <img src="ta-screenshot.png" alt="影像合成課程助教經驗截圖" loading="lazy">
+            </div>
+            <figcaption>影像合成課程｜助教工作紀錄</figcaption>
+          </figure>
+        </div>
 
         <div class="ta-grid">
           <div class="info-card">
@@ -483,7 +493,7 @@
         '.project-section > .section-intro, .project-section > .overview-grid, ' +
         '.project-section > .work-block, .project-section > .fragments-section, ' +
         '.project-section > .ongoing-note, ' +
-        '.project-section > .ta-grid'
+        '.project-section > .ta-intro-layout, .project-section > .ta-grid'
       );
       var revealObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
