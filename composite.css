@@ -558,7 +558,7 @@ body.composite-page {
 }
 
 /* Match Figma / Open House: compact red pill, not the U2 circular CTA. */
-.composite-page .composite-hero__bottom { bottom: 20px; }
+.composite-page .composite-hero__bottom { bottom: 0; }
 .composite-page .composite-hero__skip {
   display: inline-flex;
   position: relative;
@@ -590,7 +590,7 @@ body.composite-page {
   outline-offset: 4px;
 }
 @media (max-width:768px) {
-  .composite-page .composite-hero__bottom { bottom: 12px; }
+  .composite-page .composite-hero__bottom { bottom: 0; }
   .composite-page .composite-hero__skip { min-height: 38px; padding: 8px 11px; font-size: .74rem; }
 }
 
