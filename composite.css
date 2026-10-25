@@ -717,3 +717,16 @@ body.composite-page {
 .composite-page #works .fragments-section {
   border-top: 1px solid var(--cp-line);
 }
+
+/* Other Works: three equal cards on desktop; responsive on smaller screens. */
+.composite-page #works .other-works-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.composite-page #works .other-works-grid .image-frame { aspect-ratio: 4 / 5; }
+@media (max-width: 950px) {
+  .composite-page #works .other-works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .composite-page #works .other-works-grid { grid-template-columns: minmax(0, 1fr); }
+}
