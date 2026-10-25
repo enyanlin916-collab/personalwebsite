@@ -709,3 +709,11 @@ body.composite-page {
   .composite-page .inspiration-grid .image-card figcaption { font-size: .72rem; }
   .composite-page .creative-stage { padding: 32px 0 36px; }
 }
+
+/* Work 01: no separators between creative stages. Only separate Work 02 & 03. */
+.composite-page #works .work-block { border-top: 0; }
+.composite-page #works .work-block .creative-stage,
+.composite-page #works .work-block .final-showcase { border-top: 0; }
+.composite-page #works .fragments-section {
+  border-top: 1px solid var(--cp-line);
+}
