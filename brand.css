@@ -983,3 +983,42 @@ body.brand-page > .site-footer { text-align: center; }
   height: auto;
   object-fit: contain;
 }
+
+/* Brand applications: image edge-to-edge, no extra white/cream framing. */
+.brand-page #applications .brand-app-grid .brand-app-card {
+  border: 0;
+  box-shadow: none;
+}
+.brand-page #applications .brand-app-grid .brand-app-card .brand-app-card__media {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+}
+.brand-page #applications .brand-mockup .brand-art--mockup.has-image,
+.brand-page #applications .brand-app-card__media .brand-art.has-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  aspect-ratio: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.brand-page #applications .brand-mockup .brand-art--mockup.has-image .brand-art__placeholder,
+.brand-page #applications .brand-app-card__media .brand-art.has-image .brand-art__placeholder {
+  display: none;
+}
+.brand-page #applications .brand-mockup .brand-art--mockup.has-image img,
+.brand-page #applications .brand-app-card__media .brand-art.has-image img {
+  display: block;
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  opacity: 1;
+  object-fit: contain;
+}
