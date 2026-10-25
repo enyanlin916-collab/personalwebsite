@@ -804,3 +804,26 @@ body.composite-page {
   place-items: center;
   min-height: 220px;
 }
+
+/* Work 02-04: consistent image frames with edge-to-edge artwork. */
+.composite-page #works .other-works-grid .image-card .image-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.composite-page #works .other-works-grid .image-card .image-frame img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.composite-page #works .other-works-grid .image-card .image-frame img[hidden] {
+  display: none !important;
+}
