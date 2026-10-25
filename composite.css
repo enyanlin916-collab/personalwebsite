@@ -758,3 +758,23 @@ body.composite-page {
   }
   .composite-page #teaching .ta-proof { width: 100%; max-width: 620px; }
 }
+
+/* Project reflection: two navy subheadings, with user's prose unchanged. */
+.composite-page #reflection .reflection-list { display: grid; gap: 42px; }
+.composite-page #reflection .reflection-subtitle {
+  margin: 0 0 14px;
+  color: var(--cp-ink);
+  font-size: clamp(1.08rem, 1.65vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: .02em;
+}
+.composite-page #reflection .reflection-copy {
+  margin: 0;
+  color: var(--cp-muted);
+  font-size: clamp(.97rem, 1.2vw, 1.05rem);
+  line-height: 1.95;
+}
+@media (max-width: 600px) {
+  .composite-page #reflection .reflection-list { gap: 34px; }
+}
