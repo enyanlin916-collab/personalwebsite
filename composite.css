@@ -827,3 +827,37 @@ body.composite-page {
 .composite-page #works .other-works-grid .image-card .image-frame img[hidden] {
   display: none !important;
 }
+
+/* Work 01: balance process images against explanatory text; Illustrator stays full size. */
+.composite-page #works .creative-stage--inspiration .inspiration-grid {
+  width: 92%;
+  margin-inline: auto;
+}
+.composite-page #works .creative-stage--sketch .creative-stage__media,
+.composite-page #works .creative-stage--ai .creative-stage__media {
+  width: 82%;
+  justify-self: center;
+}
+.composite-page #works .final-showcase__artwork {
+  width: 88%;
+  justify-self: center;
+}
+.composite-page #works .mockup-gallery {
+  width: 76%;
+  margin-inline: auto;
+}
+@media (max-width: 850px) {
+  .composite-page #works .creative-stage--sketch .creative-stage__media,
+  .composite-page #works .creative-stage--ai .creative-stage__media {
+    width: min(88%, 560px);
+  }
+  .composite-page #works .final-showcase__artwork { width: min(90%, 560px); }
+  .composite-page #works .mockup-gallery { width: 88%; }
+}
+@media (max-width: 600px) {
+  .composite-page #works .creative-stage--inspiration .inspiration-grid { width: 100%; }
+  .composite-page #works .creative-stage--sketch .creative-stage__media,
+  .composite-page #works .creative-stage--ai .creative-stage__media,
+  .composite-page #works .final-showcase__artwork { width: 94%; }
+  .composite-page #works .mockup-gallery { width: 94%; }
+}
