@@ -1001,3 +1001,46 @@ html { scroll-behavior: smooth; }
         scroll-margin-top: calc(var(--hh) + 70px);
     }
 }
+
+/* Figma chapters: match the Image Compositing section heading system. */
+.page-figma .figma-section-head {
+    margin: 0 0 28px;
+}
+.page-figma .figma-section-head .figma-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: none;
+    margin: 0 0 19px;
+    color: var(--red);
+    font: 700 .73rem/1.6 Arial, sans-serif;
+    letter-spacing: .15em;
+}
+.page-figma .figma-section-head .figma-eyebrow::before {
+    content: "";
+    display: block;
+    flex: 0 0 23px;
+    width: 23px;
+    height: 2px;
+    background: var(--red);
+}
+.page-figma .figma-section-head h3 {
+    margin: 8px 0 14px;
+    color: var(--blue);
+    font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+.page-figma .figma-section-head .text-highlight {
+    display: inline;
+    padding: 0 3px;
+    background: linear-gradient(to bottom,
+        transparent 65%, var(--yellow) 65%,
+        var(--yellow) 95%, transparent 95%);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+@media (max-width: 768px) {
+    .page-figma .figma-section-head h3 { font-size: 1.85rem; }
+}
