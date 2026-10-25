@@ -653,3 +653,59 @@ body.composite-page {
   .composite-page .final-showcase { padding-top: 28px; }
   .composite-page .mockup-gallery .image-frame.is-missing { min-height: 220px; }
 }
+
+/* Fragments of Time: six-stage process, with compact inspiration images */
+.composite-page .creative-stage { padding: 40px 0 44px; border-top: 1px solid var(--cp-line); }
+.composite-page .creative-stage--inspiration { padding-top: 30px; }
+.composite-page .creative-stage__heading { margin-bottom: 22px; }
+.composite-page .creative-stage__index {
+  margin: 0 0 12px;
+  color: var(--cp-red);
+  font: 700 .74rem/1.6 Arial, sans-serif;
+  letter-spacing: .13em;
+}
+.composite-page .creative-stage h5,
+.composite-page .creative-stage__copy h5 {
+  margin: 0 0 14px;
+  color: var(--cp-ink);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.55;
+  font-family: inherit;
+}
+.composite-page .creative-stage__lead,
+.composite-page .creative-stage__copy p:not(.creative-stage__index) {
+  color: var(--cp-muted);
+  font-size: clamp(.94rem, 1.1vw, 1.03rem);
+  line-height: 1.95;
+}
+.composite-page .creative-stage__lead { margin: 0 0 22px; }
+.composite-page .inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.composite-page .inspiration-grid .image-frame { aspect-ratio: 4 / 3; }
+.composite-page .inspiration-grid .image-card figcaption { font-size: .82rem; }
+.composite-page .creative-stage__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(22px, 3vw, 42px);
+  align-items: center;
+}
+.composite-page .creative-stage__media .image-frame { aspect-ratio: 4 / 5; }
+.composite-page .creative-stage__copy { min-width: 0; }
+.composite-page .creative-stage__copy p:last-child { margin-bottom: 0; }
+.composite-page .creative-stage--mockups { padding-top: 40px; }
+.composite-page .creative-stage--mockups .mockup-gallery { margin-top: 24px; }
+.composite-page .creative-stage--mockups .image-frame { aspect-ratio: auto; }
+@media(max-width: 850px) {
+  .composite-page .creative-stage__layout { grid-template-columns: minmax(0, 1fr); }
+  .composite-page .creative-stage__media { width: 100%; max-width: 640px; }
+  .composite-page .creative-stage__media .image-frame { aspect-ratio: 4 / 5; }
+}
+@media(max-width: 520px) {
+  .composite-page .inspiration-grid { gap: 10px; }
+  .composite-page .inspiration-grid .image-frame { aspect-ratio: 3 / 4; }
+  .composite-page .inspiration-grid .image-card figcaption { font-size: .72rem; }
+  .composite-page .creative-stage { padding: 32px 0 36px; }
+}
