@@ -778,3 +778,29 @@ body.composite-page {
 @media (max-width: 600px) {
   .composite-page #reflection .reflection-list { gap: 34px; }
 }
+
+/* Portfolio gallery: honor each source image's own aspect ratio. */
+.composite-page #works .image-card .image-frame,
+.composite-page #teaching .ta-proof .image-frame {
+  display: block;
+  height: auto;
+  aspect-ratio: auto;
+}
+.composite-page #works .image-card .image-frame img,
+.composite-page #teaching .ta-proof .image-frame img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: unset;
+}
+.composite-page #works .inspiration-grid,
+.composite-page #works .other-works-grid {
+  align-items: start;
+}
+.composite-page #works .image-frame.is-missing,
+.composite-page #teaching .ta-proof .image-frame.is-missing {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
