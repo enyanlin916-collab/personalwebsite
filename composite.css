@@ -730,3 +730,31 @@ body.composite-page {
 @media (max-width: 600px) {
   .composite-page #works .other-works-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Teaching assistant: text alongside evidence screenshot */
+.composite-page #teaching .ta-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+  align-items: center;
+  gap: clamp(24px, 3vw, 42px);
+  margin: 0 0 42px;
+}
+.composite-page #teaching .ta-intro-layout .section-intro { margin: 0; }
+.composite-page #teaching .ta-proof { margin: 0; min-width: 0; }
+.composite-page #teaching .ta-proof .image-frame {
+  aspect-ratio: 4 / 3;
+  background: #fff;
+}
+.composite-page #teaching .ta-proof .image-frame img { object-fit: contain; }
+.composite-page #teaching .ta-proof .image-frame.is-missing {
+  display: grid;
+  min-height: 230px;
+}
+@media(max-width: 768px) {
+  .composite-page #teaching .ta-intro-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    margin-bottom: 34px;
+  }
+  .composite-page #teaching .ta-proof { width: 100%; max-width: 620px; }
+}
