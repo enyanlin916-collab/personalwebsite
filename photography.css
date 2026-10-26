@@ -94,7 +94,7 @@ img{max-width:100%}
 .stamp{animation:glow 3.6s ease-in-out infinite}
 @keyframes glow{50%{opacity:.72}}
 
-.lb{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:rgba(18,32,62,.93)}
+.lb{position:fixed;top:var(--hh);right:0;bottom:0;left:0;z-index:50;display:grid;place-items:center;padding:24px 70px 30px;background:rgba(18,32,62,.93);box-sizing:border-box}
 .lb[hidden]{display:none}
 .lb::after{content:"";position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
 .lb.flash::after{animation:flash .6s ease-out}
@@ -135,4 +135,4 @@ img{max-width:100%}
  .g-food{grid-template-columns:1fr 1fr;gap:26px 16px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-down b,.tl-date.swap,.hero-pile .pola,.stamp,.lb-fig,.lb.flash::after{animation:none}.tl-fill,.shot img,.sig,.ticket,.pola{transition:none}}
-@media (max-width:768px){.lb-prev{left:8px;top:auto;bottom:18px}.lb-next{right:8px;top:auto;bottom:18px}}
+@media (max-width:768px){.lb{padding:18px 16px 72px}.lb-prev{left:8px;top:auto;bottom:18px}.lb-next{right:8px;top:auto;bottom:18px}}
