@@ -1,8 +1,12 @@
+/* 顏色、字體、導覽列、頁尾都沿用 hw3-113450006.css，這個檔案只放攝影頁專用的樣式 */
+:root{--hh:90px} /* 導覽列高度，網頁載入後 JS 會自動量測並更新 */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+img{max-width:100%}
+#top,.tl-item{scroll-margin-top:calc(var(--hh) + 12px)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)))
-      ;display:grid;grid-template-columns:1.1fr 1fr;
-      align-items:center;gap:24px;padding:40px 40px 90px;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
+.hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)));display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:24px;padding:40px 40px 90px;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
 .hero h1{margin:0;font:400 clamp(2.2rem,5.4vw,4.4rem)/1.15 Limelight,serif;color:var(--blue)}
 .hero p{margin:20px 0 0;max-width:30em;color:var(--muted)}
 .hero-pile{position:relative;height:min(460px,60svh);min-height:340px}
@@ -47,7 +51,7 @@
 .tl{display:grid;grid-template-columns:230px 1fr;gap:56px}
 .tl-sticky{position:sticky;top:calc(var(--hh) + 36px);height:calc(100vh - var(--hh) - 72px);display:flex;flex-direction:column}
 .tl-group{margin:0 0 8px;font:700 .8rem Arial,sans-serif;letter-spacing:.12em;color:var(--red)}
-.tl-date{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;line-height:1.15;white-space:pre-line}
+.tl-date{color:var(--blue);font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;line-height:1.15;white-space:pre-line}
 .tl-date.swap{animation:dateIn .45s cubic-bezier(.3,1.4,.5,1)}
 @keyframes dateIn{from{opacity:0;transform:translateY(14px) rotate(-3deg)}to{opacity:1;transform:none}}
 .tl-phase{margin:6px 0 0;color:var(--muted);font-size:.95rem}
@@ -64,7 +68,7 @@
 .tl-item:first-child{padding-top:0}
 .eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 16px;color:var(--red);font:700 .73rem/1.6 Arial,sans-serif;letter-spacing:.15em}
 .eyebrow::before{content:"";flex:none;width:23px;height:2px;background:var(--red)}
-.tl-item h2{margin:0 0 14px;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.5;font-weight:400}
+.tl-item h2{margin:0 0 14px;color:var(--blue);font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.5;font-weight:400}
 .hl{background:linear-gradient(to bottom,transparent 65%,var(--yellow) 65%,var(--yellow) 95%,transparent 95%);padding:0 3px}
 .tl-item>p{max-width:none;color:var(--muted)}
 .legend{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;margin-top:34px}
@@ -103,11 +107,9 @@
 .lb-btn:hover{background:var(--yellow);color:var(--blue)}
 .lb-x{top:18px;right:18px}.lb-prev{left:18px;top:50%}.lb-next{right:18px;top:50%}
 
-.site-footer{padding:40px;text-align:center;font-size:.85rem;color:var(--muted);border-top:1px solid var(--border)}
 :focus-visible{outline:3px solid var(--red);outline-offset:3px}
 
 @media (max-width:768px){
- .site-header{padding:0 20px}.site-nav{display:none}
  .hero{grid-template-columns:1fr;padding:32px 24px 90px;min-height:calc(100svh - var(--hh))}
  .hero-pile{min-height:300px}
  .process{padding:60px 24px 30px}
