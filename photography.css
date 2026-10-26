@@ -8,13 +8,16 @@ img{max-width:100%}
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)));display:grid;place-items:center;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
 .hero-pile .shot{--ar:3/2}
-.hero-pile{position:relative;width:min(88vw,1100px);aspect-ratio:8/3}
-.hero-pile .pola{position:absolute;width:33%;transform:rotate(var(--r)) translate(var(--mx,0px),var(--my,0px));transition:transform .25s ease-out;animation:float 5s ease-in-out infinite}
+.hero-pile{position:relative;width:min(94vw,1240px);aspect-ratio:8/3}
+.hero-pile .pola{position:absolute;width:35%;transform:rotate(var(--r)) translate(var(--mx,0px),var(--my,0px));transition:transform .25s ease-out;animation:float 5s ease-in-out infinite}
 .hero-pile .pola:nth-child(2){animation-delay:-1.7s}.hero-pile .pola:nth-child(3){animation-delay:-3.2s}
 @keyframes float{50%{translate:0 -10px}}
 .hero-pile .pola:nth-child(1){left:0;top:2%;--r:-3deg}
-.hero-pile .pola:nth-child(2){left:33.5%;top:30%;--r:2deg;z-index:2}
+.hero-pile .pola:nth-child(2){left:32.5%;top:28%;--r:2deg;z-index:2}
 .hero-pile .pola:nth-child(3){right:0;top:2%;--r:-2deg;z-index:3}
+.hero-pile .pola:nth-child(1){background:var(--blue);border-color:var(--blue)}
+.hero-pile .pola:nth-child(2){background:var(--red);border-color:var(--red)}
+.hero-pile .pola:nth-child(3){background:#ffd84d;border-color:#ffd84d}
 .hero-down{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:inline-flex;gap:6px;padding:7px 16px;border-radius:20px;background:var(--red);color:#fff;font-size:.8rem;text-decoration:none;letter-spacing:.06em}
 .hero-down b{font-weight:400;animation:bob 1.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(4px)}}
