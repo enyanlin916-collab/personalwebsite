@@ -383,6 +383,16 @@ html { scroll-behavior: smooth; }
     min-height: 88vh;
     padding: 12vh 0;
 }
+
+/* Overview → Research & Analysis：縮短兩段之間的空白 */
+.page-figma #overview {
+    min-height: 52vh;
+    padding-top: 6vh;
+    padding-bottom: 3vh;
+}
+.page-figma #research {
+    padding-top: 5vh;
+}
 /* 淡入交給各個內容區塊的 .reveal，避免整個時間點持續半透明 */
  
 .tl-step {
