@@ -1,18 +1,8 @@
-/* 接到你原本的網站時：刪掉這個 :root，改用你 hw3 css 裡已有的變數 */
-:root{--bg:#fffaf0;--yellow:#f2e6ac;--blue:#1e3a6b;--red:#c8402f;--border:rgba(30,58,107,.22);--muted:#4d5670;--hh:64px}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--blue);font:400 1rem/1.8 Lora,"Noto Serif TC",serif}
-img{max-width:100%}
-.site-header{position:sticky;top:0;z-index:20;height:var(--hh);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 40px;background:var(--bg);border-bottom:1px solid var(--border)}
-.logo{color:var(--blue);text-decoration:none;font-weight:700}
-.site-nav{display:flex;gap:22px;font-size:.9rem}
-.site-nav a{color:var(--blue);text-decoration:none}
-.site-nav a:hover{color:var(--red)}
-#top,.tl-item{scroll-margin-top:calc(var(--hh) + 12px)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:calc(100svh - var(--hh));min-height:540px;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:24px;padding:40px 40px 90px;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
+.hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)))
+      ;display:grid;grid-template-columns:1.1fr 1fr;
+      align-items:center;gap:24px;padding:40px 40px 90px;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
 .hero h1{margin:0;font:400 clamp(2.2rem,5.4vw,4.4rem)/1.15 Limelight,serif;color:var(--blue)}
 .hero p{margin:20px 0 0;max-width:30em;color:var(--muted)}
 .hero-pile{position:relative;height:min(460px,60svh);min-height:340px}
