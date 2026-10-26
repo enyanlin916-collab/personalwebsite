@@ -6,9 +6,11 @@ img{max-width:100%}
 #top,.tl-item{scroll-margin-top:calc(var(--hh) + 12px)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)));display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:24px;padding:40px 40px 90px;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
-.hero h1{margin:0;font:400 clamp(2.2rem,5.4vw,4.4rem)/1.15 Limelight,serif;color:var(--blue)}
-.hero p{margin:20px 0 0;max-width:30em;color:var(--muted)}
+.hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)));display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:24px;padding:40px 40px 90px;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
+.hero-art{position:relative;justify-self:center;width:min(100%,430px)}
+.hero-camera{display:block;width:100%;height:auto;transform:rotate(-5deg);filter:drop-shadow(0 12px 16px rgba(30,58,107,.22))}
+.hero-deco{position:absolute;width:34px;height:34px}
+.hero-deco.d1{right:2%;top:-8%}.hero-deco.d2{left:-2%;top:6%}.hero-deco.d3{right:-4%;bottom:2%;width:30px;height:30px}
 .hero-pile{position:relative;height:min(460px,60svh);min-height:340px}
 .hero-pile .pola{position:absolute;width:min(46%,230px);transform:rotate(var(--r)) translate(var(--mx,0px),var(--my,0px));transition:transform .25s ease-out;animation:float 5s ease-in-out infinite}
 .hero-pile .pola:nth-child(2){animation-delay:-1.7s}.hero-pile .pola:nth-child(3){animation-delay:-3.2s}
@@ -111,6 +113,7 @@ img{max-width:100%}
 
 @media (max-width:768px){
  .hero{grid-template-columns:1fr;padding:32px 24px 90px;min-height:calc(100svh - var(--hh))}
+ .hero-art{width:min(64%,250px)}
  .hero-pile{min-height:300px}
  .process{padding:60px 24px 30px}
  .tl{grid-template-columns:1fr;gap:0}
