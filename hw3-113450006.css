@@ -163,7 +163,7 @@ section[id] {
 }
 
 .hero-subtitle {
-    font-size: 1.1em;
+    font-size: 1.3rem;
     color: var(--yellow);
     letter-spacing: 0.15em;
     opacity: 0;
@@ -962,7 +962,7 @@ RESPONSIVE DESIGN — TABLET & MOBILE
     animation: none;
 }
 .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 0.08em;
 }
 
