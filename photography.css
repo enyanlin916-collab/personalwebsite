@@ -68,6 +68,8 @@ img{max-width:100%}
 .tl-dots li.active span{color:var(--red);font-weight:700}
 .tl-item{min-height:88vh;padding:10vh 0}
 .tl-item:first-child{padding-top:0}
+#overview{min-height:60vh;padding-bottom:4vh}
+#cafe{padding-top:6vh}
 .eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 16px;color:var(--red);font:700 .73rem/1.6 Arial,sans-serif;letter-spacing:.15em}
 .eyebrow::before{content:"";flex:none;width:23px;height:2px;background:var(--red)}
 .tl-item h2{margin:0 0 14px;color:var(--blue);font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.5;font-weight:400}
