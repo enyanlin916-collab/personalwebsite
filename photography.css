@@ -7,13 +7,14 @@ img{max-width:100%}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:max(540px,calc(100svh - var(--hh)));display:grid;place-items:center;background:var(--yellow);border-bottom:2px solid var(--blue);overflow:hidden}
-.hero-pile{position:relative;width:min(80vw,1000px);height:min(580px,72svh);min-height:340px}
-.hero-pile .pola{position:absolute;width:min(30%,320px);transform:rotate(var(--r)) translate(var(--mx,0px),var(--my,0px));transition:transform .25s ease-out;animation:float 5s ease-in-out infinite}
+.hero-pile .shot{--ar:3/2}
+.hero-pile{position:relative;width:min(80vw,960px);aspect-ratio:8/3}
+.hero-pile .pola{position:absolute;width:31%;transform:rotate(var(--r)) translate(var(--mx,0px),var(--my,0px));transition:transform .25s ease-out;animation:float 5s ease-in-out infinite}
 .hero-pile .pola:nth-child(2){animation-delay:-1.7s}.hero-pile .pola:nth-child(3){animation-delay:-3.2s}
 @keyframes float{50%{translate:0 -10px}}
-.hero-pile .pola:nth-child(1){left:4%;top:12%;--r:-7deg}
-.hero-pile .pola:nth-child(2){left:30%;top:0;--r:4deg;z-index:2}
-.hero-pile .pola:nth-child(3){right:4%;top:24%;--r:-2deg;z-index:3}
+.hero-pile .pola:nth-child(1){left:0;top:2%;--r:-3deg}
+.hero-pile .pola:nth-child(2){left:34.5%;top:30%;--r:2deg;z-index:2}
+.hero-pile .pola:nth-child(3){right:0;top:2%;--r:-2deg;z-index:3}
 .hero-down{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:inline-flex;gap:6px;padding:7px 16px;border-radius:20px;background:var(--red);color:#fff;font-size:.8rem;text-decoration:none;letter-spacing:.06em}
 .hero-down b{font-weight:400;animation:bob 1.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(4px)}}
@@ -109,11 +110,11 @@ img{max-width:100%}
 
 @media (max-width:768px){
  .hero{grid-template-columns:1fr;padding:32px 24px 90px;min-height:calc(100svh - var(--hh))}
-.hero-pile{width:min(100%,520px);min-height:300px}
-.hero-pile .pola{width:36%}
-.hero-pile .pola:nth-child(1){left:0}
-.hero-pile .pola:nth-child(2){left:32%}
-.hero-pile .pola:nth-child(3){right:0}
+.hero-pile{width:min(100%,520px);aspect-ratio:3/2;justify-self:center}
+.hero-pile .pola{width:48%}
+.hero-pile .pola:nth-child(1){left:0;top:0}
+.hero-pile .pola:nth-child(3){right:0;top:0}
+.hero-pile .pola:nth-child(2){left:26%;top:44%}
  .process{padding:60px 24px 30px}
  .tl{grid-template-columns:1fr;gap:0}
  .tl-rail{position:sticky;top:var(--hh);z-index:5;margin:0 -24px;padding:10px 24px;background:var(--bg);border-bottom:1px solid var(--border)}
