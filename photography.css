@@ -143,3 +143,9 @@ img{max-width:100%}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-down b,.tl-date.swap,.hero-pile .pola,.stamp,.lb-fig,.lb.flash::after{animation:none}.tl-fill,.shot img,.sig,.ticket,.pola{transition:none}}
 @media (max-width:768px){.lb{padding:18px 16px 72px}.lb-prev{left:8px;top:auto;bottom:18px}.lb-next{right:8px;top:auto;bottom:18px}}
+
+/* ---------- previous project navigation ---------- */
+.page-photo .fnav{display:flex;justify-content:flex-start;gap:20px;max-width:1040px;margin:0 auto;padding:60px 40px 90px;font-size:.95rem}
+.page-photo .fnav a{color:var(--blue);border-bottom:1px solid var(--red);padding-bottom:4px;text-decoration:none}
+.page-photo .fnav a:hover{color:var(--red)}
+@media(max-width:768px){.page-photo .fnav{padding:40px 24px 70px}}
