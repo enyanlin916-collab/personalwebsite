@@ -527,12 +527,12 @@ section[id] {
 }
 
 
-/* Skills: compact yellow cards, unique tool ratings, brief capabilities. */
+/* Skills: compact yellow cards with unique rated tools and concise grey capabilities. */
 #skills .skills-grid { gap: 24px; }
 #skills .skill-card {
     display:flex;
     flex-direction:column;
-    min-height:322px;
+    min-height:294px;
     padding:26px 24px;
     background:var(--yellow);
     border:1px solid #dfcf98;
@@ -570,29 +570,13 @@ section[id] {
     background:#fffaf0;
 }
 #skills .skill-card .skill-card-note {
-    margin:3px 0 16px;
+    margin:auto 0 0;
+    padding-top:12px;
     color:var(--muted);
     font-size:.77rem;
     line-height:1.7;
     overflow-wrap:anywhere;
 }
-#skills .skill-card-project {
-    display:flex;
-    flex-wrap:wrap;
-    gap:5px 15px;
-    margin-top:auto;
-    padding-top:13px;
-    border-top:1px solid rgba(30,58,107,.18);
-}
-#skills .skill-card-project a {
-    padding-bottom:2px;
-    border-bottom:1px solid var(--red);
-    color:var(--blue);
-    font-size:.8rem;
-    font-weight:600;
-    line-height:1.7;
-}
-#skills .skill-card-project a:hover { color:var(--red); }
 #skills .skills-additional {
     margin-top:18px;
     color:var(--muted);
