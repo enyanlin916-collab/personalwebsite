@@ -496,6 +496,34 @@
       /* 和 Napoli / Open House 同樣的左側階段時間線 */
       var brandHeader = document.querySelector('.site-header');
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* 內容進入視窗時，像其他作品集頁面一樣由下往上淡入 */
+      if ('IntersectionObserver' in window && !reduceMotion) {
+        var revealSelector = [
+          '.brand-story-title',
+          '.brand-overview__intro', '.brand-facts',
+          '.brand-section-head', '.brand-brief-grid > *',
+          '.u2-sketch-row',
+          '.brand-refinement-stage__heading', '.brand-refinement-media',
+          '.brand-variant',
+          '.brand-mockups__heading', '.brand-mockup', '.brand-app-card',
+          '.brand-reflection .brand-kicker',
+          '.brand-reflection .brand-wrap > h2',
+          '.brand-reflection__grid > article'
+        ].join(', ');
+        var revealObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+
+        document.querySelectorAll(revealSelector).forEach(function (element) {
+          element.classList.add('reveal');
+          revealObserver.observe(element);
+        });
+      }
       function measureHeader() {
         document.documentElement.style.setProperty(
           '--brand-header-height',
