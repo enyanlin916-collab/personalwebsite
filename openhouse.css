@@ -573,3 +573,8 @@
     font-size: 0.8rem;
     color: var(--muted);
 }
+
+/* Open House: previous project left, next project right */
+.page-figma .fnav {
+    justify-content: space-between;
+}
