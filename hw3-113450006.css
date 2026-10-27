@@ -526,6 +526,25 @@ section[id] {
     transition: width 0.8s ease;
 }
 
+
+/* Skills: six expertise cards with supporting work, scoped to the homepage. */
+#skills .skills-intro { max-width:760px; margin:0 0 30px; color:var(--muted); font-size:.97rem; line-height:1.9; }
+#skills .skill-card { display:flex; flex-direction:column; min-height:348px; }
+#skills .skill-card .skill-card-kicker { margin:0 0 9px; font:700 .67rem/1.6 Arial,sans-serif; letter-spacing:.11em; color:var(--red); }
+#skills .skill-card h3 { align-self:flex-start; margin:0 0 18px; font-size:1.1rem; line-height:1.55; }
+#skills .skill-card .skill-card-tools { margin:0 0 13px; color:var(--blue); font-size:.82rem; font-weight:700; line-height:1.8; }
+#skills .skill-card .skill-card-description { margin:0 0 18px; color:var(--muted); font-size:.86rem; line-height:1.85; }
+#skills .skill-card-project { margin-top:auto; padding-top:16px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; align-items:baseline; column-gap:14px; row-gap:7px; }
+#skills .skill-card-project > span { flex:0 0 100%; color:var(--red); font:700 .66rem/1.5 Arial,sans-serif; letter-spacing:.12em; }
+#skills .skill-card-project a { border-bottom:1px solid var(--red); padding-bottom:2px; color:var(--blue); font-size:.8rem; line-height:1.65; }
+#skills .skill-card-project a:hover { color:var(--red); }
+#skills .skills-additional { margin-top:22px; color:var(--muted); font-size:.83rem; line-height:1.8; }
+#skills .skills-additional strong { color:var(--blue); }
+@media(max-width:600px) {
+    #skills .skill-card { min-height:0; }
+    #skills .skills-intro { margin-bottom:22px; }
+}
+
 /* ==============================
    GALLERY
 ================================ */
