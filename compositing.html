@@ -482,20 +482,33 @@
       syncNav();
     }
 
-    // 與其他作品集相同的捲動漸顯；偏好減少動態時不套用
+    // 每個創作步驟、圖片與反思各自進入畫面時淡入，不要讓整篇作品一起觸發
     if ('IntersectionObserver' in window && !reducedMotion) {
       var revealBlocks = document.querySelectorAll(
         '.composite-story-title, .project-section > .section-head, ' +
-        '.project-section > .section-intro, .project-section > .overview-grid, ' +
-        '.project-section > .work-block, .project-section > .fragments-section, ' +
-        '.project-section > .ongoing-note, ' +
-        '.project-section > .ta-intro-layout, .project-section > .ta-grid'
+        '.project-section > .section-intro, #overview .overview-grid > .info-card, ' +
+        '#works .work-block > .work-header, #works .work-block > .work-text, ' +
+        '#works .creative-stage--inspiration > .creative-stage__heading, ' +
+        '#works .inspiration-grid > .image-card, ' +
+        '#works .creative-stage__layout > .creative-stage__media, ' +
+        '#works .creative-stage__layout > .creative-stage__copy, ' +
+        '#works .final-showcase > .final-showcase__artwork, ' +
+        '#works .final-showcase > .final-showcase__story, ' +
+        '#works .mockup-wrap > .creative-stage__index, ' +
+        '#works .mockup-wrap > h5, #works .mockup-wrap > .creative-stage__lead, ' +
+        '#works .mockup-gallery > .image-card, ' +
+        '#works .fragments-section > .work-header, ' +
+        '#works .other-works-grid > .image-card, ' +
+        '#teaching .ta-intro-layout > *, #teaching .ta-grid > .info-card, ' +
+        '#reflection .reflection-list > .reflection-entry'
       );
-      var revealObserver = new IntersectionObserver(function (entries) {
+      var revealObserver = new IntersectionObserver(function (entries, observer) {
         entries.forEach(function (entry) {
-          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         });
-      }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
       revealBlocks.forEach(function (el) {
         el.classList.add('reveal');
         revealObserver.observe(el);
