@@ -106,6 +106,13 @@ section[id] {
         doodle-fall 1.8s ease-out forwards,
         doodle-float 3.5s ease-in-out 2s infinite;
 }
+/* Render homepage decorations as SVG rather than font glyphs/emoji. */
+.doodle svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+    overflow: visible;
+}
 
 .doodle-star    { left: 12%; --resting-top: 18%; font-size: 34px; color: var(--yellow); animation-delay: 0.2s, 2.2s; }
 .doodle-flower  { left: 25%; --resting-top: 32%; font-size: 30px; color: var(--red);    animation-delay: 0.7s, 2.7s; }
