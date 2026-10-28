@@ -1056,38 +1056,6 @@ html { scroll-behavior: smooth; }
 }
 
 /* Enhanced discoverability for scrollable Figma designs. */
-.page-figma .stack-view-hint {
-    position: absolute;
-    z-index: 12;
-    left: 50%;
-    bottom: 80px;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    margin: 0;
-    padding: 9px 16px;
-    max-width: calc(100% - 32px);
-    border: 2px solid var(--blue);
-    border-radius: 24px;
-    background: #fffdf5;
-    box-shadow: 4px 4px 0 var(--red);
-    color: var(--blue);
-    font-size: .9rem;
-    font-weight: 700;
-    line-height: 1.35;
-    text-align: center;
-    white-space: nowrap;
-    pointer-events: none;
-}
-.page-figma .stack-view-hint-icon {
-    flex: 0 0 auto;
-    color: var(--red);
-    font-size: 1.4em;
-    line-height: 1;
-    animation: tipBounce 1.2s ease-in-out infinite;
-}
 .page-figma .paper-tip,
 .page-figma .wf-tip,
 .page-figma .mx-tip {
@@ -1110,20 +1078,10 @@ html { scroll-behavior: smooth; }
     font-size: 1.35em;
 }
 @media (max-width: 768px) {
-    .page-figma .stack-view-hint {
-        bottom: 63px;
-        gap: 6px;
-        padding: 7px 11px;
-        font-size: .77rem;
-        white-space: normal;
-    }
     .page-figma .paper-tip,
     .page-figma .wf-tip,
     .page-figma .mx-tip {
         padding: 8px 11px;
         font-size: .79rem;
     }
-}
-@media (prefers-reduced-motion: reduce) {
-    .page-figma .stack-view-hint-icon { animation: none; }
 }
