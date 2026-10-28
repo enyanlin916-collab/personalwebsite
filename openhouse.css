@@ -578,3 +578,77 @@
 .page-figma .fnav {
     justify-content: space-between;
 }
+
+/* Clear, responsive instruction for the interactive Instagram mockup. */
+.phone-hero .phone-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: max-content;
+    max-width: calc(100% - 16px);
+    margin: 18px auto 0;
+    padding: 13px 23px;
+    background: #fffdf5;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 18px;
+    box-shadow: 6px 6px 0 var(--red);
+    text-align: left;
+    font-size: .93rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+.phone-hint-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--yellow);
+    font-size: 1.6rem;
+}
+.phone-hint-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.phone-hint-text strong {
+    color: var(--red);
+    font-size: 1.08rem;
+    font-weight: 800;
+}
+.phone-hint-text > span {
+    color: var(--blue);
+    font-size: .87rem;
+}
+.phone-hint-mobile { display: none; }
+.phone-hero .phone-stage { margin-top: 32px; }
+.phone-hero .post-card:not(.on):hover {
+    opacity: 1;
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0 var(--blue);
+}
+.phone-hero .post-card:focus-visible { opacity: 1; }
+@media (max-width: 768px) {
+    .phone-hint-desktop { display: none; }
+    .phone-hint-mobile { display: inline; }
+    .phone-hero .phone-hint {
+        gap: 9px;
+        max-width: 100%;
+        padding: 11px 14px;
+    }
+    .phone-hint-icon {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.35rem;
+    }
+    .phone-hint-text strong { font-size: .95rem; }
+    .phone-hint-text > span { font-size: .8rem; }
+    .phone-hero .phone-stage { margin-top: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .phone-hero .post-card:not(.on):hover { transform: none; }
+}
