@@ -418,7 +418,7 @@ section[id] {
     margin-bottom: 12px;
 }
 .v-timeline-content p {
-    font-size: 0.95em;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.7;
     max-width: 680px;
@@ -508,7 +508,7 @@ section[id] {
 }
 .interest-card p {
     color: var(--muted);
-    font-size: 0.9em;
+    font-size: 1rem;
 }
 .skill {
     margin-top: 18px;
