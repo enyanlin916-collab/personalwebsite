@@ -1085,3 +1085,17 @@ html { scroll-behavior: smooth; }
         font-size: .79rem;
     }
 }
+
+/* Caption hint for switching among wireframe thumbnails. */
+.page-figma .wf-switch-note {
+    margin: 8px 0 0;
+    font-size: .9rem;
+    line-height: 1.65;
+    font-weight: 700;
+    color: var(--red);
+}
+.page-figma .wf-switch-note span {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 1.1rem;
+}
