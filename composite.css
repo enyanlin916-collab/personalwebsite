@@ -861,3 +861,13 @@ body.composite-page {
   .composite-page #works .final-showcase__artwork { width: 94%; }
   .composite-page #works .mockup-gallery { width: 94%; }
 }
+/* Main-body type normalization (16px); keep labels, captions, and small UI notes distinct. */
+.composite-page .section-intro,
+.composite-page .work-text,
+.composite-page .ongoing-note p:not(.ongoing-note-end),
+.composite-page .final-showcase__story p:not(.final-showcase__eyebrow),
+.composite-page .creative-stage__lead,
+.composite-page .creative-stage__copy p:not(.creative-stage__index),
+.composite-page #reflection .reflection-copy {
+    font-size: 1rem;
+}
