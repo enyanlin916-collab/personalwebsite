@@ -652,3 +652,9 @@
 @media (prefers-reduced-motion: reduce) {
     .phone-hero .post-card:not(.on):hover { transform: none; }
 }
+/* Main-body type normalization (16px); keep post-copy showcase, cards, and captions unchanged. */
+.tl-item > p,
+.tl-item .oh-layout-desc,
+.tl-item .expo-description {
+    font-size: 1rem;
+}
