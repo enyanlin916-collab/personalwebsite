@@ -259,7 +259,7 @@ body.brand-page {
   align-items: start;
 }
 .brand-overview__intro { max-width: 650px; }
-.brand-overview__intro p { margin-bottom: 18px; }
+.brand-overview__intro p { margin-bottom: 18px; color: var(--u2-muted); }
 .brand-facts { border-top: 1px solid var(--u2-ink); }
 .brand-facts div {
   display: grid;
