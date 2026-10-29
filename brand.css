@@ -1022,3 +1022,11 @@ body.brand-page > .site-footer { text-align: center; }
   opacity: 1;
   object-fit: contain;
 }
+/* Main-body type normalization (16px); leave the Client Brief section and captions unchanged. */
+.brand-page #overview .brand-overview__intro p,
+.brand-page .brand-section:not(#brief) .brand-section-head p,
+.brand-page .brand-section:not(#brief) .brand-exploration-note p,
+.brand-page .brand-section:not(#brief) .brand-refinement-stage__heading p,
+.brand-page .brand-section:not(#brief) .brand-reflection__grid article p {
+    font-size: 1rem;
+}
